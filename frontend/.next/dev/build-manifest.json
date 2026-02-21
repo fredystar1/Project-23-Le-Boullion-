@@ -1,0 +1,25 @@
+{
+  "pages": {
+    "/_app": []
+  },
+  "devFiles": [],
+  "polyfillFiles": [
+    "static/chunks/f0b06_next_dist_build_polyfills_polyfill-nomodule.js"
+  ],
+  "lowPriorityFiles": [
+    "static/development/_ssgManifest.js",
+    "static/development/_buildManifest.js"
+  ],
+  "rootMainFiles": [
+    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_82a18258._.js",
+    "static/chunks/f0b06_next_dist_compiled_react-dom_643617d6._.js",
+    "static/chunks/f0b06_next_dist_compiled_react-server-dom-turbopack_2078233f._.js",
+    "static/chunks/f0b06_next_dist_compiled_next-devtools_index_7d7bff9f.js",
+    "static/chunks/f0b06_next_dist_compiled_36865c10._.js",
+    "static/chunks/f0b06_next_dist_client_14f3b166._.js",
+    "static/chunks/f0b06_next_dist_9194a2d5._.js",
+    "static/chunks/f0b06_@swc_helpers_cjs_c03eac6c._.js",
+    "static/chunks/Desktop_Project-23-Le-Boullion-_frontend_a0ff3932._.js",
+    "static/chunks/turbopack-Desktop_Project-23-Le-Boullion-_frontend_82359d6b._.js"
+  ]
+}

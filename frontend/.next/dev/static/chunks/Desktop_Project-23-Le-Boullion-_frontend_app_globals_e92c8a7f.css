@@ -1,0 +1,205 @@
+/* [project]/Desktop/Project-23-Le-Boullion-/frontend/app/globals.css [app-client] (css) */
+@layer properties {
+  @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+    *, :before, :after, ::backdrop {
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
+      --tw-border-style: solid;
+      --tw-outline-style: solid;
+    }
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.mx-auto {
+  margin-inline: auto;
+}
+
+.block {
+  display: block;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+.transform {
+  transform: var(--tw-rotate-x, ) var(--tw-rotate-y, ) var(--tw-rotate-z, ) var(--tw-skew-x, ) var(--tw-skew-y, );
+}
+
+.resize {
+  resize: both;
+}
+
+.resize-none {
+  resize: none;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.rounded-full {
+  border-radius: 3.40282e38px;
+}
+
+.border {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+}
+
+.border-t {
+  border-top-style: var(--tw-border-style);
+  border-top-width: 1px;
+}
+
+.border-b {
+  border-bottom-style: var(--tw-border-style);
+  border-bottom-width: 1px;
+}
+
+.bg-\[\#7b5a3a\] {
+  background-color: #7b5a3a;
+}
+
+.bg-transparent {
+  background-color: #0000;
+}
+
+.bg-gradient-to-b {
+  --tw-gradient-position: to bottom in oklab;
+  background-image: linear-gradient(var(--tw-gradient-stops));
+}
+
+.text-center {
+  text-align: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.underline {
+  text-decoration-line: underline;
+}
+
+.underline-offset-8 {
+  text-underline-offset: 8px;
+}
+
+.outline {
+  outline-style: var(--tw-outline-style);
+  outline-width: 1px;
+}
+
+.transition {
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+  transition-timing-function: var(--tw-ease, ease);
+  transition-duration: var(--tw-duration, 0s);
+}
+
+.outline-none {
+  --tw-outline-style: none;
+  outline-style: none;
+}
+
+@media (hover: hover) {
+  .hover\:bg-\[\#6a4d33\]:hover {
+    background-color: #6a4d33;
+  }
+}
+
+:root {
+  --bg: #e9e4dd;
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+  --card: #ffffff8c;
+  --card-border: #0000000f;
+  --brown: #7b5a3a;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  color: var(--text);
+  background: radial-gradient(circle at 50% 20%, #f5f2ed 0%, var(--bg) 55%, #dcd6cf 100%);
+}
+
+.hswm-title {
+  letter-spacing: -.02em;
+}
+
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+
+/*# sourceMappingURL=Desktop_Project-23-Le-Boullion-_frontend_app_globals_e92c8a7f.css.map*/
