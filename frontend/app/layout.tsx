@@ -12,7 +12,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {/* Promo bar */}
-        <div className="w-full bg-white/80 text-center text-xs tracking-widest py-2">
+        <div className="w-full bg-white-80 text-center text-xs tracking-widest py-2">
           SAVE UP TO 10% ON CUSTOM CASES
         </div>
 
