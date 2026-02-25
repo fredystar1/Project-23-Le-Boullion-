@@ -7,7 +7,7 @@
 
 ## Overview
 
-Howard Street Wine Merchant is a modern wine-focused web experience currently in development.
+Howard Street Wine Merchant is Omaha's premier wine vendor. Their new web experience is currently in development.
 
 This repository contains the Next.js application powering the website. The project is being built with performance, scalability, and clean design in mind.
 
