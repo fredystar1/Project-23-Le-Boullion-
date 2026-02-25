@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <h1 className="flex justify-center text-5xl">Hero Text!</h1>
-      <ShopGrid />
+      <p>Home page</p>
     </>
   );
 }

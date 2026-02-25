@@ -18,7 +18,7 @@ const Button = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${className}`}
+      className={`${className} hover:cursor-pointer`}
     >
       {buttonText}
     </button>
