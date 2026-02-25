@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Dynalight&family=Varela&display=swap");
+@import "tailwindcss";
+
+@layer utilities {
+  .double-outline {
+    @apply outline-8 outline-secondary outline-double;
+  }
+  .text-3D {
+    text-shadow:
+      1px 1px 0px var(--color-lettering-red),
+      2px 2px 0px var(--color-lettering-red),
+      3px 3px 0px var(--color-lettering-red),
+      4px 4px 0px var(--color-lettering-red);
+    -webkit-text-stroke: 0.5px var(--color-lettering-red);
+  }
+}
+
+@theme {
+  --font-varela: "Varela";
+  --font-dynalight: "Dynalight";
+  --color-primary: oklch(0.787 0.0755 30.17);
+  --color-secondary: oklch(0.5663 0.0928 20.38);
+  --color-tertiary: oklch(0.6807 0.1215 30.6);
+  --color-textcolor: oklch(1 0 30.6);
+
+  --color-lettering-yellow: oklch(0.9213 0.1349 96.5);
+  --color-lettering-red: oklch(0.5197 0.1932 23.45);
+}
+
+@layer components {
+  .card {
+    @apply rounded-lg bg-gradient-to-br from-tertiary to-secondary text-textcolor p-6;
+  }
+  .navbar {
+    @apply bg-primary text-textcolor flex items-center p-3 outline-solid;
+  }
+}
