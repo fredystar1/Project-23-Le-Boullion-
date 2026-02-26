@@ -8,6 +8,7 @@ import {
 } from "../lib/products";
 import HeroBanner from "../HeroBanner";
 import Button from "../Button";
+import Link from "next/link";
 
 const PAGE_SIZE = 16;
 
@@ -33,10 +34,12 @@ export default async function Page({
       <HeroBanner
         message="Explore your perfect wine match"
         actionButton={
+          <Link href="/winequiz">
           <Button
             buttonText="Take the quiz &rarr;"
             className="action-button font-change"
           />
+          </Link>
         }
       />
       <ShopGrid products={pageItems} />
