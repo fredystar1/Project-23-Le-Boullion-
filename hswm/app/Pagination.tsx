@@ -1,47 +1,52 @@
 "use client";
 
-import Link from "next/link";
-
 export default function Pagination({
   currentPage,
   totalPages,
+  onPageChange,
 }: {
   currentPage: number;
   totalPages: number;
+  onPageChange: (page: number) => void;
 }) {
+  const canPrev = currentPage > 1;
+  const canNext = currentPage < totalPages;
+
+  // Simple pager for now (upgrade to ellipsis later)
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
-    <div className="flex justify-center items-center gap-2 my-8 flex-wrap">
-      <Link
-        href={`/shop?page=${Math.max(1, currentPage - 1)}`}
-        className={`px-3 py-2 rounded border ${
-          currentPage === 1 ? "pointer-events-none opacity-50" : ""
-        }`}
+    <div className="pager">
+      <button
+        type="button"
+        onClick={() => onPageChange(currentPage - 1)}
+        disabled={!canPrev}
+        className="pager-btn"
       >
         Prev
-      </Link>
+      </button>
 
       {pages.map((p) => (
-        <Link
+        <button
           key={p}
-          href={`/shop?page=${p}`}
-          className={`px-3 py-2 rounded border ${
-            p === currentPage ? "font-semibold" : ""
+          type="button"
+          onClick={() => onPageChange(p)}
+          className={`pager-btn ${
+            p === currentPage ? "pager-btn--active font-semibold" : ""
           }`}
         >
           {p}
-        </Link>
+        </button>
       ))}
 
-      <Link
-        href={`/shop?page=${Math.min(totalPages, currentPage + 1)}`}
-        className={`px-3 py-2 rounded border ${
-          currentPage === totalPages ? "pointer-events-none opacity-50" : ""
-        }`}
+      <button
+        type="button"
+        onClick={() => onPageChange(currentPage + 1)}
+        disabled={!canNext}
+        className="pager-btn"
       >
         Next
-      </Link>
+      </button>
     </div>
   );
 }

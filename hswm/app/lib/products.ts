@@ -20,6 +20,14 @@ export type Product = {
   price: number;
 };
 
+export type Filters = {
+  priceMin: number | "";
+  priceMax: number | "";
+  onlyAvailable: boolean;
+  vendor: string;
+  categories: string[];
+};
+
 export function normalizeWineToProduct(w: WineRow): Product {
   return {
     id: w.id,

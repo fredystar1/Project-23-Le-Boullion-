@@ -18,7 +18,7 @@ const Button = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${className} hover:cursor-pointer`}
+      className={`btn-brand hover:cursor-pointer disabled:opacity-50 ${className}`}
     >
       {buttonText}
     </button>
