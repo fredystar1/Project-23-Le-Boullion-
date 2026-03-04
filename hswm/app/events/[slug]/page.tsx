@@ -1,5 +1,6 @@
 import { StoryblokStory } from "@storyblok/react/rsc";
 import { getStoryblokApi } from "../../lib/storyblok";
+import { Event } from "@/app/components/Event";
 
 type EventProps = {
   params: Promise<{ slug: string }>;
@@ -17,5 +18,9 @@ export default async function EventsPage({ params }: EventProps) {
   const { slug } = await params;
   const story = await fetchEvent(slug);
 
-  return <StoryblokStory story={story} />;
+  return (
+    <div>
+      <StoryblokStory story={story} />
+    </div>
+  );
 }

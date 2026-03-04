@@ -40,11 +40,45 @@
 
   --color-lettering-yellow: oklch(0.9213 0.1349 96.5);
   --color-lettering-red: oklch(0.5197 0.1932 23.45);
+
+  --color-morning-haze-100: color-mix(
+    in oklab,
+    var(--color-morning-haze) 24%,
+    white
+  );
 }
 
 @layer base {
   button [role="button"] {
     cursor: pointer;
+  }
+
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(
+        1100px 500px at 12% -8%,
+        var(--color-dusty-coral) 0%,
+        transparent 65%
+      ),
+      radial-gradient(
+        900px 420px at 85% -12%,
+        var(--color-toasted-walnut) 0%,
+        transparent 62%
+      ),
+      linear-gradient(
+        180deg,
+        var(--color-morning-haze-100) 0%,
+        var(--color-dusty-coral) 100%
+      );
+    font-family: var(--font-varela), sans-serif;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-change), serif;
+    letter-spacing: 0.01em;
   }
 }
 
