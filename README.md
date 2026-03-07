@@ -37,7 +37,10 @@ cd hswm
 npm install
 ```
 
-### 3. Run Development Server
+### 3. Create Local Environment
+Create a ```.env.local``` at the project root and copy the Storyblok API access token.
+
+### 4. Run Development Server
 
 ```bash
 npm run dev
