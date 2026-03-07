@@ -377,6 +377,9 @@
 }
 
 @layer components {
+  .page-shell {
+    @apply mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 pb-10;
+  }
   .card {
     @apply rounded-lg bg-gradient-to-br from-tertiary to-secondary text-textcolor p-6;
   }
@@ -720,5 +723,29 @@
       var(--color-merlot-500) 0%,
       var(--color-merlot-700) 100%
     );
+  }
+
+  .event-featured {
+    @apply mx-auto flex max-w-5xl items-center gap-8 rounded outline outline-red-700 p-6;
+  }
+
+  .event-featured-image {
+    @apply h-auto w-full max-w-md rounded;
+  }
+
+  .event-detailed {
+    @apply flex flex-col gap-6 rounded outline p-6;
+  }
+
+  .event-detailed-image {
+    @apply h-auto w-full rounded;
+  }
+
+  .event-list-item {
+    @apply flex gap-6 rounded outline p-4;
+  }
+
+  .event-list-item-image {
+    @apply h-auto w-full max-w-sm rounded;
   }
 }

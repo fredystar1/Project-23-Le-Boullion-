@@ -12,11 +12,7 @@ const fetchEventPage = async () => {
 
 const EventsPage = async () => {
   const story = await fetchEventPage();
-  return (
-    <div>
-      <StoryblokStory story={story} />
-    </div>
-  );
+  return <StoryblokStory story={story} />;
 };
 
 export default EventsPage;

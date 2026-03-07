@@ -15,14 +15,34 @@ type EventContent = {
   };
 };
 
+type EventCardVariants = "featured" | "detailed" | "list";
+
 type EventCardProps = {
   event: EventContent;
+  variant: EventCardVariants;
 };
 
-export const EventCard = ({ event }: EventCardProps) => {
-  console.log(event);
+export const EventCard = ({ event, variant = "list" }: EventCardProps) => {
+  const showDescription = variant === "detailed";
+  const showPrice = variant !== "featured";
+  const appliedClass = {
+    featured: {
+      cardStyle: "event-featured",
+      imageStyle: "event-featured-image",
+    },
+    detailed: {
+      cardStyle: "event-detailed",
+      imageStyle: "event-detailed-image",
+    },
+    list: {
+      cardStyle: "event-list-item",
+      imageStyle: "event-list-item-image",
+    },
+  };
+  const activeCardStyle = appliedClass[variant].cardStyle;
+  const activeImageStyle = appliedClass[variant].imageStyle;
   return (
-    <article className="flex gap-6 rounded outline p-4">
+    <article className={activeCardStyle}>
       <div>
         {event.image?.filename && (
           <Image
@@ -30,15 +50,14 @@ export const EventCard = ({ event }: EventCardProps) => {
             width={800}
             height={800}
             alt={event.image.meta_data?.alt || event.event_name || ""}
-            className="h-auto w-full max-w-sm rounded"
+            className={activeImageStyle}
           />
         )}
       </div>
 
       <div className="flex-1">
         {event.event_name && <h3>{event.event_name}</h3>}
-
-        {event.event_description && (
+        {showDescription && event.event_description && (
           <StoryblokServerRichText doc={event.event_description} />
         )}
 
