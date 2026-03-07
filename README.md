@@ -27,8 +27,8 @@ This repository contains the Next.js application powering the website. The proje
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/howard-street-wine-merchant.git
-cd hswm
+git clone https://github.com/fredystar1/Project-23-Le-Boullion-.git
+cd Project-23-Le-Boullion-/hswm
 ```
 
 ### 2. Install Dependencies
