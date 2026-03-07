@@ -1,7 +1,7 @@
 import Image from "next/image";
+import { StoryblokServerRichText } from "@storyblok/react/rsc";
 
 export const ListedEvent = (props: any) => {
-  console.log(props);
   return (
     <div className="flex outline rounded">
       <div>
@@ -13,13 +13,7 @@ export const ListedEvent = (props: any) => {
         />
       </div>
       <div>
-        <h1>{props.story.content.event_name}</h1>
-
-        <p>{props.story.content.event_description}</p>
-      </div>
-      <div>
-        {props.story.content.event_start}
-        {props.story.content.event_end}
+        <StoryblokServerRichText doc={props.story.content.event_description} />
       </div>
     </div>
   );

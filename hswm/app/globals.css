@@ -41,11 +41,306 @@
   --color-lettering-yellow: oklch(0.9213 0.1349 96.5);
   --color-lettering-red: oklch(0.5197 0.1932 23.45);
 
-  --color-morning-haze-100: color-mix(
+  /* Derivative Colors */
+
+  --color-toasted-walnut-100: color-mix(
     in oklab,
-    var(--color-morning-haze) 24%,
+    var(--color-toasted-walnut) 24%,
     white
   );
+  --color-toasted-walnut-200: color-mix(
+    in oklab,
+    var(--color-toasted-walnut) 40%,
+    white
+  );
+  --color-toasted-walnut-300: color-mix(
+    in oklab,
+    var(--color-toasted-walnut) 58%,
+    white
+  );
+  --color-toasted-walnut-400: color-mix(
+    in oklab,
+    var(--color-toasted-walnut) 78%,
+    white
+  );
+  --color-toasted-walnut-500: var(--color-toasted-walnut);
+  --color-toasted-walnut-600: color-mix(
+    in oklab,
+    var(--color-toasted-walnut) 88%,
+    black
+  );
+  --color-toasted-walnut-700: color-mix(
+    in oklab,
+    var(--color-toasted-walnut) 72%,
+    black
+  );
+  --color-toasted-walnut-800: color-mix(
+    in oklab,
+    var(--color-toasted-walnut) 56%,
+    black
+  );
+  --color-toasted-walnut-900: color-mix(
+    in oklab,
+    var(--color-toasted-walnut) 40%,
+    black
+  );
+
+  --color-sage-meadow-100: color-mix(
+    in oklab,
+    var(--color-sage-meadow) 24%,
+    white
+  );
+  --color-sage-meadow-200: color-mix(
+    in oklab,
+    var(--color-sage-meadow) 40%,
+    white
+  );
+  --color-sage-meadow-300: color-mix(
+    in oklab,
+    var(--color-sage-meadow) 58%,
+    white
+  );
+  --color-sage-meadow-400: color-mix(
+    in oklab,
+    var(--color-sage-meadow) 78%,
+    white
+  );
+  --color-sage-meadow-500: var(--color-sage-meadow);
+  --color-sage-meadow-600: color-mix(
+    in oklab,
+    var(--color-sage-meadow) 88%,
+    black
+  );
+  --color-sage-meadow-700: color-mix(
+    in oklab,
+    var(--color-sage-meadow) 72%,
+    black
+  );
+  --color-sage-meadow-800: color-mix(
+    in oklab,
+    var(--color-sage-meadow) 56%,
+    black
+  );
+  --color-sage-meadow-900: color-mix(
+    in oklab,
+    var(--color-sage-meadow) 40%,
+    black
+  );
+
+  --color-harvest-gold-100: color-mix(
+    in oklab,
+    var(--color-harvest-gold) 24%,
+    white
+  );
+  --color-harvest-gold-200: color-mix(
+    in oklab,
+    var(--color-harvest-gold) 40%,
+    white
+  );
+  --color-harvest-gold-300: color-mix(
+    in oklab,
+    var(--color-harvest-gold) 58%,
+    white
+  );
+  --color-harvest-gold-400: color-mix(
+    in oklab,
+    var(--color-harvest-gold) 78%,
+    white
+  );
+  --color-harvest-gold-500: var(--color-harvest-gold);
+  --color-harvest-gold-600: color-mix(
+    in oklab,
+    var(--color-harvest-gold) 88%,
+    black
+  );
+  --color-harvest-gold-700: color-mix(
+    in oklab,
+    var(--color-harvest-gold) 72%,
+    black
+  );
+  --color-harvest-gold-800: color-mix(
+    in oklab,
+    var(--color-harvest-gold) 56%,
+    black
+  );
+  --color-harvest-gold-900: color-mix(
+    in oklab,
+    var(--color-harvest-gold) 40%,
+    black
+  );
+
+  --color-dusty-coral-100: color-mix(
+    in oklab,
+    var(--color-dusty-coral) 24%,
+    white
+  );
+  --color-dusty-coral-200: color-mix(
+    in oklab,
+    var(--color-dusty-coral) 40%,
+    white
+  );
+  --color-dusty-coral-300: color-mix(
+    in oklab,
+    var(--color-dusty-coral) 58%,
+    white
+  );
+  --color-dusty-coral-400: color-mix(
+    in oklab,
+    var(--color-dusty-coral) 78%,
+    white
+  );
+  --color-dusty-coral-500: var(--color-dusty-coral);
+  --color-dusty-coral-600: color-mix(
+    in oklab,
+    var(--color-dusty-coral) 88%,
+    black
+  );
+  --color-dusty-coral-700: color-mix(
+    in oklab,
+    var(--color-dusty-coral) 72%,
+    black
+  );
+  --color-dusty-coral-800: color-mix(
+    in oklab,
+    var(--color-dusty-coral) 56%,
+    black
+  );
+  --color-dusty-coral-900: color-mix(
+    in oklab,
+    var(--color-dusty-coral) 40%,
+    black
+  );
+
+  --color-harbor-teal-100: color-mix(
+    in oklab,
+    var(--color-harbor-teal) 24%,
+    white
+  );
+  --color-harbor-teal-200: color-mix(
+    in oklab,
+    var(--color-harbor-teal) 40%,
+    white
+  );
+  --color-harbor-teal-300: color-mix(
+    in oklab,
+    var(--color-harbor-teal) 58%,
+    white
+  );
+  --color-harbor-teal-400: color-mix(
+    in oklab,
+    var(--color-harbor-teal) 78%,
+    white
+  );
+  --color-harbor-teal-500: var(--color-harbor-teal);
+  --color-harbor-teal-600: color-mix(
+    in oklab,
+    var(--color-harbor-teal) 88%,
+    black
+  );
+  --color-harbor-teal-700: color-mix(
+    in oklab,
+    var(--color-harbor-teal) 72%,
+    black
+  );
+  --color-harbor-teal-800: color-mix(
+    in oklab,
+    var(--color-harbor-teal) 56%,
+    black
+  );
+  --color-harbor-teal-900: color-mix(
+    in oklab,
+    var(--color-harbor-teal) 40%,
+    black
+  );
+
+  --color-morning-haze-100: color-mix(
+    in oklab,
+    var(--color-morning-haze) 20%,
+    white
+  );
+  --color-morning-haze-200: color-mix(
+    in oklab,
+    var(--color-morning-haze) 34%,
+    white
+  );
+  --color-morning-haze-300: color-mix(
+    in oklab,
+    var(--color-morning-haze) 50%,
+    white
+  );
+  --color-morning-haze-400: color-mix(
+    in oklab,
+    var(--color-morning-haze) 68%,
+    white
+  );
+  --color-morning-haze-500: var(--color-morning-haze);
+  --color-morning-haze-600: color-mix(
+    in oklab,
+    var(--color-morning-haze) 88%,
+    black
+  );
+  --color-morning-haze-700: color-mix(
+    in oklab,
+    var(--color-morning-haze) 72%,
+    black
+  );
+  --color-morning-haze-800: color-mix(
+    in oklab,
+    var(--color-morning-haze) 56%,
+    black
+  );
+  --color-morning-haze-900: color-mix(
+    in oklab,
+    var(--color-morning-haze) 40%,
+    black
+  );
+
+  /* Legacy aliases used by current components */
+  --color-merlot-50: var(--color-dusty-coral-100);
+  --color-merlot-100: var(--color-dusty-coral-200);
+  --color-merlot-200: var(--color-dusty-coral-300);
+  --color-merlot-300: var(--color-dusty-coral-400);
+  --color-merlot-400: var(--color-dusty-coral-500);
+  --color-merlot-500: var(--color-dusty-coral-600);
+  --color-merlot-600: var(--color-dusty-coral-700);
+  --color-merlot-700: var(--color-dusty-coral-800);
+  --color-merlot-800: var(--color-dusty-coral-900);
+  --color-merlot-900: color-mix(in oklab, var(--color-dusty-coral) 30%, black);
+
+  --color-umber-50: var(--color-toasted-walnut-100);
+  --color-umber-100: var(--color-toasted-walnut-200);
+  --color-umber-200: var(--color-toasted-walnut-300);
+  --color-umber-300: var(--color-toasted-walnut-400);
+  --color-umber-400: var(--color-toasted-walnut-500);
+  --color-umber-500: var(--color-toasted-walnut-600);
+  --color-umber-600: var(--color-toasted-walnut-700);
+  --color-umber-700: var(--color-toasted-walnut-800);
+  --color-umber-800: var(--color-toasted-walnut-900);
+  --color-umber-900: color-mix(
+    in oklab,
+    var(--color-toasted-walnut) 28%,
+    black
+  );
+
+  --color-parchment-50: var(--color-morning-haze-100);
+  --color-parchment-100: var(--color-morning-haze-200);
+  --color-parchment-200: var(--color-morning-haze-300);
+  --color-parchment-300: var(--color-morning-haze-400);
+  --color-parchment-400: var(--color-morning-haze-500);
+  --color-parchment-500: var(--color-morning-haze-600);
+  --color-parchment-600: var(--color-morning-haze-700);
+
+  --color-vine-200: var(--color-sage-meadow-300);
+  --color-vine-300: var(--color-sage-meadow-400);
+  --color-vine-400: var(--color-sage-meadow-500);
+  --color-vine-500: var(--color-sage-meadow-600);
+  --color-vine-600: var(--color-sage-meadow-700);
+
+  --color-copper-200: var(--color-harvest-gold-200);
+  --color-copper-300: var(--color-harvest-gold-300);
+  --color-copper-400: var(--color-harvest-gold-500);
+  --color-copper-500: var(--color-harvest-gold-600);
+  --color-copper-600: var(--color-harvest-gold-700);
 }
 
 @layer base {
@@ -56,7 +351,7 @@
   body {
     min-height: 100vh;
     background:
-      radial-gradient(
+      /* radial-gradient(
         1100px 500px at 12% -8%,
         var(--color-dusty-coral) 0%,
         transparent 65%
@@ -65,12 +360,11 @@
         900px 420px at 85% -12%,
         var(--color-toasted-walnut) 0%,
         transparent 62%
-      ),
-      linear-gradient(
-        180deg,
-        var(--color-morning-haze-100) 0%,
-        var(--color-dusty-coral) 100%
-      );
+      ), */ linear-gradient(
+      180deg,
+      var(--color-parchment-100) 0%,
+      var(--color-parchment-300) 100%
+    );
     font-family: var(--font-varela), sans-serif;
   }
 
@@ -86,9 +380,7 @@
   .card {
     @apply rounded-lg bg-gradient-to-br from-tertiary to-secondary text-textcolor p-6;
   }
-  .navbar {
-    @apply bg-primary text-textcolor flex items-center p-3 outline-solid;
-  }
+
   .hero-banner {
     @apply bg-sage-meadow flex items-center justify-center text-center py-20 gap-6;
   }
@@ -97,5 +389,336 @@
   }
   .action-button {
     @apply bg-toasted-walnut p-2 text-textcolor rounded outline-solid;
+  }
+  .navbar {
+    @apply sticky top-0 z-20 border-b-4 border-harvest-gold;
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-dusty-coral) 92%, black),
+      var(--color-dusty-coral)
+    );
+    /* border-bottom: 1px solid
+      color-mix(in oklab, var(--color-dusty-coral) 35%, black); */
+    box-shadow: 0 5px 18px rgb(41 22 24 / 25%);
+  }
+
+  .navbar-inner {
+    @apply mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 py-3;
+  }
+
+  .navbar-row {
+    @apply flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between;
+  }
+
+  .brand-lockup {
+    @apply inline-flex flex-col items-center rounded-2xl px-4 py-2;
+    background: linear-gradient(
+      180deg,
+      var(--color-parchment-100) 0%,
+      var(--color-parchment-300) 100%
+    );
+    border: 1px solid color-mix(in oklab, var(--color-umber-500) 42%, white);
+    box-shadow: 0 8px 20px rgb(56 37 29 / 16%);
+  }
+
+  .brand-title {
+    @apply font-governor font-bold uppercase tracking-tighter text-4xl sm:text-5xl;
+    color: var(--color-lettering-yellow);
+    line-height: 0.85;
+  }
+
+  .brand-script {
+    @apply font-dynalight text-2xl -rotate-3 translate-x-2;
+    color: var(--color-merlot-700);
+  }
+
+  .nav-links {
+    @apply flex flex-wrap items-center gap-2 sm:gap-3 font-change;
+  }
+
+  .nav-link {
+    @apply rounded-full px-3 py-1.5 text-sm sm:text-base transition-colors duration-200;
+    color: var(--color-parchment-100);
+    border: 1px solid color-mix(in oklab, var(--color-merlot-300) 35%, black);
+    background: color-mix(in oklab, var(--color-merlot-700) 84%, black);
+  }
+
+  .nav-link:hover {
+    color: var(--color-parchment-50);
+    background: color-mix(in oklab, var(--color-merlot-500) 88%, black);
+    border-color: color-mix(in oklab, var(--color-copper-300) 48%, black);
+  }
+  .footer {
+    @apply flex flex-col;
+  }
+  .footer-accent-1 {
+    @apply h-2 w-full bg-harvest-gold;
+  }
+  .footer-accent-2 {
+    @apply h-4 w-full bg-harbor-teal;
+  }
+  .footer-content {
+    @apply bg-toasted-walnut flex flex-row  justify-between items-center;
+  }
+  .filter-panel {
+    @apply sticky rounded-xl p-4;
+    background: color-mix(in oklab, var(--color-parchment-100) 74%, white);
+    border: 1px solid color-mix(in oklab, var(--color-umber-300) 48%, white);
+    box-shadow: 0 10px 24px rgb(74 52 36 / 10%);
+  }
+
+  .filter-title {
+    @apply font-change text-lg;
+    color: var(--color-merlot-700);
+  }
+
+  .filter-subtitle {
+    @apply font-varela text-sm;
+    color: var(--color-umber-700);
+  }
+
+  .filter-divider {
+    @apply my-4 border-t;
+    border-color: color-mix(in oklab, var(--color-umber-400) 34%, white);
+  }
+
+  .filter-label {
+    @apply font-varela text-xs uppercase tracking-wide;
+    color: var(--color-umber-700);
+  }
+
+  .filter-input {
+    @apply w-full rounded-lg px-3 py-2 text-sm outline-none;
+    border: 1px solid color-mix(in oklab, var(--color-umber-300) 50%, white);
+    background: color-mix(in oklab, var(--color-parchment-50) 60%, white);
+  }
+
+  .filter-input:focus {
+    box-shadow: 0 0 0 2px
+      color-mix(in oklab, var(--color-merlot-300) 50%, white);
+    border-color: var(--color-merlot-500);
+  }
+
+  .filter-select {
+    @apply w-full rounded-lg px-3 py-2 text-sm outline-none;
+    border: 1px solid color-mix(in oklab, var(--color-umber-300) 50%, white);
+    background: color-mix(in oklab, var(--color-parchment-50) 60%, white);
+  }
+
+  .filter-select:focus {
+    box-shadow: 0 0 0 2px
+      color-mix(in oklab, var(--color-merlot-300) 50%, white);
+    border-color: var(--color-merlot-500);
+  }
+
+  .filter-chip {
+    @apply px-3 py-1 rounded-full text-xs transition;
+    border: 1px solid color-mix(in oklab, var(--color-umber-400) 44%, white);
+    background: color-mix(in oklab, var(--color-parchment-50) 60%, white);
+    color: var(--color-umber-700);
+  }
+
+  .filter-chip:hover {
+    background: color-mix(in oklab, var(--color-parchment-100) 75%, white);
+  }
+
+  .filter-chip--active {
+    @apply font-semibold;
+    color: var(--color-merlot-700);
+    border-color: color-mix(in oklab, var(--color-merlot-400) 70%, white);
+    background: radial-gradient(
+      circle at center,
+      var(--color-parchment-50) 0%,
+      color-mix(in oklab, var(--color-merlot-100) 72%, white) 120%
+    );
+  }
+
+  .filter-toggle {
+    @apply inline-flex items-center gap-2 text-sm;
+    color: var(--color-umber-700);
+  }
+
+  .filter-checkbox {
+    @apply h-4 w-4;
+    accent-color: var(--color-merlot-500);
+  }
+
+  .filter-reset {
+    @apply text-xs underline;
+    color: color-mix(in oklab, var(--color-umber-700) 84%, white);
+  }
+
+  .filter-reset:hover {
+    color: var(--color-umber-700);
+  }
+
+  .filter-apply-pill {
+    @apply inline-flex items-center justify-center rounded-full px-3 py-1 text-xs;
+    color: var(--color-parchment-50);
+    background: linear-gradient(
+      170deg,
+      var(--color-merlot-500) 0%,
+      var(--color-merlot-700) 100%
+    );
+    border: 1px solid color-mix(in oklab, var(--color-merlot-900) 42%, black);
+  }
+
+  .shop-shell {
+    @apply mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .shop-layout {
+    @apply flex flex-col lg:flex-row gap-6;
+  }
+
+  .shop-main {
+    @apply flex-1 min-w-0;
+  }
+
+  .shop-topbar {
+    @apply mb-4 flex items-center justify-between gap-4;
+    color: var(--color-umber-700);
+  }
+
+  .shop-count {
+    @apply font-varela text-sm;
+    color: color-mix(in oklab, var(--color-umber-700) 86%, white);
+  }
+  .shop-topbar-spacer {
+    @apply mb-4 pb-3 border-b;
+    border-color: color-mix(in oklab, var(--color-umber-400) 36%, white);
+  }
+  .shop-count strong {
+    color: var(--color-umber-700);
+  }
+
+  .shop-grid {
+    @apply grid gap-6;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  @media (min-width: 1536px) {
+    .shop-grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+  }
+
+  .product-card {
+    @apply w-full rounded-xl p-4 shadow-sm transition-all duration-300;
+    background: color-mix(in oklab, var(--color-parchment-100) 74%, white);
+    border: 1px solid color-mix(in oklab, var(--color-umber-300) 46%, white);
+  }
+
+  .product-card:hover {
+    box-shadow: 0 14px 26px rgb(74 52 36 / 14%);
+    transform: translateY(-2px);
+  }
+
+  .product-media {
+    @apply relative w-full overflow-hidden rounded-lg mb-4;
+    border: 1px solid color-mix(in oklab, var(--color-umber-300) 50%, white);
+    aspect-ratio: 1 / 1;
+    background: radial-gradient(
+      circle at center,
+      var(--color-parchment-50) 0%,
+      color-mix(in oklab, var(--color-merlot-100) 72%, white) 120%
+    );
+  }
+
+  .product-mediaInner {
+    @apply absolute inset-0 flex items-center justify-center;
+  }
+
+  .product-image {
+    @apply object-contain p-4;
+  }
+
+  .product-vendor {
+    @apply font-varela text-xs uppercase tracking-wide;
+    color: color-mix(in oklab, var(--color-umber-700) 72%, white);
+  }
+
+  .product-title {
+    @apply font-change text-base leading-snug;
+    color: var(--color-merlot-700);
+  }
+
+  .product-meta {
+    @apply mt-1 font-varela text-xs;
+    color: color-mix(in oklab, var(--color-umber-700) 72%, white);
+  }
+
+  .product-bottom {
+    @apply mt-3 flex items-center justify-between gap-3 pt-3 border-t;
+    border-color: color-mix(in oklab, var(--color-umber-300) 50%, white);
+  }
+
+  .product-price {
+    @apply font-varela text-sm font-semibold;
+    color: var(--color-umber-700);
+  }
+
+  .product-badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs border;
+  }
+
+  .product-badge--in {
+    color: var(--color-umber-700);
+    background: color-mix(in oklab, var(--color-vine-300) 32%, white);
+    border-color: color-mix(in oklab, var(--color-vine-500) 35%, white);
+  }
+
+  .product-badge--out {
+    color: var(--color-merlot-700);
+    background: color-mix(in oklab, var(--color-merlot-200) 52%, white);
+    border-color: color-mix(in oklab, var(--color-merlot-500) 28%, white);
+  }
+
+  .skeleton-card {
+    @apply w-full rounded-xl p-4;
+    background: color-mix(in oklab, var(--color-parchment-100) 74%, white);
+    border: 1px solid color-mix(in oklab, var(--color-umber-300) 46%, white);
+  }
+
+  .skeleton-shimmer {
+    @apply animate-pulse rounded-md;
+    background: color-mix(in oklab, var(--color-parchment-50) 66%, white);
+  }
+
+  .skeleton-media {
+    @apply rounded-lg overflow-hidden mb-4;
+    border: 1px solid color-mix(in oklab, var(--color-umber-300) 50%, white);
+    aspect-ratio: 1 / 1;
+    background: radial-gradient(
+      circle at center,
+      var(--color-parchment-50) 0%,
+      color-mix(in oklab, var(--color-merlot-100) 72%, white) 120%
+    );
+  }
+
+  .pager {
+    @apply flex justify-center items-center gap-2 my-8 flex-wrap;
+  }
+
+  .pager-btn {
+    @apply px-3 py-2 rounded-md text-sm transition-colors duration-200 disabled:opacity-50;
+    border: 1px solid color-mix(in oklab, var(--color-umber-300) 45%, white);
+    color: var(--color-umber-700);
+    background: color-mix(in oklab, var(--color-parchment-100) 76%, white);
+  }
+
+  .pager-btn:hover:not(:disabled) {
+    background: color-mix(in oklab, var(--color-merlot-100) 44%, white);
+    border-color: color-mix(in oklab, var(--color-merlot-400) 36%, white);
+  }
+
+  .pager-btn--active {
+    color: var(--color-parchment-50);
+    border-color: color-mix(in oklab, var(--color-merlot-800) 58%, black);
+    background: linear-gradient(
+      160deg,
+      var(--color-merlot-500) 0%,
+      var(--color-merlot-700) 100%
+    );
   }
 }

@@ -1,11 +1,22 @@
-import Image from "next/image";
-import ShopGrid from "./ShopGrid";
+import { StoryblokStory } from "@storyblok/react/rsc";
+import { getStoryblokApi } from "./lib/storyblok";
 
-export default function Home() {
+const fetchHomePage = async () => {
+  const client = getStoryblokApi();
+  const res = await client.getStory(`home`, {
+    version: "draft",
+    resolve_relations: "featured_event.featured_event",
+  });
+  return res.data.story;
+};
+
+const HomePage = async () => {
+  const story = await fetchHomePage();
   return (
-    <>
-      <h1 className="flex justify-center text-5xl">Hero Text!</h1>
-      <p>Home page</p>
-    </>
+    <div>
+      <StoryblokStory story={story} />
+    </div>
   );
-}
+};
+
+export default HomePage;

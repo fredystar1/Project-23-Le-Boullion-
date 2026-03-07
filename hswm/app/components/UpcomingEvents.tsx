@@ -1,13 +1,18 @@
-import { ListedEvent } from "./ListedEvent";
+import { EventCard } from "./EventCard";
 
-export const UpcomingEvents = (params: any) => {
+export const UpcomingEvents = ({ blok }: any) => {
   return (
     <section>
-      <h2>{params.blok.headline}</h2>
+      {blok.headline && <h2>{blok.headline}</h2>}
 
-      {params.blok.events.map((event: any) => (
-        <ListedEvent story={event} key={event.content._uid} />
-      ))}
+      <div className="space-y-6">
+        {blok.events?.map((eventStory: any) => (
+          <EventCard
+            key={eventStory.uuid || eventStory.id || eventStory.content?._uid}
+            event={eventStory.content}
+          />
+        ))}
+      </div>
     </section>
   );
 };
