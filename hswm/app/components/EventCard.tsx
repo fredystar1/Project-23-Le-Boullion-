@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { StoryblokServerRichText } from "@storyblok/react/rsc";
+import { datetimeFormatter } from "../lib/helpers";
 
 type EventContent = {
   event_name?: string;
@@ -41,9 +42,16 @@ export const EventCard = ({ event, variant = "list" }: EventCardProps) => {
   };
   const activeCardStyle = appliedClass[variant].cardStyle;
   const activeImageStyle = appliedClass[variant].imageStyle;
+
+  console.log(event.event_start);
+  const formattedDatetime = datetimeFormatter(
+    event.event_start,
+    event.event_end,
+  );
+
   return (
     <article className={activeCardStyle}>
-      <div>
+      <div className="event-media">
         {event.image?.filename && (
           <Image
             src={event.image.filename}
@@ -55,18 +63,22 @@ export const EventCard = ({ event, variant = "list" }: EventCardProps) => {
         )}
       </div>
 
-      <div className="flex-1">
-        {event.event_name && <h3>{event.event_name}</h3>}
-        {showDescription && event.event_description && (
-          <StoryblokServerRichText doc={event.event_description} />
+      <div className="event-body">
+        {event.event_name && (
+          <h3 className="event-title">{event.event_name}</h3>
         )}
 
-        {event.price && <p>${event.price}</p>}
-      </div>
+        {formattedDatetime && (
+          <p className="event-datetime">{formattedDatetime}</p>
+        )}
 
-      <div>
-        {event.event_start && <div>{event.event_start}</div>}
-        {event.event_end && <div>{event.event_end}</div>}
+        {event.price && <p className="event-price">${event.price}</p>}
+
+        {showDescription && event.event_description && (
+          <div className="event-description">
+            <StoryblokServerRichText doc={event.event_description} />
+          </div>
+        )}
       </div>
     </article>
   );
