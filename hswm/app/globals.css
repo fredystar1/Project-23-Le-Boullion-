@@ -847,6 +847,7 @@
   .event-featured:hover {
     box-shadow: 0 16px 32px rgb(74 52 36 / 14%);
     transform: translateY(-2px);
+    cursor: pointer;
   }
 
   .event-featured-image {

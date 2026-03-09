@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { StoryblokServerRichText } from "@storyblok/react/rsc";
 import { datetimeFormatter } from "../lib/helpers";
 
@@ -20,12 +21,18 @@ type EventCardVariants = "featured" | "detailed" | "list";
 
 type EventCardProps = {
   event: EventContent;
+  slug?: string;
   variant?: EventCardVariants;
 };
 
-export const EventCard = ({ event, variant = "list" }: EventCardProps) => {
+export const EventCard = ({
+  event,
+  slug,
+  variant = "list",
+}: EventCardProps) => {
   const showDescription = variant === "detailed";
   const showPrice = variant !== "featured";
+
   const appliedClass = {
     featured: {
       cardStyle: "event-featured",
@@ -40,6 +47,7 @@ export const EventCard = ({ event, variant = "list" }: EventCardProps) => {
       imageStyle: "event-list-item-image",
     },
   };
+
   const activeCardStyle = appliedClass[variant].cardStyle;
   const activeImageStyle = appliedClass[variant].imageStyle;
 
@@ -48,8 +56,8 @@ export const EventCard = ({ event, variant = "list" }: EventCardProps) => {
     event.event_end,
   );
 
-  return (
-    <article className={activeCardStyle}>
+  const content = (
+    <>
       <div className="event-media">
         {event.image?.filename && (
           <Image
@@ -71,7 +79,9 @@ export const EventCard = ({ event, variant = "list" }: EventCardProps) => {
           <p className="event-datetime">{formattedDatetime}</p>
         )}
 
-        {event.price && <p className="event-price">${event.price}</p>}
+        {showPrice && event.price && (
+          <p className="event-price">${event.price}</p>
+        )}
 
         {showDescription && event.event_description && (
           <div className="event-description">
@@ -79,6 +89,16 @@ export const EventCard = ({ event, variant = "list" }: EventCardProps) => {
           </div>
         )}
       </div>
-    </article>
+    </>
   );
+
+  if (slug) {
+    return (
+      <Link href={`/${slug}`} className={activeCardStyle}>
+        {content}
+      </Link>
+    );
+  }
+
+  return <article className={activeCardStyle}>{content}</article>;
 };
