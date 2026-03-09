@@ -8,11 +8,11 @@
   }
   .text-3D {
     text-shadow:
-      1px 1px 0px var(--color-lettering-red),
-      2px 2px 0px var(--color-lettering-red),
-      3px 3px 0px var(--color-lettering-red),
-      4px 4px 0px var(--color-lettering-red);
-    -webkit-text-stroke: 1px var(--color-lettering-red);
+      1px 1px 0px var(--color-primary),
+      2px 2px 0px var(--color-primary),
+      3px 3px 0px var(--color-primary),
+      4px 4px 0px var(--color-primary);
+    -webkit-text-stroke: 1px var(--color-primary);
   }
 }
 
@@ -24,7 +24,7 @@
   --font-governor: (var(--font-brand));
   --font-change: "Change Regular";
   /* Test Colors */
-  --color-primary: oklch(0.787 0.0755 30.17);
+  --color-primary: var(--color-toasted-walnut);
   --color-secondary: oklch(0.5663 0.0928 20.38);
   --color-tertiary: oklch(0.6807 0.1215 30.6);
   --color-pale-lavender: oklch(0.5833 0.1274 320.12);
@@ -385,7 +385,7 @@
   }
 
   .hero-banner {
-    @apply bg-sage-meadow flex items-center justify-center text-center py-20 gap-6;
+    @apply bg-dusty-coral text-textcolor flex items-center justify-center text-center py-10 gap-6;
   }
   .hero-message {
     @apply text-4xl font-semibold;
@@ -397,8 +397,8 @@
     @apply sticky top-0 z-20 border-b-4 border-harvest-gold;
     background: linear-gradient(
       180deg,
-      color-mix(in oklab, var(--color-dusty-coral) 92%, black),
-      var(--color-dusty-coral)
+      color-mix(in oklab, var(--color-sage-meadow) 92%, black),
+      var(--color-sage-meadow)
     );
     /* border-bottom: 1px solid
       color-mix(in oklab, var(--color-dusty-coral) 35%, black); */
@@ -414,25 +414,25 @@
   }
 
   .brand-lockup {
-    @apply inline-flex flex-col items-center rounded-2xl px-4 py-2;
-    background: linear-gradient(
+    @apply inline-flex flex-col items-center px-4 pt-1; /* rounded-2xl */
+    /* background: linear-gradient(
       180deg,
       var(--color-parchment-100) 0%,
       var(--color-parchment-300) 100%
-    );
-    border: 1px solid color-mix(in oklab, var(--color-umber-500) 42%, white);
-    box-shadow: 0 8px 20px rgb(56 37 29 / 16%);
+    ); */
+    /* border: 1px solid color-mix(in oklab, var(--color-umber-500) 42%, white);
+    box-shadow: 0 8px 20px rgb(56 37 29 / 16%); */
   }
 
   .brand-title {
     @apply font-governor font-bold uppercase tracking-tighter text-4xl sm:text-5xl;
-    color: var(--color-lettering-yellow);
+    color: var(--color-harvest-gold);
     line-height: 0.85;
   }
 
   .brand-script {
-    @apply font-dynalight text-2xl -rotate-3 translate-x-2;
-    color: var(--color-merlot-700);
+    @apply font-dynalight text-3xl -rotate-3 translate-x-2;
+    color: var(--color-harvest-gold);
   }
 
   .nav-links {
@@ -440,10 +440,8 @@
   }
 
   .nav-link {
-    @apply rounded-full px-3 py-1.5 text-sm sm:text-base transition-colors duration-200;
-    color: var(--color-parchment-100);
-    border: 1px solid color-mix(in oklab, var(--color-merlot-300) 35%, black);
-    background: color-mix(in oklab, var(--color-merlot-700) 84%, black);
+    @apply rounded-full text-textcolor px-3 py-1.5 text-sm sm:text-base border-2 border-morning-haze transition-colors duration-200;
+    background: var(--color-harbor-teal);
   }
 
   .nav-link:hover {
@@ -452,16 +450,91 @@
     border-color: color-mix(in oklab, var(--color-copper-300) 48%, black);
   }
   .footer {
-    @apply flex flex-col;
+    @apply mt-12 flex flex-col text-textcolor;
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-toasted-walnut) 92%, black) 0%,
+      var(--color-toasted-walnut) 100%
+    );
   }
+
   .footer-accent-1 {
     @apply h-2 w-full bg-harvest-gold;
   }
+
   .footer-accent-2 {
-    @apply h-4 w-full bg-harbor-teal;
+    @apply h-3 w-full bg-harbor-teal;
   }
+
   .footer-content {
-    @apply bg-toasted-walnut flex flex-row  justify-between items-center;
+    @apply px-6 py-10 sm:px-8 lg:px-10;
+  }
+
+  .footer-grid {
+    @apply mx-auto grid max-w-screen-2xl gap-10 md:grid-cols-2 xl:grid-cols-3;
+  }
+
+  .footer-section {
+    @apply min-w-0;
+  }
+
+  .footer-section--brand {
+    @apply xl:pr-8;
+  }
+
+  .footer-brand {
+    @apply text-2xl sm:text-3xl;
+    color: var(--color-harvest-gold);
+  }
+
+  .footer-title {
+    @apply mb-3 text-base font-semibold uppercase tracking-wide;
+    color: var(--color-parchment-50);
+  }
+
+  .footer-stack {
+    @apply space-y-1.5 text-sm leading-6;
+    color: color-mix(in oklab, var(--color-parchment-50) 88%, white);
+  }
+
+  .footer-subsection {
+    @apply mt-6;
+  }
+
+  .footer-label {
+    @apply font-semibold;
+    color: var(--color-parchment-50);
+  }
+
+  .footer-links {
+    @apply space-y-2;
+  }
+
+  .footer-link {
+    @apply inline-block text-sm transition-all duration-200;
+    color: color-mix(in oklab, var(--color-parchment-50) 88%, white);
+  }
+
+  .footer-link:hover {
+    @apply underline underline-offset-4;
+    color: var(--color-harvest-gold);
+  }
+
+  .footer-inline-link {
+    @apply transition-colors duration-200;
+    color: var(--color-harvest-gold);
+  }
+
+  .footer-inline-link:hover {
+    color: var(--color-parchment-50);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .footer-bottom {
+    @apply mx-auto mt-10 flex max-w-screen-2xl flex-col gap-2 border-t pt-5 text-xs sm:flex-row sm:items-center sm:justify-between;
+    border-color: color-mix(in oklab, var(--color-parchment-50) 18%, white);
+    color: color-mix(in oklab, var(--color-parchment-50) 70%, white);
   }
   .filter-panel {
     @apply sticky rounded-xl p-4;
@@ -567,7 +640,7 @@
   }
 
   .shop-shell {
-    @apply mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-screen-2xl my-2 px-4 sm:px-6 lg:px-8;
   }
 
   .shop-layout {
@@ -606,18 +679,18 @@
     }
   }
 
-  .product-card {
+  .shop-item-card {
     @apply w-full rounded-xl p-4 shadow-sm transition-all duration-300;
     background: color-mix(in oklab, var(--color-parchment-100) 74%, white);
     border: 1px solid color-mix(in oklab, var(--color-umber-300) 46%, white);
   }
 
-  .product-card:hover {
+  .shop-item-card:hover {
     box-shadow: 0 14px 26px rgb(74 52 36 / 14%);
     transform: translateY(-2px);
   }
 
-  .product-media {
+  .shop-item-media {
     @apply relative w-full overflow-hidden rounded-lg mb-4;
     border: 1px solid color-mix(in oklab, var(--color-umber-300) 50%, white);
     aspect-ratio: 1 / 1;
@@ -628,50 +701,50 @@
     );
   }
 
-  .product-mediaInner {
+  .shop-item-mediaInner {
     @apply absolute inset-0 flex items-center justify-center;
   }
 
-  .product-image {
+  .shop-item-image {
     @apply object-contain p-4;
   }
 
-  .product-vendor {
+  .shop-item-vendor {
     @apply font-varela text-xs uppercase tracking-wide;
     color: color-mix(in oklab, var(--color-umber-700) 72%, white);
   }
 
-  .product-title {
+  .shop-item-title {
     @apply font-change text-base leading-snug;
     color: var(--color-merlot-700);
   }
 
-  .product-meta {
+  .shop-item-meta {
     @apply mt-1 font-varela text-xs;
     color: color-mix(in oklab, var(--color-umber-700) 72%, white);
   }
 
-  .product-bottom {
+  .shop-item-bottom {
     @apply mt-3 flex items-center justify-between gap-3 pt-3 border-t;
     border-color: color-mix(in oklab, var(--color-umber-300) 50%, white);
   }
 
-  .product-price {
+  .shop-item-price {
     @apply font-varela text-sm font-semibold;
     color: var(--color-umber-700);
   }
 
-  .product-badge {
+  .shop-item-badge {
     @apply inline-flex items-center rounded-full px-3 py-1 text-xs border;
   }
 
-  .product-badge--in {
+  .shop-item-badge--in {
     color: var(--color-umber-700);
     background: color-mix(in oklab, var(--color-vine-300) 32%, white);
     border-color: color-mix(in oklab, var(--color-vine-500) 35%, white);
   }
 
-  .product-badge--out {
+  .shop-item-badge--out {
     color: var(--color-merlot-700);
     background: color-mix(in oklab, var(--color-merlot-200) 52%, white);
     border-color: color-mix(in oklab, var(--color-merlot-500) 28%, white);
@@ -723,6 +796,10 @@
       var(--color-merlot-500) 0%,
       var(--color-merlot-700) 100%
     );
+  }
+
+  .featured-heading {
+    @apply bg-dusty-coral text-textcolor text-3xl font-change m-3 pl-8 py-4 rounded-2xl border-6 border-harvest-gold;
   }
 
   .event-media {
@@ -838,5 +915,139 @@
 
   .event-list-item .event-price {
     @apply mt-2 text-xs;
+  }
+  .shop-item-media {
+    @apply shrink-0;
+  }
+
+  .product-body {
+    @apply flex min-w-0 flex-1 flex-col;
+  }
+
+  .product-title {
+    @apply text-2xl font-semibold leading-tight tracking-tight;
+  }
+
+  .product-datetime {
+    @apply mt-3 text-base font-medium leading-snug;
+  }
+
+  .product-price {
+    @apply mt-2 text-sm font-semibold uppercase tracking-wide;
+  }
+
+  .product-description {
+    @apply mt-5 max-w-none text-base leading-7;
+  }
+
+  .product-description p + p {
+    @apply mt-4;
+  }
+
+  .product-description ul,
+  .product-description ol {
+    @apply my-4 ml-5;
+  }
+
+  .product-description li {
+    @apply mt-1;
+  }
+
+  .product-featured {
+    @apply mx-auto grid max-w-5xl grid-cols-1 items-center gap-8 rounded p-6 md:grid-cols-[minmax(280px,420px)_1fr] md:p-8
+    outline-4 outline-harbor-teal bg-morning-haze rounded;
+  }
+
+  .product-featured:hover {
+    box-shadow: 0 16px 32px rgb(74 52 36 / 14%);
+    transform: translateY(-2px);
+  }
+
+  .product-featured-image {
+    @apply aspect-[4/3] h-auto w-full rounded object-cover;
+  }
+
+  .product-featured .product-body {
+    @apply justify-center;
+  }
+
+  .product-featured .product-title {
+    @apply text-3xl md:text-4xl;
+  }
+
+  .product-featured .product-datetime {
+    @apply mt-4 text-lg;
+  }
+
+  .product-featured .product-price {
+    @apply mt-3 text-sm;
+  }
+
+  .product-detailed {
+    @apply mx-auto flex max-w-4xl flex-col gap-6 rounded-xl p-6 md:p-8;
+    background: color-mix(in oklab, var(--color-parchment-100) 82%, white);
+    border: 1px solid color-mix(in oklab, var(--color-umber-300) 40%, white);
+  }
+
+  .product-detailed-image {
+    @apply aspect-[16/9] h-auto w-full rounded object-cover;
+  }
+
+  .product-detailed .product-title {
+    @apply text-3xl md:text-4xl;
+  }
+
+  .product-detailed .product-datetime {
+    @apply mt-4 text-lg;
+  }
+
+  .product-detailed .product-price {
+    @apply mt-3 text-sm;
+  }
+
+  .product-detailed .product-description {
+    @apply mt-8 text-base leading-8;
+  }
+
+  .product-list-item {
+    @apply grid grid-cols-1 gap-5 rounded-xl p-4 sm:grid-cols-[180px_1fr] sm:p-5;
+    background: color-mix(in oklab, var(--color-parchment-100) 78%, white);
+    border: 1px solid color-mix(in oklab, var(--color-umber-300) 42%, white);
+  }
+
+  .product-list-item-image {
+    @apply aspect-[4/3] h-auto w-full rounded object-cover;
+  }
+
+  .product-list-item .product-title {
+    @apply text-xl;
+  }
+
+  .product-list-item .product-datetime {
+    @apply mt-2 text-sm;
+  }
+
+  .product-list-item .product-price {
+    @apply mt-2 text-xs;
+  }
+
+  .policy-button {
+    @apply inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition-colors duration-200 sm:text-base;
+    color: var(--color-parchment-50);
+    background: linear-gradient(
+      160deg,
+      var(--color-merlot-500) 0%,
+      var(--color-merlot-700) 100%
+    );
+    border: 1px solid color-mix(in oklab, var(--color-merlot-900) 42%, black);
+  }
+
+  .policy-button:hover {
+    background: linear-gradient(
+      160deg,
+      var(--color-merlot-400) 0%,
+      var(--color-merlot-600) 100%
+    );
+    transform: translateY(-1px);
   }
 }

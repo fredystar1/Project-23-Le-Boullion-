@@ -11,7 +11,7 @@ const FeaturedEvent = ({ blok }: any) => {
 
   return (
     <section>
-      {blok.headline && <h2>{blok.headline}</h2>}
+      {blok.headline && <h2 className="featured-heading">{blok.headline}</h2>}
       <EventCard event={featuredStory.content} variant="featured" />
     </section>
   );

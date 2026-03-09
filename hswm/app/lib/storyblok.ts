@@ -3,6 +3,8 @@ import { Event } from "../components/Event";
 import { Page } from "../components/Page";
 import { UpcomingEvents } from "../components/UpcomingEvents";
 import FeaturedEvent from "../components/FeaturedEvent";
+import ProductSection from "../components/ProductSection";
+import Article from "../components/Article";
 
 export const getStoryblokApi = storyblokInit({
   accessToken: process.env.STORYBLOK_API_TOKEN,
@@ -12,6 +14,8 @@ export const getStoryblokApi = storyblokInit({
     page: Page,
     upcoming_events: UpcomingEvents,
     featured_event: FeaturedEvent,
+    product_section: ProductSection,
+    article: Article,
   },
   enableFallbackComponent: true,
 });

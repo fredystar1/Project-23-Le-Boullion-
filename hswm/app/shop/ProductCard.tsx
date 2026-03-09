@@ -20,27 +20,27 @@ export default function ProductCard({
   price,
 }: WineCardProps) {
   return (
-    <div className="product-card">
-      <div className="product-media">
-        <div className="product-mediaInner">
+    <div className="shop-item-card">
+      <div className="shop-item-media">
+        <div className="shop-item-mediaInner">
           <Image
             src={image_url}
             alt={title}
             fill
             sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 25vw"
-            className="product-image"
+            className="shop-item-image"
           />
         </div>
       </div>
 
-      <p className="product-vendor">{vendor}</p>
-      <p className="product-title">{title}</p>
-      <p className="product-meta">{category.replaceAll("_", " ")}</p>
+      <p className="shop-item-vendor">{vendor}</p>
+      <p className="shop-item-title">{title}</p>
+      <p className="shop-item-meta">{category.replaceAll("_", " ")}</p>
 
-      <div className="product-bottom">
-        <p className="product-price">${price.toFixed(2)}</p>
+      <div className="shop-item-bottom">
+        <p className="shop-item-price">${price.toFixed(2)}</p>
         <span
-          className={`product-badge ${available ? "product-badge--in" : "product-badge--out"}`}
+          className={`shop-item-badge ${available ? "shop-item-badge--in" : "shop-item-badge--out"}`}
         >
           {available ? "In stock" : "Sold out"}
         </span>

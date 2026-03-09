@@ -5,7 +5,7 @@ const fetchHomePage = async () => {
   const client = getStoryblokApi();
   const res = await client.getStory(`home`, {
     version: "draft",
-    resolve_relations: "featured_event.featured_event",
+    resolve_relations: "featured_event.featured_event,product_section.products",
   });
   return res.data.story;
 };

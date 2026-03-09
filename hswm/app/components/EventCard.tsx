@@ -20,7 +20,7 @@ type EventCardVariants = "featured" | "detailed" | "list";
 
 type EventCardProps = {
   event: EventContent;
-  variant: EventCardVariants;
+  variant?: EventCardVariants;
 };
 
 export const EventCard = ({ event, variant = "list" }: EventCardProps) => {
@@ -43,7 +43,6 @@ export const EventCard = ({ event, variant = "list" }: EventCardProps) => {
   const activeCardStyle = appliedClass[variant].cardStyle;
   const activeImageStyle = appliedClass[variant].imageStyle;
 
-  console.log(event.event_start);
   const formattedDatetime = datetimeFormatter(
     event.event_start,
     event.event_end,

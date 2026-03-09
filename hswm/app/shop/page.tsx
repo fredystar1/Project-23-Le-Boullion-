@@ -3,6 +3,7 @@ import winesData from "../wines.json";
 import type { Product } from "../lib/products";
 import HeroBanner from "../HeroBanner";
 import Button from "../Button";
+import Link from "next/link";
 
 type WineRecord = {
   id: number;
@@ -35,10 +36,12 @@ export default function Page() {
       <HeroBanner
         message="Explore your perfect wine match"
         actionButton={
-          <Button
-            buttonText="Take the quiz &rarr;"
-            className="action-button font-change"
-          />
+          <Link href="/winequiz">
+            <Button
+              buttonText="Take the quiz &rarr;"
+              className="action-button font-change"
+            />
+          </Link>
         }
       />
       <ShopClient products={products} />
