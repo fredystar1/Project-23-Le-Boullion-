@@ -1,4 +1,9 @@
-export function datetimeFormatter(startString: string, endString: string) {
+export function datetimeFormatter(
+  startString?: string,
+  endString?: string,
+) {
+  if (!startString || !endString) return "";
+
   const start = new Date(startString.replace(" ", "T"));
   const end = new Date(endString.replace(" ", "T"));
 

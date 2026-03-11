@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# licensed fonts
+public/fonts/grand-slam/*
+!public/fonts/grand-slam/.gitkeep
+!public/fonts/grand-slam/README.md

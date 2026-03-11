@@ -14,7 +14,7 @@ const DEFAULT_FILTERS: Filters = {
   categories: [],
 };
 
-const PAGE_SIZE = 24;
+const PAGE_SIZE = 12;
 
 export default function ShopClient({ products }: { products: Product[] }) {
   const [filters, setFilters] = useState<Filters>(DEFAULT_FILTERS);

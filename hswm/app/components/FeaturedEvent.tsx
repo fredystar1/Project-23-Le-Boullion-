@@ -1,4 +1,5 @@
 import { EventCard } from "./EventCard";
+import { Section } from "./Section";
 
 const FeaturedEvent = ({ blok }: any) => {
   const featuredStory = Array.isArray(blok.featured_event)
@@ -10,14 +11,13 @@ const FeaturedEvent = ({ blok }: any) => {
   }
 
   return (
-    <section>
-      {blok.headline && <h2 className="featured-heading">{blok.headline}</h2>}
+    <Section headline={blok.headline}>
       <EventCard
         event={featuredStory.content}
         slug={featuredStory.full_slug}
         variant="featured"
       />
-    </section>
+    </Section>
   );
 };
 

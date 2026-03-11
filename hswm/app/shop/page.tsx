@@ -39,7 +39,7 @@ export default function Page() {
           <Link href="/winequiz">
             <Button
               buttonText="Take the quiz &rarr;"
-              className="action-button font-change"
+              className="action-button"
             />
           </Link>
         }

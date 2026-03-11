@@ -1,4 +1,5 @@
 import { ProductCard } from "./ProductCard";
+import { Section } from "./Section";
 
 const ProductSection = ({ blok }: any) => {
   const featuredStory = Array.isArray(blok.products)
@@ -10,10 +11,13 @@ const ProductSection = ({ blok }: any) => {
   }
 
   return (
-    <section>
-      {blok.headline && <h2 className="featured-heading">{blok.headline}</h2>}
-      <ProductCard product={featuredStory.content} variant="featured" />
-    </section>
+    <Section headline={blok.headline}>
+      <ProductCard
+        product={featuredStory.content}
+        variant="featured"
+        slug={featuredStory.full_slug}
+      />
+    </Section>
   );
 };
 
