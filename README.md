@@ -6,7 +6,13 @@ Our project is to create an updated, fully functional website for the company Ho
 ### Our code can be found in the following branches:
 - jackson-branch *quiz page with some working buttons*
 - nextjs *mostly functional basic website design*
+- main branch *design reference for storyblok*
 
 ### Release Notes: 
-- Web routes
-- Unified Design
+- Unified website, most links working
+- Wine json file for data
+- Storyblok CRM setup but not yet connected to webs
+- Breakpoints for handling different sized devices
+- Dynamic links for published content on Storyblok
+- Refactored to abstract components for improved modularization
+- Neon Database configured
