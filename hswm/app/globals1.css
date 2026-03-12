@@ -275,11 +275,15 @@
   }
 
   .mobile-nav {
-    @apply flex flex-col gap-2 py-3 xl:hidden;
+    @apply flex flex-col gap-2 py-3 xl:hidden bg-harbor-teal;
   }
 
   .mobile-nav-link {
-    @apply px-2 py-2 font-governor text-toasted-walnut;
+    @apply px-2 py-2 font-governor text-white bg-sage-meadow-400;
+  }
+
+  .mobile-nav-link:hover {
+    @apply bg-sage-meadow-700;
   }
 
   .brand-lockup {
