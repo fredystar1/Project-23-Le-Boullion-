@@ -393,6 +393,15 @@
   .action-button {
     @apply bg-toasted-walnut p-2 text-textcolor rounded outline-solid;
   }
+
+  .banner {
+    @apply bg-dusty-coral flex items-center;
+  }
+
+  .banner-section {
+    @apply outline;
+  }
+
   .navbar {
     @apply sticky top-0 z-20 border-b-4 border-harvest-gold;
     background: linear-gradient(

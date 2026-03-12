@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import NavBar from "./NavBar";
 import { StoryblokProvider } from "./components/StoryblokProvider";
 import Footer from "./Footer";
+import PromotionBar from "./components/PromotionBar";
 
 const brandFont1 = localFont({
   src: "./fonts/governor.woff2",
@@ -44,6 +45,7 @@ export default function RootLayout({
         <body
           className={`${brandFont1.variable} antialiased min-h-screen flex flex-col`}
         >
+          <PromotionBar />
           <NavBar />
           <main className="flex-1">{children}</main>
           <Footer />

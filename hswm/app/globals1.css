@@ -69,7 +69,7 @@
 }
 
 @theme {
-  --font-heading: "Change Regular";
+  --font-change: "Change Regular";
   --font-dynalight: "Dynalight";
   --font-grand-slam: "GrandSlamScript-Regular", cursive;
   --font-grand-slam-swash: "GrandSlamScript-Swash", cursive;
@@ -202,6 +202,23 @@
     @apply bg-toasted-walnut-800 shadow-sm/30;
     transform: translate(1, 2);
   }
+
+  .banner {
+    @apply bg-dusty-coral flex items-center justify-center;
+  }
+
+  .banner-section {
+    @apply outline-double outline-3 justify-center;
+  }
+
+  .promo-banner {
+    @apply bg-harbor-teal-700  items-center flex py-0.5;
+  }
+
+  .promo-text {
+    @apply text-toasted-walnut-100 font-change mx-auto;
+  }
+
   .navbar {
     @apply sticky top-0 z-20 border-b-4 border-toasted-walnut bg-sage-meadow;
   }
@@ -246,7 +263,11 @@
   }
 
   .nav-menu-button {
-    @apply mr-auto inline-flex items-center justify-center p-2 text-toasted-walnut md:hidden;
+    @apply mr-auto inline-flex items-center justify-center p-2 text-toasted-walnut md:hidden rounded-2xl;
+  }
+
+  .nav-menu-button:hover {
+    @apply bg-sage-meadow-800;
   }
 
   .nav-menu-icon {
@@ -389,7 +410,7 @@
   }
 
   .filter-title {
-    @apply font-heading text-lg;
+    @apply font-change text-lg;
     color: var(--color-toasted-walnut-700);
   }
 
@@ -572,7 +593,7 @@
   }
 
   .shop-item-title {
-    @apply font-heading text-base leading-snug;
+    @apply font-change text-base leading-snug;
     color: var(--color-dusty-coral);
   }
 
