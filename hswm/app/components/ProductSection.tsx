@@ -1,7 +1,13 @@
+import { Tilt } from "../lib/styling-types";
 import { ProductCard } from "./ProductCard";
 import { Section } from "./Section";
 
-const ProductSection = ({ blok }: any) => {
+interface ProductSectionProps {
+  blok: any;
+  tilt?: Tilt;
+}
+
+const ProductSection = ({ blok, tilt }: ProductSectionProps) => {
   const featuredStory = Array.isArray(blok.products)
     ? blok.products[0]
     : blok.products;
@@ -11,13 +17,20 @@ const ProductSection = ({ blok }: any) => {
   }
 
   return (
-    <Section headline={blok.headline}>
-      <ProductCard
-        product={featuredStory.content}
-        variant="featured"
-        slug={featuredStory.full_slug}
-      />
-    </Section>
+    <div className="editorial-section color-set-2 bg-[var(--primary-color)]">
+      <Section
+        headline={blok.headline}
+        className="editorial-content"
+        tilt={tilt}
+      >
+        <ProductCard
+          product={featuredStory.content}
+          variant="featured"
+          slug={featuredStory.full_slug}
+          tilt={tilt}
+        />
+      </Section>
+    </div>
   );
 };
 

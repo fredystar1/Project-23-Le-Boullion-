@@ -47,7 +47,7 @@ export default function RootLayout({
         >
           <PromotionBar />
           <NavBar />
-          <main className="flex-1">{children}</main>
+          <main className="color-set-4 page-shell checkered">{children}</main>
           <Footer />
         </body>
       </html>

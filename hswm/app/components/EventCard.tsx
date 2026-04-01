@@ -7,6 +7,7 @@ type EventContent = {
   event_start?: string;
   event_end?: string;
   price?: string | number;
+  actionText?: string;
   image?: {
     filename?: string;
     meta_data?: {
@@ -21,12 +22,14 @@ type EventCardProps = {
   event: EventContent;
   slug?: string;
   variant?: EventCardVariants;
+  tilt?: string;
 };
 
 export const EventCard = ({
   event,
   slug,
   variant = "list",
+  tilt,
 }: EventCardProps) => {
   const formattedDatetime = datetimeFormatter(
     event.event_start,
@@ -46,6 +49,8 @@ export const EventCard = ({
       type="event"
       slug={slug}
       datetime={formattedDatetime}
+      actionText="Explore Event"
+      tilt={tilt}
     />
   );
 };

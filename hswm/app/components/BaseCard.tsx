@@ -9,15 +9,19 @@ interface BaseCardProps {
   title?: string;
   description?: any;
   price?: string | number;
-  image?: string | {
-    filename?: string;
-    alt?: string;
-  };
+  image?:
+    | string
+    | {
+        filename?: string;
+        alt?: string;
+      };
   variant?: CardVariant;
   type: "event" | "product";
   slug?: string;
   datetime?: string | ReactNode;
   className?: string;
+  actionText?: string;
+  tilt?: Tilt;
 }
 
 export const BaseCard = ({
@@ -30,14 +34,19 @@ export const BaseCard = ({
   slug,
   datetime,
   className = "",
+  actionText,
+  tilt = "none",
 }: BaseCardProps) => {
-  const showDescription = type === "product" ? variant !== "list" : variant === "detailed";
+  const showDescription =
+    type === "product" ? variant !== "list" : variant === "detailed";
   const showPrice = type === "event" ? variant !== "featured" : true;
+  const asPhotoStyle = true;
+  // const asPhotoStyle = type === "event" && variant === "featured";
 
   const appliedClass = {
     featured: {
-      cardStyle: `${type}-featured`,
-      imageStyle: `${type}-featured-image`,
+      cardStyle: "card-featured",
+      imageStyle: "featured-image",
     },
     detailed: {
       cardStyle: `${type}-detailed`,
@@ -49,53 +58,85 @@ export const BaseCard = ({
     },
   };
 
+  const photoFrameClass = {
+    none: "photo-frame",
+    left: "photo-frame-left",
+    right: "photo-frame-right",
+  };
+
   const activeCardStyle = appliedClass[variant].cardStyle;
   const activeImageStyle = appliedClass[variant].imageStyle;
 
   const imageUrl = typeof image === "string" ? image : image?.filename;
   const imageAlt = typeof image === "object" ? image?.alt : "";
 
-  const content = (
-    <>
-      <div className={`${type}-media`}>
-        {imageUrl && (
-          <Image
-            src={imageUrl}
-            width={800}
-            height={800}
-            alt={imageAlt || title || ""}
-            className={activeImageStyle}
-          />
-        )}
+  const imagePortion = (
+    <div className="card-layered-container holepunch bg-[var(--primary-color)]">
+      <div className="striped rounded-2xl p-8">
+        <div className="card-inner"></div>
+        <div className={`${type}-media`}>
+          {imageUrl &&
+            (asPhotoStyle ? (
+              <div className={photoFrameClass[tilt]}>
+                <Image
+                  src={imageUrl}
+                  width={800}
+                  height={800}
+                  alt={imageAlt || title || ""}
+                  className={activeImageStyle}
+                />
+              </div>
+            ) : (
+              <Image
+                src={imageUrl}
+                width={800}
+                height={800}
+                alt={imageAlt || title || ""}
+                className={activeImageStyle}
+              />
+            ))}
+        </div>
       </div>
-
-      <div className={`${type}-body`}>
-        {title && <h3 className={`${type}-title`}>{title}</h3>}
-
-        {datetime && <div className={`${type}-datetime`}>{datetime}</div>}
-
-        {showPrice && price && (
-          <p className={`${type}-price`}>${price}</p>
-        )}
-
-        {showDescription && description && (
-          <div className={`${type}-description`}>
-            <StoryblokServerRichText doc={description} />
-          </div>
-        )}
-      </div>
-    </>
+    </div>
   );
 
-  const combinedCardStyle = `${activeCardStyle} ${className}`.trim();
+  const textPortion = (
+    <div className="card-word-content">
+      {title && <h3 className="section-title">{title}</h3>}
 
-  if (slug) {
-    return (
-      <Link href={`/${slug}`} className={combinedCardStyle}>
-        {content}
-      </Link>
+      {datetime && <div className={`${type}-datetime`}>{datetime}</div>}
+
+      {showPrice && price && <p className={`${type}-price`}>${price}</p>}
+
+      {showDescription && description && (
+        <div className="card-body-text">
+          <StoryblokServerRichText doc={description} />
+        </div>
+      )}
+      {slug && (
+        <div className="rect-button-container color-set-1">
+          <Link className="rect-button-top" href={slug}>
+            {actionText || `Explore ${title}`}
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+
+  const content =
+    tilt !== "right" ? (
+      <>
+        {imagePortion}
+        {textPortion}
+      </>
+    ) : (
+      <>
+        {textPortion}
+        {imagePortion}
+      </>
     );
-  }
+
+  const combinedCardStyle = `${activeCardStyle} ${className}`.trim();
 
   return <article className={combinedCardStyle}>{content}</article>;
 };

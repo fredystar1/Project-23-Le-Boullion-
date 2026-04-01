@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Dynalight&family=Varela&display=swap");
 @import url(https://db.onlinewebfonts.com/c/603c10e3f676702d6d6fbbc2859ac805?family=Change+Regular);
+@import url("https://fonts.googleapis.com/css2?family=Prata&family=Varela&display=swap");
 @import "tailwindcss";
 
 @layer utilities {
@@ -25,15 +26,37 @@
   .color-set-1 {
     --primary-color: var(--color-dusty-coral);
     --secondary-color: var(--color-harvest-gold-300);
+    --primary-color-active: color-mix(in hsl, var(--primary-color), 20% black);
 
     --stripe-primary: var(--color-dusty-coral);
     --stripe-secondary: var(--color-harvest-gold-100);
   }
 
   .color-set-2 {
-    --primary-color: var(--color-harbor-teal);
+    --primary-color: var(--color-harbor-teal-300);
     --secondary-color: var(--color-harvest-gold-300);
+    --tertiary-color: var(--color-morning-haze);
+    --primary-color-active: color-mix(in hsl, var(--primary-color), 20% black);
 
+    --stripe-primary: var(--color-harbor-teal);
+    --stripe-secondary: var(--color-harvest-gold-100);
+  }
+
+  .color-set-3 {
+    --primary-color: var(--color-dusty-coral);
+    --secondary-color: var(--color-harvest-gold-300);
+    --tertiary-color: var(--color-morning-haze);
+    --primary-color-active: color-mix(in hsl, var(--primary-color), 20% black);
+
+    --stripe-primary: var(--color-harbor-teal);
+    --stripe-secondary: var(--color-harvest-gold-100);
+  }
+
+  .color-set-4 {
+    --primary-color: var(--color-sage-meadow-300);
+    --secondary-color: var(--color-gray-squirrel-100);
+    --tertiary-color: var(--color-toasted-walnut-600);
+    --accent-color: var(--color-harvest-gold);
     --stripe-primary: var(--color-harbor-teal);
     --stripe-secondary: var(--color-harvest-gold-100);
   }
@@ -47,35 +70,27 @@
       var(--stripe-secondary) 40px
     );
   }
-  .striped-brand-7 {
-    background-image: repeating-linear-gradient(
-      45deg,
-      var(--color-toasted-walnut) 0px,
-      var(--color-toasted-walnut) 10px,
-      var(--color-sage-meadow) 10px,
-      var(--color-sage-meadow) 20px,
-      var(--color-harvest-gold) 20px,
-      var(--color-harvest-gold) 30px,
-      var(--color-dusty-coral) 30px,
-      var(--color-dusty-coral) 40px,
-      var(--color-harbor-teal) 40px,
-      var(--color-harbor-teal) 50px,
-      var(--color-morning-haze) 50px,
-      var(--color-morning-haze) 60px,
-      var(--color-gray-squirrel) 60px,
-      var(--color-gray-squirrel) 70px
+  .checkered {
+    background: repeating-conic-gradient(
+      var(--primary-color) 0 25%,
+      var(--secondary-color) 25% 50%
     );
+    background-size: var(--square-x) var(--square-y);
   }
 }
 
 @theme {
   --font-change: "Change Regular";
   --font-dynalight: "Dynalight";
+  --font-prata-regular: "Prata", serif;
   --font-grand-slam: "GrandSlamScript-Regular", cursive;
   --font-grand-slam-swash: "GrandSlamScript-Swash", cursive;
   --font-brand-script-stack: "GrandSlamScript-Regular", "Dynalight", cursive;
   --font-brand-script: var(--font-brand-script-stack);
   --font-governor: var(--font-brand);
+
+  --square-x: 40px;
+  --square-y: 40px;
 
   --color-primary-logo: var(--color-toasted-walnut);
   --color-secondary-logo: var(--color-harvest-gold);
@@ -183,7 +198,7 @@
 
 @layer components {
   .page-shell {
-    @apply mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 pb-10;
+    @apply pb-[calc(var(--square-x))] flex h-full w-full flex-col justify-center gap-[calc(var(--square-x)/2)];
   }
 
   .hero-banner {
@@ -303,7 +318,7 @@
   }
 
   .footer {
-    @apply mt-12 flex flex-col text-white;
+    @apply flex flex-col text-white;
     background: linear-gradient(
       180deg,
       color-mix(in oklab, var(--color-toasted-walnut) 92%, black) 0%,
@@ -395,7 +410,7 @@
   }
 
   .featured-heading {
-    @apply m-2 border-b-4 border-toasted-walnut;
+    @apply border-b-4 border-toasted-walnut;
   }
 
   .featured-heading-label {
@@ -730,23 +745,101 @@
     @apply mt-1;
   }
 
-  .event-featured {
-    @apply mx-auto grid max-w-5xl grid-cols-1 items-center gap-8 rounded p-6 md:grid-cols-[minmax(280px,420px)_1fr] md:p-8
-    outline-4 outline-harbor-teal bg-morning-haze;
+  /*FRONT PAGE*/
+
+  .editorial-section {
+    @apply flex min-h-[calc(var(--square-x)*3)] min-w-screen justify-center p-2 my-[calc(var(--square-x)/2)];
   }
 
-  .event-featured:hover {
+  .editorial-content {
+    @apply flex flex-col;
+  }
+
+  .section-title {
+    @apply mb-2 flex font-prata-regular text-6xl;
+  }
+
+  .card-layered-container {
+    @apply flex max-w-xl min-w-md;
+  }
+
+  .holepunch {
+    @apply rounded-2xl p-4 inset-shadow-sm/40;
+  }
+  .photo-frame {
+    @apply flex items-start  justify-center border-2 border-toasted-walnut-950 bg-gray-squirrel-200 p-4 pb-8;
+    box-shadow: 3px 3px;
+  }
+  .photo-frame-left {
+    @apply flex items-start  justify-center border-2 border-toasted-walnut-950 bg-gray-squirrel-200 p-4 pb-8 -rotate-3;
+    box-shadow: -3px 3px;
+  }
+  .photo-frame-right {
+    @apply flex items-start  justify-center border-2 border-toasted-walnut-950 bg-gray-squirrel-200 p-4 pb-8 rotate-3;
+    box-shadow: 3px 3px;
+  }
+  .photo-inner {
+    @apply m-4 h-auto w-lg rounded border-2 border-gray-squirrel-800 bg-amber-50 object-contain pt-6 pb-10;
+  }
+  .eyebrow {
+    @apply mb-2 flex w-full items-start font-medium capitalize underline;
+  }
+
+  .card-inner {
+    @apply flex flex-col items-start justify-between lg:flex-row;
+  }
+
+  .card-word-content {
+    @apply mx-6 flex flex-col items-center justify-center p-4;
+  }
+  .card-featured {
+    @apply flex;
+  }
+  .editorial-media {
+    @apply shrink-0;
+  }
+  .card-body-text {
+    @apply flex max-w-[35ch] flex-wrap font-change text-2xl;
+  }
+  .rect-button-container {
+    @apply relative h-fit w-fit justify-center bg-[var(--primary-color)];
+    box-shadow: 4px 5px;
+  }
+
+  .rect-button-top {
+    @apply flex h-full flex-col items-center justify-center bg-[var(--primary-color)] p-2 outline-2 outline-toasted-walnut-950 transition-all duration-200 ease-in-out;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .rect-button-container:hover .rect-button-top,
+  .rect-button-container:focus-within .rect-button-top {
+    top: 2px;
+    left: 2px;
+    @apply cursor-pointer bg-[var(--primary-color-active)];
+  }
+}
+
+/* .event-featured:hover {
     box-shadow: 0 16px 32px rgb(74 52 36 / 14%);
     transform: translateY(-2px);
     cursor: pointer;
-  }
-
+    background-image: repeating-linear-gradient(
+      -45deg,
+      color-mix(in srgb, var(--stripe-primary) 80%, black) 0px,
+      color-mix(in srgb, var(--stripe-primary) 80%, black) 20px,
+      color-mix(in srgb, var(--stripe-secondary) 80%, black) 20px,
+      color-mix(in srgb, var(--stripe-secondary) 80%, black) 40px
+    );
+  } */
+/* 
   .event-featured-image {
-    @apply aspect-[4/3] h-auto w-full rounded object-cover;
+    @apply object-contain m-4 bg-amber-50 rounded;
   }
 
   .event-featured .event-body {
-    @apply justify-center;
+    @apply justify-center text-toasted-walnut-800;
   }
 
   .event-featured .event-title {
@@ -766,7 +859,7 @@
   }
 
   .event-detailed-image {
-    @apply aspect-[16/9] h-auto w-full rounded object-cover;
+    @apply aspect-video h-auto w-full rounded object-cover;
   }
 
   .event-detailed .event-title {
@@ -787,7 +880,13 @@
 
   .event-list-item {
     @apply grid grid-cols-1 gap-4 rounded-xl p-2 sm:grid-cols-[180px_1fr] sm:p-5;
-    @apply border-2;
+    @apply border-2 bg-morning-haze;
+  }
+  .event-list-item:hover {
+    @apply bg-morning-haze-700;
+    box-shadow: 0 16px 32px rgb(74 52 36 / 14%);
+    transform: translateY(-2px);
+    cursor: pointer;
   }
 
   .event-list-item-image {
@@ -807,7 +906,7 @@
   }
   /*PRODUCTS*/
 
-  .product-media {
+/* .product-media {
     @apply shrink-0;
   }
 
@@ -920,5 +1019,4 @@
 
   .product-list-item .product-price {
     @apply mt-2 text-xs;
-  }
-}
+  } */
