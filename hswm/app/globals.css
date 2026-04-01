@@ -1,36 +1,100 @@
 @import url("https://fonts.googleapis.com/css2?family=Dynalight&family=Varela&display=swap");
 @import url(https://db.onlinewebfonts.com/c/603c10e3f676702d6d6fbbc2859ac805?family=Change+Regular);
+@import url("https://fonts.googleapis.com/css2?family=Prata&family=Varela&display=swap");
 @import "tailwindcss";
 
 @layer utilities {
   .double-outline {
-    @apply outline-8 outline-secondary outline-double;
+    @apply outline-8 outline-double;
   }
   .text-3D {
     text-shadow:
-      1px 1px 0px var(--color-primary),
-      2px 2px 0px var(--color-primary),
-      3px 3px 0px var(--color-primary),
-      4px 4px 0px var(--color-primary);
-    -webkit-text-stroke: 1px var(--color-primary);
+      1px 1px 0px var(--color-primary-logo),
+      2px 2px 0px var(--color-primary-logo),
+      3px 3px 0px var(--color-primary-logo),
+      4px 4px 0px var(--color-primary-logo);
+    -webkit-text-stroke: 1px var(--color-primary-logo);
+  }
+  .text-3D-sm {
+    color: var(--primary-color);
+    text-shadow:
+      1px 1px 0 var(--secondary-color),
+      2px 2px 0 var(--secondary-color);
+    -webkit-text-stroke: 1px var(--secondary-color);
+  }
+
+  .color-set-1 {
+    --primary-color: var(--color-dusty-coral);
+    --secondary-color: var(--color-harvest-gold-300);
+    --primary-color-active: color-mix(in hsl, var(--primary-color), 20% black);
+
+    --stripe-primary: var(--color-dusty-coral);
+    --stripe-secondary: var(--color-harvest-gold-100);
+  }
+
+  .color-set-2 {
+    --primary-color: var(--color-harbor-teal-300);
+    --secondary-color: var(--color-harvest-gold-300);
+    --tertiary-color: var(--color-morning-haze);
+    --primary-color-active: color-mix(in hsl, var(--primary-color), 20% black);
+
+    --stripe-primary: var(--color-harbor-teal);
+    --stripe-secondary: var(--color-harvest-gold-100);
+  }
+
+  .color-set-3 {
+    --primary-color: var(--color-dusty-coral);
+    --secondary-color: var(--color-harvest-gold-300);
+    --tertiary-color: var(--color-morning-haze);
+    --primary-color-active: color-mix(in hsl, var(--primary-color), 20% black);
+
+    --stripe-primary: var(--color-harbor-teal);
+    --stripe-secondary: var(--color-harvest-gold-100);
+  }
+
+  .color-set-4 {
+    --primary-color: var(--color-sage-meadow-300);
+    --secondary-color: var(--color-gray-squirrel-100);
+    --tertiary-color: var(--color-toasted-walnut-600);
+    --accent-color: var(--color-harvest-gold);
+    --stripe-primary: var(--color-harbor-teal);
+    --stripe-secondary: var(--color-harvest-gold-100);
+  }
+
+  .striped {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      var(--primary-color) 0px,
+      var(--primary-color) 20px,
+      var(--stripe-secondary) 20px,
+      var(--stripe-secondary) 40px
+    );
+  }
+  .checkered {
+    background: repeating-conic-gradient(
+      var(--primary-color) 0 25%,
+      var(--secondary-color) 25% 50%
+    );
+    background-size: var(--square-x) var(--square-y);
   }
 }
 
 @theme {
-  /* Placeholder Fonts */
-  --font-varela: "Varela";
-  --font-dynalight: "Dynalight";
-  /* Brand Fonts */
-  --font-governor: (var(--font-brand));
   --font-change: "Change Regular";
-  /* Test Colors */
-  --color-primary: var(--color-toasted-walnut);
-  --color-secondary: oklch(0.5663 0.0928 20.38);
-  --color-tertiary: oklch(0.6807 0.1215 30.6);
-  --color-pale-lavender: oklch(0.5833 0.1274 320.12);
+  --font-dynalight: "Dynalight";
+  --font-prata-regular: "Prata", serif;
+  --font-grand-slam: "GrandSlamScript-Regular", cursive;
+  --font-grand-slam-swash: "GrandSlamScript-Swash", cursive;
+  --font-brand-script-stack: "GrandSlamScript-Regular", "Dynalight", cursive;
+  --font-brand-script: var(--font-brand-script-stack);
+  --font-governor: var(--font-brand);
 
-  --color-textcolor: oklch(1 0 30.6);
-  /* Brand Colors */
+  --square-x: 40px;
+  --square-y: 40px;
+
+  --color-primary-logo: var(--color-toasted-walnut);
+  --color-secondary-logo: var(--color-harvest-gold);
+
   --color-toasted-walnut: oklch(0.5528 0.0568 61.39);
   --color-sage-meadow: oklch(0.604 0.056 139.8);
   --color-harvest-gold: oklch(0.779 0.1295 88.45);
@@ -38,428 +102,223 @@
   --color-harbor-teal: oklch(0.6789 0.0716 195.6);
   --color-morning-haze: oklch(0.8221 0.0274 246.41);
 
-  --color-lettering-yellow: oklch(0.9213 0.1349 96.5);
-  --color-lettering-red: oklch(0.5197 0.1932 23.45);
-
-  /* Derivative Colors */
-
-  --color-toasted-walnut-100: color-mix(
-    in oklab,
-    var(--color-toasted-walnut) 24%,
-    white
-  );
-  --color-toasted-walnut-200: color-mix(
-    in oklab,
-    var(--color-toasted-walnut) 40%,
-    white
-  );
-  --color-toasted-walnut-300: color-mix(
-    in oklab,
-    var(--color-toasted-walnut) 58%,
-    white
-  );
-  --color-toasted-walnut-400: color-mix(
-    in oklab,
-    var(--color-toasted-walnut) 78%,
-    white
-  );
+  --color-toasted-walnut-50: oklch(0.965 0.018 61.39);
+  --color-toasted-walnut-100: oklch(0.925 0.022 61.39);
+  --color-toasted-walnut-200: oklch(0.865 0.03 61.39);
+  --color-toasted-walnut-300: oklch(0.775 0.038 61.39);
+  --color-toasted-walnut-400: oklch(0.66 0.047 61.39);
   --color-toasted-walnut-500: var(--color-toasted-walnut);
-  --color-toasted-walnut-600: color-mix(
-    in oklab,
-    var(--color-toasted-walnut) 88%,
-    black
-  );
-  --color-toasted-walnut-700: color-mix(
-    in oklab,
-    var(--color-toasted-walnut) 72%,
-    black
-  );
-  --color-toasted-walnut-800: color-mix(
-    in oklab,
-    var(--color-toasted-walnut) 56%,
-    black
-  );
-  --color-toasted-walnut-900: color-mix(
-    in oklab,
-    var(--color-toasted-walnut) 40%,
-    black
-  );
+  --color-toasted-walnut-600: oklch(0.47 0.053 61.39);
+  --color-toasted-walnut-700: oklch(0.39 0.047 61.39);
+  --color-toasted-walnut-800: oklch(0.305 0.04 61.39);
+  --color-toasted-walnut-900: oklch(0.235 0.033 61.39);
+  --color-toasted-walnut-950: oklch(0.18 0.026 61.39);
 
-  --color-sage-meadow-100: color-mix(
-    in oklab,
-    var(--color-sage-meadow) 24%,
-    white
-  );
-  --color-sage-meadow-200: color-mix(
-    in oklab,
-    var(--color-sage-meadow) 40%,
-    white
-  );
-  --color-sage-meadow-300: color-mix(
-    in oklab,
-    var(--color-sage-meadow) 58%,
-    white
-  );
-  --color-sage-meadow-400: color-mix(
-    in oklab,
-    var(--color-sage-meadow) 78%,
-    white
-  );
+  --color-sage-meadow-50: oklch(0.972 0.016 139.8);
+  --color-sage-meadow-100: oklch(0.935 0.022 139.8);
+  --color-sage-meadow-200: oklch(0.885 0.03 139.8);
+  --color-sage-meadow-300: oklch(0.805 0.04 139.8);
+  --color-sage-meadow-400: oklch(0.695 0.048 139.8);
   --color-sage-meadow-500: var(--color-sage-meadow);
-  --color-sage-meadow-600: color-mix(
-    in oklab,
-    var(--color-sage-meadow) 88%,
-    black
-  );
-  --color-sage-meadow-700: color-mix(
-    in oklab,
-    var(--color-sage-meadow) 72%,
-    black
-  );
-  --color-sage-meadow-800: color-mix(
-    in oklab,
-    var(--color-sage-meadow) 56%,
-    black
-  );
-  --color-sage-meadow-900: color-mix(
-    in oklab,
-    var(--color-sage-meadow) 40%,
-    black
-  );
+  --color-sage-meadow-600: oklch(0.525 0.05 139.8);
+  --color-sage-meadow-700: oklch(0.445 0.044 139.8);
+  --color-sage-meadow-800: oklch(0.355 0.037 139.8);
+  --color-sage-meadow-900: oklch(0.265 0.029 139.8);
+  --color-sage-meadow-950: oklch(0.205 0.022 139.8);
 
-  --color-harvest-gold-100: color-mix(
-    in oklab,
-    var(--color-harvest-gold) 24%,
-    white
-  );
-  --color-harvest-gold-200: color-mix(
-    in oklab,
-    var(--color-harvest-gold) 40%,
-    white
-  );
-  --color-harvest-gold-300: color-mix(
-    in oklab,
-    var(--color-harvest-gold) 58%,
-    white
-  );
-  --color-harvest-gold-400: color-mix(
-    in oklab,
-    var(--color-harvest-gold) 78%,
-    white
-  );
+  --color-harvest-gold-50: oklch(0.985 0.03 88.45);
+  --color-harvest-gold-100: oklch(0.955 0.05 88.45);
+  --color-harvest-gold-200: oklch(0.92 0.075 88.45);
+  --color-harvest-gold-300: oklch(0.875 0.1 88.45);
+  --color-harvest-gold-400: oklch(0.83 0.115 88.45);
   --color-harvest-gold-500: var(--color-harvest-gold);
-  --color-harvest-gold-600: color-mix(
-    in oklab,
-    var(--color-harvest-gold) 88%,
-    black
-  );
-  --color-harvest-gold-700: color-mix(
-    in oklab,
-    var(--color-harvest-gold) 72%,
-    black
-  );
-  --color-harvest-gold-800: color-mix(
-    in oklab,
-    var(--color-harvest-gold) 56%,
-    black
-  );
-  --color-harvest-gold-900: color-mix(
-    in oklab,
-    var(--color-harvest-gold) 40%,
-    black
-  );
+  --color-harvest-gold-600: oklch(0.72 0.118 88.45);
+  --color-harvest-gold-700: oklch(0.635 0.102 88.45);
+  --color-harvest-gold-800: oklch(0.53 0.085 88.45);
+  --color-harvest-gold-900: oklch(0.425 0.065 88.45);
+  --color-harvest-gold-950: oklch(0.325 0.048 88.45);
 
-  --color-dusty-coral-100: color-mix(
-    in oklab,
-    var(--color-dusty-coral) 24%,
-    white
-  );
-  --color-dusty-coral-200: color-mix(
-    in oklab,
-    var(--color-dusty-coral) 40%,
-    white
-  );
-  --color-dusty-coral-300: color-mix(
-    in oklab,
-    var(--color-dusty-coral) 58%,
-    white
-  );
-  --color-dusty-coral-400: color-mix(
-    in oklab,
-    var(--color-dusty-coral) 78%,
-    white
-  );
+  --color-dusty-coral-50: oklch(0.968 0.02 30.6);
+  --color-dusty-coral-100: oklch(0.928 0.035 30.6);
+  --color-dusty-coral-200: oklch(0.875 0.055 30.6);
+  --color-dusty-coral-300: oklch(0.805 0.08 30.6);
+  --color-dusty-coral-400: oklch(0.735 0.102 30.6);
   --color-dusty-coral-500: var(--color-dusty-coral);
-  --color-dusty-coral-600: color-mix(
-    in oklab,
-    var(--color-dusty-coral) 88%,
-    black
-  );
-  --color-dusty-coral-700: color-mix(
-    in oklab,
-    var(--color-dusty-coral) 72%,
-    black
-  );
-  --color-dusty-coral-800: color-mix(
-    in oklab,
-    var(--color-dusty-coral) 56%,
-    black
-  );
-  --color-dusty-coral-900: color-mix(
-    in oklab,
-    var(--color-dusty-coral) 40%,
-    black
-  );
+  --color-dusty-coral-600: oklch(0.6 0.11 30.6);
+  --color-dusty-coral-700: oklch(0.5 0.095 30.6);
+  --color-dusty-coral-800: oklch(0.395 0.075 30.6);
+  --color-dusty-coral-900: oklch(0.295 0.055 30.6);
+  --color-dusty-coral-950: oklch(0.22 0.04 30.6);
 
-  --color-harbor-teal-100: color-mix(
-    in oklab,
-    var(--color-harbor-teal) 24%,
-    white
-  );
-  --color-harbor-teal-200: color-mix(
-    in oklab,
-    var(--color-harbor-teal) 40%,
-    white
-  );
-  --color-harbor-teal-300: color-mix(
-    in oklab,
-    var(--color-harbor-teal) 58%,
-    white
-  );
-  --color-harbor-teal-400: color-mix(
-    in oklab,
-    var(--color-harbor-teal) 78%,
-    white
-  );
+  --color-harbor-teal-50: oklch(0.972 0.016 195.6);
+  --color-harbor-teal-100: oklch(0.932 0.024 195.6);
+  --color-harbor-teal-200: oklch(0.878 0.035 195.6);
+  --color-harbor-teal-300: oklch(0.812 0.05 195.6);
+  --color-harbor-teal-400: oklch(0.742 0.062 195.6);
   --color-harbor-teal-500: var(--color-harbor-teal);
-  --color-harbor-teal-600: color-mix(
-    in oklab,
-    var(--color-harbor-teal) 88%,
-    black
-  );
-  --color-harbor-teal-700: color-mix(
-    in oklab,
-    var(--color-harbor-teal) 72%,
-    black
-  );
-  --color-harbor-teal-800: color-mix(
-    in oklab,
-    var(--color-harbor-teal) 56%,
-    black
-  );
-  --color-harbor-teal-900: color-mix(
-    in oklab,
-    var(--color-harbor-teal) 40%,
-    black
-  );
+  --color-harbor-teal-600: oklch(0.585 0.065 195.6);
+  --color-harbor-teal-700: oklch(0.485 0.055 195.6);
+  --color-harbor-teal-800: oklch(0.388 0.045 195.6);
+  --color-harbor-teal-900: oklch(0.29 0.032 195.6);
+  --color-harbor-teal-950: oklch(0.21 0.022 195.6);
 
-  --color-morning-haze-100: color-mix(
-    in oklab,
-    var(--color-morning-haze) 20%,
-    white
-  );
-  --color-morning-haze-200: color-mix(
-    in oklab,
-    var(--color-morning-haze) 34%,
-    white
-  );
-  --color-morning-haze-300: color-mix(
-    in oklab,
-    var(--color-morning-haze) 50%,
-    white
-  );
-  --color-morning-haze-400: color-mix(
-    in oklab,
-    var(--color-morning-haze) 68%,
-    white
-  );
+  --color-morning-haze-50: oklch(0.988 0.008 246.41);
+  --color-morning-haze-100: oklch(0.966 0.012 246.41);
+  --color-morning-haze-200: oklch(0.93 0.016 246.41);
+  --color-morning-haze-300: oklch(0.885 0.02 246.41);
+  --color-morning-haze-400: oklch(0.848 0.024 246.41);
   --color-morning-haze-500: var(--color-morning-haze);
-  --color-morning-haze-600: color-mix(
-    in oklab,
-    var(--color-morning-haze) 88%,
-    black
-  );
-  --color-morning-haze-700: color-mix(
-    in oklab,
-    var(--color-morning-haze) 72%,
-    black
-  );
-  --color-morning-haze-800: color-mix(
-    in oklab,
-    var(--color-morning-haze) 56%,
-    black
-  );
-  --color-morning-haze-900: color-mix(
-    in oklab,
-    var(--color-morning-haze) 40%,
-    black
-  );
+  --color-morning-haze-600: oklch(0.725 0.023 246.41);
+  --color-morning-haze-700: oklch(0.605 0.02 246.41);
+  --color-morning-haze-800: oklch(0.475 0.016 246.41);
+  --color-morning-haze-900: oklch(0.345 0.012 246.41);
+  --color-morning-haze-950: oklch(0.235 0.008 246.41);
 
-  /* Legacy aliases used by current components */
-  --color-merlot-50: var(--color-dusty-coral-100);
-  --color-merlot-100: var(--color-dusty-coral-200);
-  --color-merlot-200: var(--color-dusty-coral-300);
-  --color-merlot-300: var(--color-dusty-coral-400);
-  --color-merlot-400: var(--color-dusty-coral-500);
-  --color-merlot-500: var(--color-dusty-coral-600);
-  --color-merlot-600: var(--color-dusty-coral-700);
-  --color-merlot-700: var(--color-dusty-coral-800);
-  --color-merlot-800: var(--color-dusty-coral-900);
-  --color-merlot-900: color-mix(in oklab, var(--color-dusty-coral) 30%, black);
+  /*Derived Neutrals*/
+  --color-gray-squirrel: oklch(0.5528 0.035 61.39);
 
-  --color-umber-50: var(--color-toasted-walnut-100);
-  --color-umber-100: var(--color-toasted-walnut-200);
-  --color-umber-200: var(--color-toasted-walnut-300);
-  --color-umber-300: var(--color-toasted-walnut-400);
-  --color-umber-400: var(--color-toasted-walnut-500);
-  --color-umber-500: var(--color-toasted-walnut-600);
-  --color-umber-600: var(--color-toasted-walnut-700);
-  --color-umber-700: var(--color-toasted-walnut-800);
-  --color-umber-800: var(--color-toasted-walnut-900);
-  --color-umber-900: color-mix(
-    in oklab,
-    var(--color-toasted-walnut) 28%,
-    black
-  );
-
-  --color-parchment-50: var(--color-morning-haze-100);
-  --color-parchment-100: var(--color-morning-haze-200);
-  --color-parchment-200: var(--color-morning-haze-300);
-  --color-parchment-300: var(--color-morning-haze-400);
-  --color-parchment-400: var(--color-morning-haze-500);
-  --color-parchment-500: var(--color-morning-haze-600);
-  --color-parchment-600: var(--color-morning-haze-700);
-
-  --color-vine-200: var(--color-sage-meadow-300);
-  --color-vine-300: var(--color-sage-meadow-400);
-  --color-vine-400: var(--color-sage-meadow-500);
-  --color-vine-500: var(--color-sage-meadow-600);
-  --color-vine-600: var(--color-sage-meadow-700);
-
-  --color-copper-200: var(--color-harvest-gold-200);
-  --color-copper-300: var(--color-harvest-gold-300);
-  --color-copper-400: var(--color-harvest-gold-500);
-  --color-copper-500: var(--color-harvest-gold-600);
-  --color-copper-600: var(--color-harvest-gold-700);
+  --color-gray-squirrel-50: oklch(0.975 0.006 61.39);
+  --color-gray-squirrel-100: oklch(0.94 0.008 61.39);
+  --color-gray-squirrel-200: oklch(0.885 0.01 61.39);
+  --color-gray-squirrel-300: oklch(0.79 0.012 61.39);
+  --color-gray-squirrel-400: oklch(0.675 0.014 61.39);
+  --color-gray-squirrel-500: var(--color-gray-squirrel);
+  --color-gray-squirrel-600: oklch(0.47 0.017 61.39);
+  --color-gray-squirrel-700: oklch(0.38 0.015 61.39);
+  --color-gray-squirrel-800: oklch(0.295 0.013 61.39);
+  --color-gray-squirrel-900: oklch(0.22 0.01 61.39);
+  --color-gray-squirrel-950: oklch(0.165 0.008 61.39);
 }
 
 @layer base {
-  button [role="button"] {
-    cursor: pointer;
-  }
-
   body {
-    min-height: 100vh;
-    background:
-      /* radial-gradient(
-        1100px 500px at 12% -8%,
-        var(--color-dusty-coral) 0%,
-        transparent 65%
-      ),
-      radial-gradient(
-        900px 420px at 85% -12%,
-        var(--color-toasted-walnut) 0%,
-        transparent 62%
-      ), */ linear-gradient(
-      180deg,
-      var(--color-parchment-100) 0%,
-      var(--color-parchment-300) 100%
-    );
-    font-family: var(--font-varela), sans-serif;
+    @apply bg-gray-squirrel-100;
   }
-
-  /* h1,
-  h2,
-  h3 {
-    font-family: var(--font-change), serif;
-    letter-spacing: 0.01em;
-  } */
 }
 
 @layer components {
   .page-shell {
-    @apply mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 pb-10;
-  }
-  .card {
-    @apply rounded-lg bg-gradient-to-br from-tertiary to-secondary text-textcolor p-6;
+    @apply pb-[calc(var(--square-x))] flex h-full w-full flex-col justify-center gap-[calc(var(--square-x)/2)];
   }
 
   .hero-banner {
-    @apply bg-dusty-coral text-textcolor flex items-center justify-center text-center py-10 gap-6;
+    @apply bg-dusty-coral text-white flex items-center justify-center text-center py-10 gap-6;
   }
   .hero-message {
     @apply text-4xl font-semibold;
   }
   .action-button {
-    @apply bg-toasted-walnut p-2 text-textcolor rounded outline-solid;
+    @apply bg-linear-to-tr from-toasted-walnut to-toasted-walnut-400 p-2
+     text-white rounded outline-solid transition-all duration-100
+     tracking-tight font-governor;
+    font-family: "Governor";
+  }
+  .action-button:hover {
+    @apply bg-toasted-walnut-800 shadow-sm/30;
+    transform: translate(1, 2);
   }
 
   .banner {
-    @apply bg-dusty-coral flex items-center;
+    @apply bg-dusty-coral flex items-center justify-center;
   }
 
   .banner-section {
-    @apply outline;
+    @apply outline-double outline-3 justify-center;
+  }
+
+  .promo-banner {
+    @apply bg-harbor-teal-700  items-center flex py-0.5;
+  }
+
+  .promo-text {
+    @apply text-toasted-walnut-100 font-change mx-auto;
   }
 
   .navbar {
-    @apply sticky top-0 z-20 border-b-4 border-harvest-gold;
-    background: linear-gradient(
-      180deg,
-      color-mix(in oklab, var(--color-sage-meadow) 92%, black),
-      var(--color-sage-meadow)
-    );
-    /* border-bottom: 1px solid
-      color-mix(in oklab, var(--color-dusty-coral) 35%, black); */
-    box-shadow: 0 5px 18px rgb(41 22 24 / 25%);
+    @apply sticky top-0 z-20 border-b-4 border-toasted-walnut bg-sage-meadow;
   }
 
   .navbar-inner {
-    @apply mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 py-3;
+    @apply mx-auto w-full max-w-screen-2xl px-4 py-0 sm:px-6 lg:px-8;
   }
 
   .navbar-row {
-    @apply flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between;
-  }
-
-  .brand-lockup {
-    @apply inline-flex flex-col items-center px-4 pt-1; /* rounded-2xl */
-    /* background: linear-gradient(
-      180deg,
-      var(--color-parchment-100) 0%,
-      var(--color-parchment-300) 100%
-    ); */
-    /* border: 1px solid color-mix(in oklab, var(--color-umber-500) 42%, white);
-    box-shadow: 0 8px 20px rgb(56 37 29 / 16%); */
-  }
-
-  .brand-title {
-    @apply font-governor font-bold uppercase tracking-tighter text-4xl sm:text-5xl;
-    color: var(--color-harvest-gold);
-    line-height: 0.85;
-  }
-
-  .brand-script {
-    @apply font-dynalight text-3xl -rotate-3 translate-x-2;
-    color: var(--color-harvest-gold);
+    @apply flex flex-col xl:flex-row xl:items-end xl:justify-between xl:gap-8;
   }
 
   .nav-links {
-    @apply flex flex-wrap items-center gap-2 sm:gap-3 font-change;
+    @apply hidden md:flex md:flex-nowrap md:items-end md:justify-center md:gap-1 md:font-governor transition-all duration-300;
   }
 
-  .nav-link {
-    @apply rounded-full text-textcolor px-3 py-1.5 text-sm sm:text-base border-2 border-morning-haze transition-colors duration-200;
-    background: var(--color-harbor-teal);
+  .nav-link-wrapper {
+    @apply relative inline-block whitespace-nowrap transition-all duration-200;
   }
 
-  .nav-link:hover {
-    color: var(--color-parchment-50);
-    background: color-mix(in oklab, var(--color-merlot-500) 88%, black);
-    border-color: color-mix(in oklab, var(--color-copper-300) 48%, black);
+  .nav-link-shadow {
+    @apply absolute inset-0 rounded-t-lg border-2 border-b-4 border-toasted-walnut opacity-0 transition-opacity duration-200 inset-shadow-sm/50;
   }
+
+  .nav-link-face {
+    @apply relative z-10 block rounded-t-lg border-2 border-toasted-walnut bg-sage-meadow-400
+     px-4 py-2 text-lg xl:text-base 2xl:px-5 2xl:py-3 2xl:text-2xl 
+     font-governor uppercase tracking-wider transition duration-200 ease-out;
+    transform: translate(0, 0);
+  }
+
+  .nav-link-face:hover {
+    @apply bg-sage-meadow-800 text-white;
+  }
+
+  .nav-link-wrapper:hover .nav-link-face {
+    transform: translate(6px, 6px);
+  }
+
+  .nav-link-wrapper:hover .nav-link-shadow {
+    @apply opacity-100;
+  }
+
+  .nav-menu-button {
+    @apply mr-auto inline-flex items-center justify-center p-2 text-toasted-walnut md:hidden rounded-2xl;
+  }
+
+  .nav-menu-button:hover {
+    @apply bg-sage-meadow-800;
+  }
+
+  .nav-menu-icon {
+    @apply text-4xl text-toasted-walnut;
+  }
+
+  .mobile-nav {
+    @apply flex flex-col gap-2 py-3 xl:hidden bg-harbor-teal;
+  }
+
+  .mobile-nav-link {
+    @apply px-2 py-2 font-governor text-white bg-sage-meadow-400;
+  }
+
+  .mobile-nav-link:hover {
+    @apply bg-sage-meadow-700;
+  }
+
+  .brand-lockup {
+    @apply relative z-20 my-auto inline-flex w-fit shrink-0 
+    self-center flex-col items-center rounded px-4 pb-2 pt-1 transition-colors duration-200;
+  }
+  .brand-lockup:hover {
+    @apply bg-sage-meadow-800;
+  }
+
+  .brand-title {
+    @apply font-governor text-2xl font-bold uppercase tracking-wider text-harvest-gold sm:text-5xl xl:text-4xl;
+  }
+
+  .brand-script {
+    @apply font-brand-script translate-x-2 -rotate-4 text-3xl tracking-widest text-harvest-gold;
+  }
+
   .footer {
-    @apply mt-12 flex flex-col text-textcolor;
+    @apply flex flex-col text-white;
     background: linear-gradient(
       180deg,
       color-mix(in oklab, var(--color-toasted-walnut) 92%, black) 0%,
@@ -498,12 +357,12 @@
 
   .footer-title {
     @apply mb-3 text-base font-semibold uppercase tracking-wide;
-    color: var(--color-parchment-50);
+    color: var(--color-gray-squirrel-200);
   }
 
   .footer-stack {
     @apply space-y-1.5 text-sm leading-6;
-    color: color-mix(in oklab, var(--color-parchment-50) 88%, white);
+    color: color-mix(in oklab, var(--color-gray-squirrel-200) 88%, white);
   }
 
   .footer-subsection {
@@ -512,7 +371,7 @@
 
   .footer-label {
     @apply font-semibold;
-    color: var(--color-parchment-50);
+    color: var(--color-gray-squirrel-200);
   }
 
   .footer-links {
@@ -521,7 +380,7 @@
 
   .footer-link {
     @apply inline-block text-sm transition-all duration-200;
-    color: color-mix(in oklab, var(--color-parchment-50) 88%, white);
+    color: color-mix(in oklab, var(--color-gray-squirrel-200) 88%, white);
   }
 
   .footer-link:hover {
@@ -535,121 +394,146 @@
   }
 
   .footer-inline-link:hover {
-    color: var(--color-parchment-50);
+    color: var(--color-gray-squirrel-200);
     text-decoration: underline;
     text-underline-offset: 4px;
   }
 
   .footer-bottom {
     @apply mx-auto mt-10 flex max-w-screen-2xl flex-col gap-2 border-t pt-5 text-xs sm:flex-row sm:items-center sm:justify-between;
-    border-color: color-mix(in oklab, var(--color-parchment-50) 18%, white);
-    color: color-mix(in oklab, var(--color-parchment-50) 70%, white);
+    border-color: color-mix(
+      in oklab,
+      var(--color-gray-squirrel-200) 18%,
+      white
+    );
+    color: color-mix(in oklab, var(--color-gray-squirrel-200) 70%, white);
   }
+
+  .featured-heading {
+    @apply border-b-4 border-toasted-walnut;
+  }
+
+  .featured-heading-label {
+    @apply items-start inline-block min-w-40 rounded-tr-3xl bg-dusty-coral px-4 pt-2
+    font-governor text-2xl text-white;
+  }
+
+  /* Filter and Shop System */
+
   .filter-panel {
     @apply sticky rounded-xl p-4;
-    background: color-mix(in oklab, var(--color-parchment-100) 74%, white);
-    border: 1px solid color-mix(in oklab, var(--color-umber-300) 48%, white);
+    background: color-mix(in oklab, var(--color-toasted-walnut-100) 74%, white);
+    border: 1px solid
+      color-mix(in oklab, var(--color-toasted-walnut-300) 48%, white);
     box-shadow: 0 10px 24px rgb(74 52 36 / 10%);
   }
 
   .filter-title {
     @apply font-change text-lg;
-    color: var(--color-merlot-700);
+    color: var(--color-toasted-walnut-700);
   }
 
   .filter-subtitle {
-    @apply font-varela text-sm;
-    color: var(--color-umber-700);
+    @apply text-sm;
+    color: var(--color-toasted-walnut-700);
   }
 
   .filter-divider {
     @apply my-4 border-t;
-    border-color: color-mix(in oklab, var(--color-umber-400) 34%, white);
+    border-color: color-mix(
+      in oklab,
+      var(--color-toasted-walnut-400) 34%,
+      white
+    );
   }
 
   .filter-label {
-    @apply font-varela text-xs uppercase tracking-wide;
-    color: var(--color-umber-700);
+    @apply text-xs uppercase tracking-wide;
+    color: var(--color-toasted-walnut-700);
   }
 
   .filter-input {
     @apply w-full rounded-lg px-3 py-2 text-sm outline-none;
-    border: 1px solid color-mix(in oklab, var(--color-umber-300) 50%, white);
-    background: color-mix(in oklab, var(--color-parchment-50) 60%, white);
+    border: 1px solid
+      color-mix(in oklab, var(--color-toasted-walnut-300) 50%, white);
+    background: color-mix(in oklab, var(--color-morning-haze) 60%, white);
   }
 
   .filter-input:focus {
     box-shadow: 0 0 0 2px
-      color-mix(in oklab, var(--color-merlot-300) 50%, white);
-    border-color: var(--color-merlot-500);
+      color-mix(in oklab, var(--color-dusty-coral) 50%, white);
+    border-color: var(--color-dusty-coral);
   }
 
   .filter-select {
     @apply w-full rounded-lg px-3 py-2 text-sm outline-none;
-    border: 1px solid color-mix(in oklab, var(--color-umber-300) 50%, white);
-    background: color-mix(in oklab, var(--color-parchment-50) 60%, white);
+    border: 1px solid
+      color-mix(in oklab, var(--color-toasted-walnut-300) 50%, white);
+    background: color-mix(in oklab, var(--color-morning-haze) 60%, white);
   }
 
   .filter-select:focus {
     box-shadow: 0 0 0 2px
-      color-mix(in oklab, var(--color-merlot-300) 50%, white);
-    border-color: var(--color-merlot-500);
+      color-mix(in oklab, var(--color-dusty-coral) 50%, white);
+    border-color: var(--color-dusty-coral);
   }
 
   .filter-chip {
     @apply px-3 py-1 rounded-full text-xs transition;
-    border: 1px solid color-mix(in oklab, var(--color-umber-400) 44%, white);
-    background: color-mix(in oklab, var(--color-parchment-50) 60%, white);
-    color: var(--color-umber-700);
+    border: 1px solid
+      color-mix(in oklab, var(--color-toasted-walnut-400) 44%, white);
+    background: color-mix(in oklab, var(--color-toasted-walnut-100) 60%, white);
+    color: var(--color-toasted-walnut-700);
   }
 
   .filter-chip:hover {
-    background: color-mix(in oklab, var(--color-parchment-100) 75%, white);
+    background: color-mix(in oklab, var(--color-toasted-walnut-100) 75%, white);
   }
 
   .filter-chip--active {
     @apply font-semibold;
-    color: var(--color-merlot-700);
-    border-color: color-mix(in oklab, var(--color-merlot-400) 70%, white);
+    color: var(--color-toasted-walnut-700);
+    border-color: color-mix(in oklab, var(--color-dusty-coral) 70%, white);
     background: radial-gradient(
       circle at center,
-      var(--color-parchment-50) 0%,
-      color-mix(in oklab, var(--color-merlot-100) 72%, white) 120%
+      var(--color-morning-haze) 0%,
+      color-mix(in oklab, var(--color-dusty-coral) 12%, white) 120%
     );
   }
 
   .filter-toggle {
     @apply inline-flex items-center gap-2 text-sm;
-    color: var(--color-umber-700);
+    color: var(--color-toasted-walnut-700);
   }
 
   .filter-checkbox {
     @apply h-4 w-4;
-    accent-color: var(--color-merlot-500);
+    accent-color: var(--color-dusty-coral);
   }
 
   .filter-reset {
     @apply text-xs underline;
-    color: color-mix(in oklab, var(--color-umber-700) 84%, white);
+    color: color-mix(in oklab, var(--color-toasted-walnut-700) 84%, white);
   }
 
   .filter-reset:hover {
-    color: var(--color-umber-700);
+    color: var(--color-toasted-walnut-700);
   }
 
   .filter-apply-pill {
     @apply inline-flex items-center justify-center rounded-full px-3 py-1 text-xs;
-    color: var(--color-parchment-50);
+    color: white;
     background: linear-gradient(
       170deg,
-      var(--color-merlot-500) 0%,
-      var(--color-merlot-700) 100%
+      var(--color-dusty-coral) 0%,
+      var(--color-toasted-walnut-700) 100%
     );
-    border: 1px solid color-mix(in oklab, var(--color-merlot-900) 42%, black);
+    border: 1px solid
+      color-mix(in oklab, var(--color-toasted-walnut-900) 42%, black);
   }
 
   .shop-shell {
-    @apply mx-auto w-full max-w-screen-2xl my-2 px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-screen-2xl my-2 px-4 sm:px-6 lg:px-8 bg-[var(--primary-color)];
   }
 
   .shop-layout {
@@ -662,19 +546,23 @@
 
   .shop-topbar {
     @apply mb-4 flex items-center justify-between gap-4;
-    color: var(--color-umber-700);
+    color: var(--color-toasted-walnut-700);
   }
 
   .shop-count {
-    @apply font-varela text-sm;
-    color: color-mix(in oklab, var(--color-umber-700) 86%, white);
+    @apply text-sm;
+    color: color-mix(in oklab, var(--color-toasted-walnut-700) 86%, white);
   }
   .shop-topbar-spacer {
     @apply mb-4 pb-3 border-b;
-    border-color: color-mix(in oklab, var(--color-umber-400) 36%, white);
+    border-color: color-mix(
+      in oklab,
+      var(--color-toasted-walnut-400) 36%,
+      white
+    );
   }
   .shop-count strong {
-    color: var(--color-umber-700);
+    color: var(--color-toasted-walnut-700);
   }
 
   .shop-grid {
@@ -690,8 +578,7 @@
 
   .shop-item-card {
     @apply w-full rounded-xl p-4 shadow-sm transition-all duration-300;
-    background: color-mix(in oklab, var(--color-parchment-100) 74%, white);
-    border: 1px solid color-mix(in oklab, var(--color-umber-300) 46%, white);
+    @apply bg-dusty-coral-200 border border-dusty-coral-700;
   }
 
   .shop-item-card:hover {
@@ -701,12 +588,13 @@
 
   .shop-item-media {
     @apply relative w-full overflow-hidden rounded-lg mb-4;
-    border: 1px solid color-mix(in oklab, var(--color-umber-300) 50%, white);
+    border: 1px solid
+      color-mix(in oklab, var(--color-toasted-walnut-300) 50%, white);
     aspect-ratio: 1 / 1;
     background: radial-gradient(
       circle at center,
-      var(--color-parchment-50) 0%,
-      color-mix(in oklab, var(--color-merlot-100) 72%, white) 120%
+      var(--color-morning-haze) 0%,
+      color-mix(in oklab, var(--color-dusty-coral) 15%, white) 120%
     );
   }
 
@@ -719,28 +607,32 @@
   }
 
   .shop-item-vendor {
-    @apply font-varela text-xs uppercase tracking-wide;
-    color: color-mix(in oklab, var(--color-umber-700) 72%, white);
+    @apply text-xs uppercase tracking-wide;
+    color: color-mix(in oklab, var(--color-toasted-walnut-700) 72%, white);
   }
 
   .shop-item-title {
     @apply font-change text-base leading-snug;
-    color: var(--color-merlot-700);
+    color: var(--color-dusty-coral);
   }
 
   .shop-item-meta {
-    @apply mt-1 font-varela text-xs;
-    color: color-mix(in oklab, var(--color-umber-700) 72%, white);
+    @apply mt-1 text-xs;
+    color: color-mix(in oklab, var(--color-toasted-walnut-700) 72%, white);
   }
 
   .shop-item-bottom {
     @apply mt-3 flex items-center justify-between gap-3 pt-3 border-t;
-    border-color: color-mix(in oklab, var(--color-umber-300) 50%, white);
+    border-color: color-mix(
+      in oklab,
+      var(--color-toasted-walnut-300) 50%,
+      white
+    );
   }
 
   .shop-item-price {
-    @apply font-varela text-sm font-semibold;
-    color: var(--color-umber-700);
+    @apply text-sm font-semibold;
+    color: var(--color-toasted-walnut-700);
   }
 
   .shop-item-badge {
@@ -748,36 +640,38 @@
   }
 
   .shop-item-badge--in {
-    color: var(--color-umber-700);
-    background: color-mix(in oklab, var(--color-vine-300) 32%, white);
-    border-color: color-mix(in oklab, var(--color-vine-500) 35%, white);
+    color: var(--color-toasted-walnut-700);
+    background: color-mix(in oklab, var(--color-sage-meadow-300) 32%, white);
+    border-color: color-mix(in oklab, var(--color-sage-meadow-500) 35%, white);
   }
 
   .shop-item-badge--out {
-    color: var(--color-merlot-700);
-    background: color-mix(in oklab, var(--color-merlot-200) 52%, white);
-    border-color: color-mix(in oklab, var(--color-merlot-500) 28%, white);
+    color: var(--color-dusty-coral);
+    background: color-mix(in oklab, var(--color-dusty-coral) 12%, white);
+    border-color: color-mix(in oklab, var(--color-dusty-coral) 28%, white);
   }
 
   .skeleton-card {
     @apply w-full rounded-xl p-4;
-    background: color-mix(in oklab, var(--color-parchment-100) 74%, white);
-    border: 1px solid color-mix(in oklab, var(--color-umber-300) 46%, white);
+    background: color-mix(in oklab, var(--color-toasted-walnut-100) 74%, white);
+    border: 1px solid
+      color-mix(in oklab, var(--color-toasted-walnut-300) 46%, white);
   }
 
   .skeleton-shimmer {
     @apply animate-pulse rounded-md;
-    background: color-mix(in oklab, var(--color-parchment-50) 66%, white);
+    background: color-mix(in oklab, var(--color-morning-haze) 66%, white);
   }
 
   .skeleton-media {
     @apply rounded-lg overflow-hidden mb-4;
-    border: 1px solid color-mix(in oklab, var(--color-umber-300) 50%, white);
+    border: 1px solid
+      color-mix(in oklab, var(--color-toasted-walnut-300) 50%, white);
     aspect-ratio: 1 / 1;
     background: radial-gradient(
       circle at center,
-      var(--color-parchment-50) 0%,
-      color-mix(in oklab, var(--color-merlot-100) 72%, white) 120%
+      var(--color-morning-haze) 0%,
+      color-mix(in oklab, var(--color-dusty-coral) 12%, white) 120%
     );
   }
 
@@ -787,29 +681,32 @@
 
   .pager-btn {
     @apply px-3 py-2 rounded-md text-sm transition-colors duration-200 disabled:opacity-50;
-    border: 1px solid color-mix(in oklab, var(--color-umber-300) 45%, white);
-    color: var(--color-umber-700);
-    background: color-mix(in oklab, var(--color-parchment-100) 76%, white);
+    border: 1px solid
+      color-mix(in oklab, var(--color-toasted-walnut-300) 45%, white);
+    color: var(--color-toasted-walnut-700);
+    background: color-mix(in oklab, var(--color-toasted-walnut-100) 76%, white);
   }
 
   .pager-btn:hover:not(:disabled) {
-    background: color-mix(in oklab, var(--color-merlot-100) 44%, white);
-    border-color: color-mix(in oklab, var(--color-merlot-400) 36%, white);
+    background: color-mix(in oklab, var(--color-dusty-coral) 12%, white);
+    border-color: color-mix(in oklab, var(--color-dusty-coral) 36%, white);
   }
 
   .pager-btn--active {
-    color: var(--color-parchment-50);
-    border-color: color-mix(in oklab, var(--color-merlot-800) 58%, black);
+    color: white;
+    border-color: color-mix(
+      in oklab,
+      var(--color-toasted-walnut-800) 58%,
+      black
+    );
     background: linear-gradient(
       160deg,
-      var(--color-merlot-500) 0%,
-      var(--color-merlot-700) 100%
+      var(--color-dusty-coral) 0%,
+      var(--color-toasted-walnut-700) 100%
     );
   }
 
-  .featured-heading {
-    @apply bg-dusty-coral text-textcolor text-3xl font-change m-3 pl-8 py-4 rounded-2xl border-6 border-harvest-gold;
-  }
+  /*EVENTS*/
 
   .event-media {
     @apply shrink-0;
@@ -824,69 +721,135 @@
   }
 
   .event-datetime {
-    @apply mt-3 text-base font-medium leading-snug;
+    @apply my-3 text-base font-medium leading-snug;
   }
 
   .event-price {
-    @apply mt-2 text-sm font-semibold uppercase tracking-wide;
+    @apply my-2 text-4xl font-semibold uppercase tracking-wide;
   }
 
   .event-description {
     @apply mt-5 max-w-none text-base leading-7;
   }
 
-  .event-description p + p {
-    @apply mt-4;
+  /*FRONT PAGE*/
+
+  .editorial-section {
+    @apply flex min-h-[calc(var(--square-x)*3)] min-w-screen justify-center p-2 my-[calc(var(--square-x)/2)];
   }
 
-  .event-description ul,
-  .event-description ol {
-    @apply my-4 ml-5;
+  .editorial-content {
+    @apply flex flex-col items-center justify-center;
   }
 
-  .event-description li {
-    @apply mt-1;
+  .editorial-media {
+    @apply shrink-0;
   }
 
-  .event-featured {
-    @apply mx-auto grid max-w-5xl grid-cols-1 items-center gap-8 rounded p-6 md:grid-cols-[minmax(280px,420px)_1fr] md:p-8
-    outline-4 outline-harbor-teal bg-morning-haze rounded;
+  .holepunch {
+    @apply rounded-2xl p-4 inset-shadow-sm/40;
   }
 
-  .event-featured:hover {
-    box-shadow: 0 16px 32px rgb(74 52 36 / 14%);
-    transform: translateY(-2px);
-    cursor: pointer;
+  .photo-frame {
+    @apply flex items-start  justify-center border-2 border-toasted-walnut-950 bg-gray-squirrel-200 p-4 pb-8;
+    box-shadow: 3px 3px;
+  }
+  .photo-frame-left {
+    @apply flex items-start  justify-center border-2 border-toasted-walnut-950 bg-gray-squirrel-200 p-4 pb-8 -rotate-3;
+    box-shadow: -3px 3px;
+  }
+  .photo-frame-right {
+    @apply flex items-start  justify-center border-2 border-toasted-walnut-950 bg-gray-squirrel-200 p-4 pb-8 rotate-3;
+    box-shadow: 3px 3px;
+  }
+  .photo-inner {
+    @apply m-4 h-auto w-lg rounded border-2 border-gray-squirrel-800 bg-amber-50 object-contain pt-6 pb-10;
+  }
+  .eyebrow {
+    @apply mb-2 flex w-full items-start font-medium capitalize underline;
   }
 
-  .event-featured-image {
-    @apply aspect-[4/3] h-auto w-full rounded object-cover;
+  .section-title {
+    @apply flex items-start;
   }
 
-  .event-featured .event-body {
-    @apply justify-center;
+  .card-word-content {
+    @apply my-2;
+    display: inline-flex;
+    width: max-content;
+    max-width: 100%;
   }
 
-  .event-featured .event-title {
-    @apply text-3xl md:text-4xl;
+  .card-word-inner {
+    @apply flex flex-col items-center p-4;
+    width: max-content;
+    max-inline-size: 70ch;
   }
 
-  .event-featured .event-datetime {
-    @apply mt-4 text-lg;
+  .card-title {
+    @apply mb-2 font-prata-regular text-6xl text-balance text-center break-keep;
   }
 
-  .event-featured .event-price {
-    @apply mt-3 text-sm;
+  .card-layered-container {
+    @apply flex max-w-xl min-w-md h-fit;
+  }
+
+  .card-featured {
+    @apply flex flex-col items-center lg:justify-center lg:flex-row;
+  }
+
+  .card-body-text {
+    @apply max-w-[35ch] font-change text-2xl;
+  }
+
+  .rect-button-container {
+    @apply relative h-fit w-fit justify-center bg-[var(--primary-color)] m-4;
+    box-shadow: 4px 5px;
+  }
+
+  .rect-button-top {
+    @apply flex h-full flex-col items-center justify-center bg-[var(--primary-color)] p-2 outline-2 outline-toasted-walnut-950 transition-all duration-200 ease-in-out;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .rect-button-container:hover .rect-button-top,
+  .rect-button-container:focus-within .rect-button-top {
+    top: 2px;
+    left: 2px;
+    @apply cursor-pointer bg-[var(--primary-color-active)];
   }
 
   .event-detailed {
-    @apply mx-auto flex max-w-4xl flex-col gap-6 rounded-xl p-6 md:p-8;
-    background: color-mix(in oklab, var(--color-parchment-100) 82%, white);
-    border: 1px solid color-mix(in oklab, var(--color-umber-300) 40%, white);
+    @apply flex justify-center items-start lg:flex-row max-w-4xl flex-col mt-[calc(var(--square-x)/2)] md:p-8 bg-[var(--secondary-color)] min-w-screen;
+  }
+  .event-detailed-image {
+    @apply h-auto w-full rounded object-cover;
   }
 
-  .event-detailed-image {
-    @apply aspect-[16/9] h-auto w-full rounded object-cover;
+  .event-detailed .card-body-text {
+    @apply max-w-[70ch] font-change text-2xl;
+  }
+
+  .event-detailed .card-body-text ul {
+    @apply list-disc pl-6 my-4;
+  }
+
+  .event-detailed .card-body-text ol {
+    @apply list-decimal pl-6 my-4;
+  }
+
+  .event-detailed .card-body-text li {
+    @apply mt-2 leading-relaxed;
+  }
+
+  .event-detailed .card-body-text li::marker {
+    @apply text-[var(--primary-color)] font-semibold;
+  }
+
+  .event-detailed .card-layered-container {
+    @apply flex items-end sticky top-30;
   }
 
   .event-detailed .event-title {
@@ -897,18 +860,25 @@
     @apply mt-4 text-lg;
   }
 
-  .event-detailed .event-price {
+  /* .event-detailed .event-price {
     @apply mt-3 text-sm;
-  }
+  } */
 
   .event-detailed .event-description {
     @apply mt-8 text-base leading-8;
   }
 
+  /* EVENT LIST ITEMS */
+
   .event-list-item {
-    @apply grid grid-cols-1 gap-5 rounded-xl p-4 sm:grid-cols-[180px_1fr] sm:p-5;
-    background: color-mix(in oklab, var(--color-parchment-100) 78%, white);
-    border: 1px solid color-mix(in oklab, var(--color-umber-300) 42%, white);
+    @apply grid grid-cols-1 gap-4 rounded-xl p-2 sm:grid-cols-[180px_1fr] sm:p-5;
+    @apply border-2 bg-morning-haze;
+  }
+  .event-list-item:hover {
+    @apply bg-morning-haze-700;
+    box-shadow: 0 16px 32px rgb(74 52 36 / 14%);
+    transform: translateY(-2px);
+    cursor: pointer;
   }
 
   .event-list-item-image {
@@ -926,7 +896,18 @@
   .event-list-item .event-price {
     @apply mt-2 text-xs;
   }
-  .shop-item-media {
+}
+
+/*
+
+  
+
+  
+
+  
+  /*PRODUCTS*/
+
+/* .product-media {
     @apply shrink-0;
   }
 
@@ -1039,25 +1020,4 @@
 
   .product-list-item .product-price {
     @apply mt-2 text-xs;
-  }
-
-  .policy-button {
-    @apply inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition-colors duration-200 sm:text-base;
-    color: var(--color-parchment-50);
-    background: linear-gradient(
-      160deg,
-      var(--color-merlot-500) 0%,
-      var(--color-merlot-700) 100%
-    );
-    border: 1px solid color-mix(in oklab, var(--color-merlot-900) 42%, black);
-  }
-
-  .policy-button:hover {
-    background: linear-gradient(
-      160deg,
-      var(--color-merlot-400) 0%,
-      var(--color-merlot-600) 100%
-    );
-    transform: translateY(-1px);
-  }
-}
+  } */

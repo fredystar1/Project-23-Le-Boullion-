@@ -18,12 +18,13 @@ const FeaturedEventSection = ({ blok, tilt }: FeaturedEventSectionProps) => {
 
   return (
     <div className="editorial-section color-set-neutral bg-[var(--secondary-color)]">
-      <Section headline={blok.headline} className="editorial-content">
+      <Section className="editorial-content">
         <EventCard
           event={featuredStory.content}
           slug={featuredStory.full_slug}
           variant="featured"
           tilt={tilt}
+          eyebrowText={blok.eyebrow_text}
         />
       </Section>
     </div>

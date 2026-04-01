@@ -18,16 +18,13 @@ const ProductSection = ({ blok, tilt }: ProductSectionProps) => {
 
   return (
     <div className="editorial-section color-set-2 bg-[var(--primary-color)]">
-      <Section
-        headline={blok.headline}
-        className="editorial-content"
-        tilt={tilt}
-      >
+      <Section className="editorial-content" tilt={tilt}>
         <ProductCard
           product={featuredStory.content}
           variant="featured"
           slug={featuredStory.full_slug}
           tilt={tilt}
+          eyebrowText={blok.eyebrow_text}
         />
       </Section>
     </div>

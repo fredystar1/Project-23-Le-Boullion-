@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals1.css";
+import "./globals.css";
 import localFont from "next/font/local";
 import NavBar from "./NavBar";
 import { StoryblokProvider } from "./components/StoryblokProvider";

@@ -1,4 +1,5 @@
 import { datetimeFormatter } from "../lib/helpers";
+import { Tilt } from "../lib/styling-types";
 import { BaseCard } from "./BaseCard";
 
 type EventContent = {
@@ -22,7 +23,8 @@ type EventCardProps = {
   event: EventContent;
   slug?: string;
   variant?: EventCardVariants;
-  tilt?: string;
+  tilt?: Tilt;
+  eyebrowText?: string;
 };
 
 export const EventCard = ({
@@ -30,6 +32,7 @@ export const EventCard = ({
   slug,
   variant = "list",
   tilt,
+  eyebrowText,
 }: EventCardProps) => {
   const formattedDatetime = datetimeFormatter(
     event.event_start,
@@ -51,6 +54,7 @@ export const EventCard = ({
       datetime={formattedDatetime}
       actionText="Explore Event"
       tilt={tilt}
+      eyebrowText={eyebrowText}
     />
   );
 };

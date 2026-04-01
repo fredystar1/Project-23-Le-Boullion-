@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { StoryblokServerRichText } from "@storyblok/react/rsc";
 import { ReactNode } from "react";
+import { Tilt } from "../lib/styling-types";
 
 type CardVariant = "featured" | "detailed" | "list";
 
@@ -22,6 +23,7 @@ interface BaseCardProps {
   className?: string;
   actionText?: string;
   tilt?: Tilt;
+  eyebrowText?: string;
 }
 
 export const BaseCard = ({
@@ -36,6 +38,7 @@ export const BaseCard = ({
   className = "",
   actionText,
   tilt = "none",
+  eyebrowText,
 }: BaseCardProps) => {
   const showDescription =
     type === "product" ? variant !== "list" : variant === "detailed";
@@ -102,24 +105,24 @@ export const BaseCard = ({
 
   const textPortion = (
     <div className="card-word-content">
-      {title && <h3 className="section-title">{title}</h3>}
-
-      {datetime && <div className={`${type}-datetime`}>{datetime}</div>}
-
-      {showPrice && price && <p className={`${type}-price`}>${price}</p>}
-
-      {showDescription && description && (
-        <div className="card-body-text">
-          <StoryblokServerRichText doc={description} />
-        </div>
-      )}
-      {slug && (
-        <div className="rect-button-container color-set-1">
-          <Link className="rect-button-top" href={slug}>
-            {actionText || `Explore ${title}`}
-          </Link>
-        </div>
-      )}
+      <div className="card-word-inner">
+        {eyebrowText && <span className="eyebrow">{eyebrowText}</span>}
+        {title && <h3 className="card-title">{title}</h3>}
+        {datetime && <div className={`${type}-datetime`}>{datetime}</div>}
+        {showPrice && price && <p className={`${type}-price`}>${price}</p>}
+        {showDescription && description && (
+          <div className="card-body-text">
+            <StoryblokServerRichText doc={description} />
+          </div>
+        )}
+        {slug && (
+          <div className="rect-button-container color-set-1">
+            <Link className="rect-button-top" href={slug}>
+              {actionText || `Explore ${title}`}
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   );
 
