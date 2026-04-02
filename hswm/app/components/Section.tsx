@@ -1,25 +1,29 @@
 import { ReactNode } from "react";
+import { Tilt } from "../lib/styling-types";
 
 interface SectionProps {
-  headline?: string;
+  eyebrowText?: string;
   children: ReactNode;
   className?: string;
   headlineClassName?: string;
+  tilt?: Tilt;
 }
 
 export const Section = ({
-  headline,
+  eyebrowText,
   children,
   className = "",
-  headlineClassName = "featured-heading",
+  headlineClassName = "section-title",
+  tilt,
 }: SectionProps) => {
+  const combinedClass = tilt ? `${className} ${tilt}` : className;
   return (
-    <section className={className}>
-      {headline && (
+    <section className={combinedClass}>
+      {/* {headline && (
         <h2 className={headlineClassName}>
           <span className="featured-heading-label">{headline}</span>
         </h2>
-      )}
+      )} */}
       {children}
     </section>
   );

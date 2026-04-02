@@ -1,4 +1,5 @@
 import { datetimeFormatter } from "../lib/helpers";
+import { Tilt } from "../lib/styling-types";
 import { BaseCard } from "./BaseCard";
 
 type EventContent = {
@@ -7,6 +8,7 @@ type EventContent = {
   event_start?: string;
   event_end?: string;
   price?: string | number;
+  actionText?: string;
   image?: {
     filename?: string;
     meta_data?: {
@@ -21,12 +23,16 @@ type EventCardProps = {
   event: EventContent;
   slug?: string;
   variant?: EventCardVariants;
+  tilt?: Tilt;
+  eyebrowText?: string;
 };
 
 export const EventCard = ({
   event,
   slug,
   variant = "list",
+  tilt,
+  eyebrowText,
 }: EventCardProps) => {
   const formattedDatetime = datetimeFormatter(
     event.event_start,
@@ -46,6 +52,9 @@ export const EventCard = ({
       type="event"
       slug={slug}
       datetime={formattedDatetime}
+      actionText="Explore Event"
+      tilt={tilt}
+      eyebrowText={eyebrowText}
     />
   );
 };

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals1.css";
+import "./globals.css";
 import localFont from "next/font/local";
 import NavBar from "./NavBar";
 import { StoryblokProvider } from "./components/StoryblokProvider";
@@ -47,7 +47,7 @@ export default function RootLayout({
         >
           <PromotionBar />
           <NavBar />
-          <main className="flex-1">{children}</main>
+          <main className="color-set-4 page-shell checkered">{children}</main>
           <Footer />
         </body>
       </html>

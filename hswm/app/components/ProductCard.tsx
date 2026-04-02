@@ -1,4 +1,5 @@
 import { datetimeFormatter } from "../lib/helpers";
+import { Tilt } from "../lib/styling-types";
 import { BaseCard } from "./BaseCard";
 
 type ProductContent = {
@@ -27,18 +28,21 @@ type ProductCardProps = {
   product: ProductContent;
   variant: ProductCardVariants;
   slug?: string;
+  tilt?: Tilt;
+  eyebrowText?: string;
 };
 
 export const ProductCard = ({
   product,
   variant = "list",
   slug,
+  tilt,
+  eyebrowText,
 }: ProductCardProps) => {
   const formattedDatetime = datetimeFormatter(
     product.product_start,
     product.product_end,
   );
-
 
   return (
     <BaseCard
@@ -47,12 +51,16 @@ export const ProductCard = ({
       price={product.price}
       image={{
         filename: product.image?.filename || product.product_image?.filename,
-        alt: product.image?.meta_data?.alt || product.product_image?.meta_data?.alt,
+        alt:
+          product.image?.meta_data?.alt ||
+          product.product_image?.meta_data?.alt,
       }}
       variant={variant}
       type="product"
       datetime={formattedDatetime}
       slug={slug}
+      tilt={tilt}
+      eyebrowText={eyebrowText}
     />
   );
 };
