@@ -23,20 +23,16 @@ This repository contains the Next.js application powering the website. The proje
 ---
 
 ## Our code can be found in the following branches:
-- jackson-branch *quiz page with some working buttons*
-- nextjs *mostly functional basic website design*
 - main branch *design reference for storyblok*
+- feature/wine-quiz *preliminary wine quiz design prototype*
 
 ---
 
-## Release Notes: 
-- Unified website, most links working
-- Wine json file for data
-- Storyblok CRM setup but not yet connected to webs
-- Breakpoints for handling different sized devices
-- Dynamic links for published content on Storyblok
-- Refactored to abstract components for improved modularization
-- Neon Database configured
+## Release Notes 1/2/2026: 
+- Dynamic, updated frontend visuals
+- Backend logic utilizing modulo operator to determine display style for inventory items
+- Planned integration of inventory data
+- Preliminary wine quiz prototype
 
 ---
 
