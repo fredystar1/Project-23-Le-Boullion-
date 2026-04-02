@@ -28,7 +28,7 @@ This repository contains the Next.js application powering the website. The proje
 
 ---
 
-## Release Notes 1/2/2026: 
+## Release Notes 4/2/2026: 
 - Dynamic, updated frontend visuals
 - Backend logic utilizing modulo operator to determine display style for inventory items
 - Planned integration of inventory data
