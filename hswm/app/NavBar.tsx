@@ -11,8 +11,8 @@ const NavBar = () => {
     { href: "/", label: "Home" },
     { href: "/shop", label: "Shop" },
     { href: "/events", label: "Events" },
-    { href: "/wineclub", label: "Wine Club" },
-    { href: "/winedispensers", label: "Dispensers" },
+    { href: "/wine-club", label: "Wine Club" },
+    { href: "/wine-dispensers", label: "Dispensers" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];

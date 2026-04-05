@@ -13,7 +13,13 @@ const fetchHomePage = async () => {
 
 const HomePage = async () => {
   const story = await fetchHomePage();
-  return <StoryblokStory story={story} />;
+  return (
+    <StoryblokStory
+      story={story}
+      variant="featured"
+      contentPageType="editorial-page"
+    />
+  );
 };
 
 export default HomePage;

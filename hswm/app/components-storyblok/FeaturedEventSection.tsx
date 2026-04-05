@@ -1,13 +1,20 @@
-import { Tilt } from "../lib/styling-types";
-import { EventCard } from "./EventCard";
-import { Section } from "./Section";
+import { contentPageType, itemVariantsUI, Tilt } from "../lib/styling-types";
+import { EventCard } from "../components/EventCard";
+import { Section } from "../components/Section";
 
 interface FeaturedEventSectionProps {
   blok: any;
   tilt?: Tilt;
+  variant: itemVariantsUI;
+  contentPageType: contentPageType;
 }
 
-const FeaturedEventSection = ({ blok, tilt }: FeaturedEventSectionProps) => {
+const FeaturedEventSection = ({
+  blok,
+  tilt,
+  variant,
+  contentPageType,
+}: FeaturedEventSectionProps) => {
   const featuredStory = Array.isArray(blok.featured_event)
     ? blok.featured_event[0]
     : blok.featured_event;
@@ -17,8 +24,8 @@ const FeaturedEventSection = ({ blok, tilt }: FeaturedEventSectionProps) => {
   }
 
   return (
-    <div className="editorial-section color-set-neutral bg-[var(--secondary-color)]">
-      <Section className="editorial-content">
+    <div className="section color-set-neutral bg-[var(--secondary-color)]">
+      <Section className={`${contentPageType}-content`} variant={variant}>
         <EventCard
           event={featuredStory.content}
           slug={featuredStory.full_slug}

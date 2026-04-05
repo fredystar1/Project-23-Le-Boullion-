@@ -1,17 +1,19 @@
 import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
-import { Event } from "../components/Event";
-import { Page } from "../components/Page";
-import { UpcomingEvents } from "../components/UpcomingEvents";
-import FeaturedEventSection from "../components/FeaturedEventSection";
-import ProductSection from "../components/ProductSection";
-import Article from "../components/Article";
-import PromotionSelection from "../components/PromotionSelection";
+import { Event } from "../components-storyblok/Event";
+import { Product } from "../components-storyblok/Product";
+import { Page } from "../components-storyblok/Page";
+import { UpcomingEvents } from "../components-storyblok/UpcomingEvents";
+import FeaturedEventSection from "../components-storyblok/FeaturedEventSection";
+import ProductSection from "../components-storyblok/ProductSection";
+import Article from "../components-storyblok/Article";
+import PromotionSelection from "../components-storyblok/PromotionSelection";
 
 export const getStoryblokApi = storyblokInit({
   accessToken: process.env.STORYBLOK_API_TOKEN,
   use: [apiPlugin],
   components: {
     event: Event,
+    product_offering: Product,
     page: Page,
     upcoming_events: UpcomingEvents,
     featured_event: FeaturedEventSection,

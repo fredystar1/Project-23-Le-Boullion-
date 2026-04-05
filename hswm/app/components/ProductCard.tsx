@@ -1,5 +1,5 @@
 import { datetimeFormatter } from "../lib/helpers";
-import { Tilt } from "../lib/styling-types";
+import { Tilt, itemVariantsUI } from "../lib/styling-types";
 import { BaseCard } from "./BaseCard";
 
 type ProductContent = {
@@ -22,11 +22,9 @@ type ProductContent = {
   };
 };
 
-type ProductCardVariants = "featured" | "detailed" | "list";
-
 type ProductCardProps = {
   product: ProductContent;
-  variant: ProductCardVariants;
+  variant: itemVariantsUI;
   slug?: string;
   tilt?: Tilt;
   eyebrowText?: string;

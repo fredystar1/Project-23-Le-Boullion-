@@ -1,32 +1,26 @@
 import { ReactNode } from "react";
-import { Tilt } from "../lib/styling-types";
+import { contentPageType, itemVariantsUI, Tilt } from "../lib/styling-types";
 
 interface SectionProps {
   eyebrowText?: string;
   children: ReactNode;
   className?: string;
+  headline?: string;
   headlineClassName?: string;
   tilt?: Tilt;
+  variant: itemVariantsUI;
 }
 
 export const Section = ({
+  variant,
+  headline,
   eyebrowText,
   children,
   className = "",
-  headlineClassName = "section-title",
   tilt,
 }: SectionProps) => {
-  const combinedClass = tilt ? `${className} ${tilt}` : className;
-  return (
-    <section className={combinedClass}>
-      {/* {headline && (
-        <h2 className={headlineClassName}>
-          <span className="featured-heading-label">{headline}</span>
-        </h2>
-      )} */}
-      {children}
-    </section>
-  );
+  // const combinedClass = tilt ? `${className} ${tilt}` : className;
+  return <section className={className}>{children}</section>;
 };
 
 export default Section;

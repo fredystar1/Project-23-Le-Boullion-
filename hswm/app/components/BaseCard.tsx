@@ -2,9 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { StoryblokServerRichText } from "@storyblok/react/rsc";
 import { ReactNode } from "react";
-import { Tilt } from "../lib/styling-types";
-
-type CardVariant = "featured" | "detailed" | "list";
+import { Tilt, itemVariantsUI } from "../lib/styling-types";
 
 interface BaseCardProps {
   title?: string;
@@ -16,7 +14,7 @@ interface BaseCardProps {
         filename?: string;
         alt?: string;
       };
-  variant?: CardVariant;
+  variant?: itemVariantsUI;
   type: "event" | "product";
   slug?: string;
   datetime?: string | ReactNode;
@@ -58,6 +56,10 @@ export const BaseCard = ({
     list: {
       cardStyle: `${type}-list-item`,
       imageStyle: `${type}-list-item-image`,
+    },
+    pricingItem: {
+      cardStyle: "pricing-item",
+      imageStyle: "pricing-item-image",
     },
   };
 

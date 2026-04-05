@@ -1,5 +1,5 @@
-import { EventCard } from "./EventCard";
-import { Section } from "./Section";
+import { EventCard } from "../components/EventCard";
+import { Section } from "../components/Section";
 
 export const UpcomingEvents = ({ blok }: any) => {
   const sortedEvents = [...(blok.events || [])].sort((a: any, b: any) => {
@@ -9,7 +9,7 @@ export const UpcomingEvents = ({ blok }: any) => {
   });
 
   return (
-    <Section headline={blok.headline}>
+    <Section headline={blok.headline} variant="list">
       <div className="space-y-6">
         {sortedEvents.map((eventStory: any) => (
           <EventCard

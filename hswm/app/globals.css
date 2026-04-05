@@ -734,12 +734,18 @@
 
   /*FRONT PAGE*/
 
-  .editorial-section {
+  /* SECTION STYLES */
+
+  .section {
     @apply flex min-h-[calc(var(--square-x)*3)] min-w-screen justify-center p-2 my-[calc(var(--square-x)/2)];
   }
 
-  .editorial-content {
+  .editorial-page-content {
     @apply flex flex-col items-center justify-center;
+  }
+
+  .product-page-content {
+    @apply flex items-center justify-center;
   }
 
   .editorial-media {
