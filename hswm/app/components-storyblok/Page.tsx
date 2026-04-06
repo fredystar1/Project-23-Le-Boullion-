@@ -5,9 +5,15 @@ interface PageProps {
   blok: any;
   variant: itemVariantsUI;
   contentPageType: contentPageType;
+  colorSet?: string;
 }
 
-export const Page = ({ blok, variant, contentPageType }: PageProps) => {
+export const Page = ({
+  blok,
+  variant,
+  contentPageType,
+  colorSet,
+}: PageProps) => {
   return (
     <section>
       {blok.childrenBlocks.map((blok: any, index: number) => {
@@ -19,6 +25,7 @@ export const Page = ({ blok, variant, contentPageType }: PageProps) => {
             tilt={tilt}
             variant={variant}
             contentPageType={contentPageType}
+            colorSet={colorSet}
           />
         );
       })}

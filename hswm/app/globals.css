@@ -16,64 +16,86 @@
     -webkit-text-stroke: 1px var(--color-primary-logo);
   }
   .text-3D-sm {
-    color: var(--primary-color);
+    color: var(--text);
     text-shadow:
-      1px 1px 0 var(--secondary-color),
-      2px 2px 0 var(--secondary-color);
-    -webkit-text-stroke: 1px var(--secondary-color);
+      1px 1px 0 var(--text-shadow),
+      2px 2px 0 var(--text-shadow);
+    -webkit-text-stroke: 1px var(--text-shadow);
   }
 
   .color-set-1 {
-    --primary-color: var(--color-dusty-coral);
-    --secondary-color: var(--color-harvest-gold-300);
-    --primary-color-active: color-mix(in hsl, var(--primary-color), 20% black);
-
-    --stripe-primary: var(--color-dusty-coral);
-    --stripe-secondary: var(--color-harvest-gold-100);
+    --action: var(--color-dusty-coral);
+    --action-hover: color-mix(in hsl, var(--action), 20% black);
+    --surface: var(--color-harvest-gold-300);
+    --surface-muted: var(--color-morning-haze);
+    --accent: var(--color-harvest-gold);
+    --decorative: var(--color-dusty-coral);
+    --decorative-alt: var(--color-harvest-gold-100);
+    --text: var(--color-dusty-coral);
+    --text-shadow: var(--color-harvest-gold-300);
   }
 
   .color-set-2 {
-    --primary-color: var(--color-harbor-teal-300);
-    --secondary-color: var(--color-harvest-gold-300);
-    --tertiary-color: var(--color-morning-haze);
-    --primary-color-active: color-mix(in hsl, var(--primary-color), 20% black);
-
-    --stripe-primary: var(--color-harbor-teal);
-    --stripe-secondary: var(--color-harvest-gold-100);
+    --action: var(--color-harbor-teal-300);
+    --action-hover: color-mix(in hsl, var(--action), 20% black);
+    --surface: var(--color-harbor-teal-300);
+    --surface-muted: var(--color-morning-haze);
+    --accent: var(--color-harvest-gold);
+    --decorative: var(--color-harbor-teal);
+    --decorative-alt: var(--color-harvest-gold-100);
+    --text: var(--color-harbor-teal);
+    --text-shadow: var(--color-harvest-gold-300);
   }
 
   .color-set-3 {
-    --primary-color: var(--color-dusty-coral);
-    --secondary-color: var(--color-harvest-gold-300);
-    --tertiary-color: var(--color-morning-haze);
-    --primary-color-active: color-mix(in hsl, var(--primary-color), 20% black);
-
-    --stripe-primary: var(--color-harbor-teal);
-    --stripe-secondary: var(--color-harvest-gold-100);
+    --action: var(--color-dusty-coral);
+    --action-hover: color-mix(in hsl, var(--action), 20% black);
+    --surface: var(--color-harvest-gold-300);
+    --surface-muted: var(--color-morning-haze);
+    --accent: var(--color-harvest-gold);
+    --decorative: var(--color-harbor-teal);
+    --decorative-alt: var(--color-harvest-gold-100);
+    --text: var(--color-dusty-coral);
+    --text-shadow: var(--color-harvest-gold-300);
   }
 
   .color-set-4 {
-    --primary-color: var(--color-sage-meadow-300);
-    --secondary-color: var(--color-gray-squirrel-100);
-    --tertiary-color: var(--color-toasted-walnut-600);
-    --accent-color: var(--color-harvest-gold);
-    --stripe-primary: var(--color-harbor-teal);
-    --stripe-secondary: var(--color-harvest-gold-100);
+    --action: var(--color-sage-meadow-300);
+    --action-hover: color-mix(in hsl, var(--action), 20% black);
+    --surface: var(--color-gray-squirrel-100);
+    --surface-muted: var(--color-sage-meadow-200);
+    --accent: var(--color-harvest-gold);
+    --decorative: var(--color-harbor-teal);
+    --decorative-alt: var(--color-harvest-gold-100);
+    --text: var(--color-dusty-coral);
+    --text-shadow: var(--color-harvest-gold-300);
+  }
+
+  .color-set-5 {
+    --action: var(--color-sage-meadow-300);
+    --action-hover: color-mix(in hsl, var(--action), 20% black);
+    --surface: var(--color-gray-squirrel-100);
+    --surface-muted: var(--color-toasted-walnut-600);
+    --accent: var(--color-harvest-gold);
+    --decorative: var(--color-harbor-teal);
+    --decorative-alt: var(--color-harvest-gold-100);
+    --text: var(--color-dusty-coral);
+    --text-shadow: var(--color-harvest-gold-300);
   }
 
   .striped {
     background-image: repeating-linear-gradient(
       -45deg,
-      var(--primary-color) 0px,
-      var(--primary-color) 20px,
-      var(--stripe-secondary) 20px,
-      var(--stripe-secondary) 40px
+      var(--action) 0px,
+      var(--action) 20px,
+      var(--decorative-alt) 20px,
+      var(--decorative-alt) 40px
     );
   }
   .checkered {
     background: repeating-conic-gradient(
-      var(--primary-color) 0 25%,
-      var(--secondary-color) 25% 50%
+      var(--action) 0 25%,
+      var(--surface) 25% 50%
     );
     background-size: var(--square-x) var(--square-y);
   }
@@ -508,7 +530,7 @@
 
   .filter-checkbox {
     @apply h-4 w-4;
-    accent-color: var(--color-dusty-coral);
+    accent: var(--color-dusty-coral);
   }
 
   .filter-reset {
@@ -533,7 +555,7 @@
   }
 
   .shop-shell {
-    @apply mx-auto w-full max-w-screen-2xl my-2 px-4 sm:px-6 lg:px-8 bg-[var(--primary-color)];
+    @apply mx-auto w-full max-w-screen-2xl my-2 px-4 sm:px-6 lg:px-8 bg-[var(--action)];
   }
 
   .shop-layout {
@@ -745,7 +767,12 @@
   }
 
   .product-page-content {
-    @apply flex items-center justify-center;
+    @apply flex justify-center gap-4;
+  }
+
+  .pricing-item {
+    @apply outline-2 outline-gray-50 bg-[var(--surface)];
+    box-shadow: 5px 5px;
   }
 
   .editorial-media {
@@ -809,12 +836,12 @@
   }
 
   .rect-button-container {
-    @apply relative h-fit w-fit justify-center bg-[var(--primary-color)] m-4;
+    @apply relative h-fit w-fit justify-center bg-[var(--action)] m-4;
     box-shadow: 4px 5px;
   }
 
   .rect-button-top {
-    @apply flex h-full flex-col items-center justify-center bg-[var(--primary-color)] p-2 outline-2 outline-toasted-walnut-950 transition-all duration-200 ease-in-out;
+    @apply flex h-full flex-col items-center justify-center bg-[var(--action)] p-2 outline-2 outline-toasted-walnut-950 transition-all duration-200 ease-in-out;
     position: relative;
     top: 0;
     left: 0;
@@ -824,11 +851,11 @@
   .rect-button-container:focus-within .rect-button-top {
     top: 2px;
     left: 2px;
-    @apply cursor-pointer bg-[var(--primary-color-active)];
+    @apply cursor-pointer bg-[var(--action-hover)];
   }
 
   .event-detailed {
-    @apply flex justify-center items-start lg:flex-row max-w-4xl flex-col mt-[calc(var(--square-x)/2)] md:p-8 bg-[var(--secondary-color)] min-w-screen;
+    @apply flex justify-center items-start lg:flex-row max-w-4xl flex-col mt-[calc(var(--square-x)/2)] md:p-8 bg-[var(--surface)] min-w-screen;
   }
   .event-detailed-image {
     @apply h-auto w-full rounded object-cover;
@@ -851,7 +878,7 @@
   }
 
   .event-detailed .card-body-text li::marker {
-    @apply text-[var(--primary-color)] font-semibold;
+    @apply text-[var(--action)] font-semibold;
   }
 
   .event-detailed .card-layered-container {
@@ -865,10 +892,6 @@
   .event-detailed .event-datetime {
     @apply mt-4 text-lg;
   }
-
-  /* .event-detailed .event-price {
-    @apply mt-3 text-sm;
-  } */
 
   .event-detailed .event-description {
     @apply mt-8 text-base leading-8;
@@ -903,127 +926,3 @@
     @apply mt-2 text-xs;
   }
 }
-
-/*
-
-  
-
-  
-
-  
-  /*PRODUCTS*/
-
-/* .product-media {
-    @apply shrink-0;
-  }
-
-  .product-body {
-    @apply flex min-w-0 flex-1 flex-col;
-  }
-
-  .product-title {
-    @apply text-2xl font-semibold leading-tight tracking-tight;
-  }
-
-  .product-datetime {
-    @apply mt-3 text-base font-medium leading-snug;
-  }
-
-  .product-price {
-    @apply mt-2 text-sm font-semibold uppercase tracking-wide;
-  }
-
-  .product-description {
-    @apply mt-5 max-w-none text-base leading-7;
-  }
-
-  .product-description p + p {
-    @apply mt-4;
-  }
-
-  .product-description ul,
-  .product-description ol {
-    @apply my-4 ml-5;
-  }
-
-  .product-description li {
-    @apply mt-1;
-  }
-
-  .product-featured {
-    @apply mx-auto grid max-w-5xl grid-cols-1 items-center gap-8 rounded p-6 md:grid-cols-[minmax(280px,420px)_1fr] md:p-8
-    outline-4 outline-harbor-teal bg-morning-haze rounded;
-  }
-
-  .product-featured:hover {
-    box-shadow: 0 16px 32px rgb(74 52 36 / 14%);
-    transform: translateY(-2px);
-  }
-
-  .product-featured-image {
-    @apply aspect-[4/3] h-auto w-full rounded object-cover;
-  }
-
-  .product-featured .product-body {
-    @apply justify-center;
-  }
-
-  .product-featured .product-title {
-    @apply text-3xl md:text-4xl;
-  }
-
-  .product-featured .product-datetime {
-    @apply mt-4 text-lg;
-  }
-
-  .product-featured .product-price {
-    @apply mt-3 text-sm;
-  }
-
-  .product-detailed {
-    @apply mx-auto flex max-w-4xl flex-col gap-6 rounded-xl p-6 md:p-8;
-    background: color-mix(in oklab, var(--color-parchment-100) 82%, white);
-    border: 1px solid color-mix(in oklab, var(--color-umber-300) 40%, white);
-  }
-
-  .product-detailed-image {
-    @apply aspect-[16/9] h-auto w-full rounded object-cover;
-  }
-
-  .product-detailed .product-title {
-    @apply text-3xl md:text-4xl;
-  }
-
-  .product-detailed .product-datetime {
-    @apply mt-4 text-lg;
-  }
-
-  .product-detailed .product-price {
-    @apply mt-3 text-sm;
-  }
-
-  .product-detailed .product-description {
-    @apply mt-8 text-base leading-8;
-  }
-
-  .product-list-item {
-    @apply grid grid-cols-1 gap-5 rounded-xl p-4 sm:grid-cols-[180px_1fr] sm:p-5;
-    background: color-mix(in oklab, var(--color-parchment-100) 78%, white);
-    border: 1px solid color-mix(in oklab, var(--color-umber-300) 42%, white);
-  }
-
-  .product-list-item-image {
-    @apply aspect-[4/3] h-auto w-full rounded object-cover;
-  }
-
-  .product-list-item .product-title {
-    @apply text-xl;
-  }
-
-  .product-list-item .product-datetime {
-    @apply mt-2 text-sm;
-  }
-
-  .product-list-item .product-price {
-    @apply mt-2 text-xs;
-  } */

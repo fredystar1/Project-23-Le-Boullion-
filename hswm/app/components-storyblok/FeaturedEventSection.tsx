@@ -24,7 +24,7 @@ const FeaturedEventSection = ({
   }
 
   return (
-    <div className="section color-set-neutral bg-[var(--secondary-color)]">
+    <div className="section bg-[var(--surface)]">
       <Section className={`${contentPageType}-content`} variant={variant}>
         <EventCard
           event={featuredStory.content}

@@ -7,6 +7,7 @@ interface ProductSectionProps {
   variant: itemVariantsUI;
   tilt?: Tilt;
   contentPageType: contentPageType;
+  colorSet?: string;
 }
 
 const ProductSection = ({
@@ -14,10 +15,13 @@ const ProductSection = ({
   tilt,
   variant,
   contentPageType,
+  colorSet,
 }: ProductSectionProps) => {
   const itemList = blok.products;
   return (
-    <div className="section color-set-2 bg-[var(--primary-color)]">
+    <div
+      className={`section ${colorSet ? colorSet : "color-set-2"} bg-[var(--surface)]`}
+    >
       <Section
         className={`${contentPageType}-content`}
         tilt={tilt}

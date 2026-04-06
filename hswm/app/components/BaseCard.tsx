@@ -76,7 +76,7 @@ export const BaseCard = ({
   const imageAlt = typeof image === "object" ? image?.alt : "";
 
   const imagePortion = (
-    <div className="card-layered-container holepunch bg-[var(--primary-color)]">
+    <div className="card-layered-container holepunch bg-[var(--surface-muted)]">
       <div className="striped rounded-2xl p-8">
         <div className="card-inner"></div>
         <div className={`${type}-media`}>
