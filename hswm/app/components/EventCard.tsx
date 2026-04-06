@@ -1,6 +1,8 @@
 import { datetimeFormatter } from "../lib/helpers";
 import { Tilt } from "../lib/styling-types";
 import { BaseCard } from "./BaseCard";
+import Link from "next/link";
+import { StoryblokServerRichText } from "@storyblok/react/rsc";
 
 type EventContent = {
   event_name?: string;
@@ -39,20 +41,66 @@ export const EventCard = ({
     event.event_end,
   );
 
+  const type = "event";
+  const showPrice = variant !== "featured";
+  const asPhotoStyle = true;
+
+  const appliedClass = {
+    featured: {
+      cardStyle: "card-featured",
+      imageStyle: "featured-image",
+    },
+    detailed: {
+      cardStyle: `${type}-detailed`,
+      imageStyle: `${type}-detailed-image`,
+    },
+    list: {
+      cardStyle: `${type}-list-item`,
+      imageStyle: `${type}-list-item-image`,
+    },
+  };
+
+  const activeCardStyle = appliedClass[variant].cardStyle;
+  const activeImageStyle = appliedClass[variant].imageStyle;
+  const showDescription = variant !== "featured";
+
   return (
     <BaseCard
       title={event.event_name}
-      description={event.event_description}
-      price={event.price}
       image={{
         filename: event.image?.filename,
         alt: event.image?.meta_data?.alt,
       }}
-      variant={variant}
-      type="event"
-      slug={slug}
-      datetime={formattedDatetime}
-      actionText="Explore Event"
+      cardClassName={activeCardStyle}
+      imageClassName={activeImageStyle}
+      mediaClassName={`${type}-media`}
+      asPhotoStyle={asPhotoStyle}
+      datetimeNode={
+        formattedDatetime ? (
+          <div className={`${type}-datetime`}>{formattedDatetime}</div>
+        ) : null
+      }
+      priceNode={
+        showPrice && event.price ? (
+          <p className={`${type}-price`}>${event.price}</p>
+        ) : null
+      }
+      descriptionNode={
+        showDescription && event.event_description ? (
+          <div className="card-body-text">
+            <StoryblokServerRichText doc={event.event_description} />
+          </div>
+        ) : null
+      }
+      actionNode={
+        slug ? (
+          <div className="rect-button-container color-set-1">
+            <Link className="rect-button-top" href={slug}>
+              {event.actionText || "Explore Event"}
+            </Link>
+          </div>
+        ) : null
+      }
       tilt={tilt}
       eyebrowText={eyebrowText}
     />
