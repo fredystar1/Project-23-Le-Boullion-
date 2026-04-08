@@ -66,7 +66,6 @@ export default function ShopClient({ products }: { products: Product[] }) {
         {/* FILTER COLUMN */}
         <aside className="w-full lg:w-80 shrink-0 lg:sticky lg:top-6 lg:self-start">
           {/* Spacer that visually aligns with the main topbar */}
-          <div className="shop-topbar-spacer" />
           <FilterPanel
             filters={filters}
             setFilters={handleSetFilters}

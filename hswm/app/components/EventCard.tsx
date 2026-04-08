@@ -1,4 +1,4 @@
-import { datetimeFormatter } from "../lib/helpers";
+import { DatetimeFormatStyle, datetimeFormatter } from "../lib/helpers";
 import { Tilt } from "../lib/styling-types";
 import { BaseCard } from "./BaseCard";
 import Link from "next/link";
@@ -27,6 +27,7 @@ type EventCardProps = {
   variant?: EventCardVariants;
   tilt?: Tilt;
   eyebrowText?: string;
+  datetimeFormat?: DatetimeFormatStyle;
 };
 
 export const EventCard = ({
@@ -35,10 +36,12 @@ export const EventCard = ({
   variant = "list",
   tilt,
   eyebrowText,
+  datetimeFormat = "default",
 }: EventCardProps) => {
   const formattedDatetime = datetimeFormatter(
     event.event_start,
     event.event_end,
+    datetimeFormat,
   );
 
   const type = "event";

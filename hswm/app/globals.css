@@ -443,7 +443,7 @@
   /* Filter and Shop System */
 
   .filter-panel {
-    @apply sticky rounded-xl p-4;
+    @apply sticky rounded-xl p-4 top-30 mt-2;
     background: color-mix(in oklab, var(--color-toasted-walnut-100) 74%, white);
     border: 1px solid
       color-mix(in oklab, var(--color-toasted-walnut-300) 48%, white);
@@ -575,14 +575,7 @@
     @apply text-sm;
     color: color-mix(in oklab, var(--color-toasted-walnut-700) 86%, white);
   }
-  .shop-topbar-spacer {
-    @apply mb-4 pb-3 border-b;
-    border-color: color-mix(
-      in oklab,
-      var(--color-toasted-walnut-400) 36%,
-      white
-    );
-  }
+
   .shop-count strong {
     color: var(--color-toasted-walnut-700);
   }
@@ -762,6 +755,10 @@
     @apply flex min-h-[calc(var(--square-x)*3)] min-w-screen justify-center p-2 my-[calc(var(--square-x)/2)];
   }
 
+  .section-headline {
+    @apply flex font-change text-5xl items-center justify-center my-4;
+  }
+
   .editorial-page-content {
     @apply flex flex-col items-center justify-center;
   }
@@ -899,22 +896,24 @@
 
   /* EVENT LIST ITEMS */
 
+  .event-list-container {
+    @apply flex flex-col items-center justify-center;
+  }
+
   .event-list-item {
-    @apply grid grid-cols-1 gap-4 rounded-xl p-2 sm:grid-cols-[180px_1fr] sm:p-5;
-    @apply border-2 bg-morning-haze;
+    @apply flex;
+    @apply border-b-2 border-black bg-[var(--surface)];
   }
   .event-list-item:hover {
-    @apply bg-morning-haze-700;
+    @apply bg-[var(--surface-muted)];
     box-shadow: 0 16px 32px rgb(74 52 36 / 14%);
-    transform: translateY(-2px);
-    cursor: pointer;
   }
 
   .event-list-item-image {
     @apply aspect-[4/3] h-auto w-full rounded object-cover;
   }
 
-  .event-list-item .event-title {
+  .event-list-item .card-title {
     @apply text-xl;
   }
 
