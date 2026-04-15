@@ -897,11 +897,11 @@
   /* EVENT LIST ITEMS */
 
   .event-list-container {
-    @apply flex flex-col items-center justify-center;
+    @apply flex flex-col items-center justify-center max-w-1/3 mx-auto;
   }
 
   .event-list-item {
-    @apply flex;
+    @apply flex gap-2 h-48;
     @apply border-b-2 border-black bg-[var(--surface)];
   }
   .event-list-item:hover {
@@ -909,16 +909,38 @@
     box-shadow: 0 16px 32px rgb(74 52 36 / 14%);
   }
 
-  .event-list-item-image {
-    @apply aspect-[4/3] h-auto w-full rounded object-cover;
+  .event-list-item-content {
+    @apply flex flex-col min-w-0 flex-1;
+  }
+
+  .event-list-item-desc {
+    @apply text-toasted-walnut-950 overflow-hidden;
+  }
+
+  .event-list-item-desc p,
+  .event-list-item-desc li {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .event-list-item-desc > *:not(:first-child) {
+    display: none;
   }
 
   .event-list-item .card-title {
-    @apply text-xl;
+    @apply flex text-xl items-start;
   }
 
-  .event-list-item .event-datetime {
-    @apply mt-2 text-sm;
+  .event-list-item-date {
+    @apply flex flex-col items-center px-2 min-w-18;
+  }
+  .event-list-item-date .month {
+    @apply text-dusty-coral font-change capitalize pb-2;
+  }
+  .event-list-item-date .day {
+    @apply text-toasted-walnut-950 font-prata-regular text-5xl;
   }
 
   .event-list-item .event-price {

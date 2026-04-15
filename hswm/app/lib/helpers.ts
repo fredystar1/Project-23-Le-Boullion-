@@ -168,3 +168,21 @@ export function getDateRangeDisplayParts(
       };
   }
 }
+
+export function findAndShortenFirstParagraph(
+  contentArray: any[],
+  maxLength = 300,
+): string {
+  const paragraph = contentArray.find((node) => node.type === "paragraph");
+
+  if (!paragraph?.content) return "";
+
+  const text = paragraph.content
+    .filter((child: any) => child.type === "text")
+    .map((child: any) => child.text)
+    .join("");
+
+  if (text.length <= maxLength) return text;
+
+  return text.slice(0, maxLength - 3) + "...";
+}

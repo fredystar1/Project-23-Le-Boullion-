@@ -18,18 +18,17 @@ export const UpcomingEventsSection = ({ blok }: any) => {
     >
       <div className="event-list-container">
         {sortedEvents.map((eventStory: any) => (
-          <>
-            <EventCard
+          /* <EventCard
               key={eventStory.uuid || eventStory.id || eventStory.content?._uid}
               event={eventStory.content}
               slug={eventStory.full_slug}
               datetimeFormat="compact"
-            />
-            <EventListItem
-              key={eventStory.uuid || eventStory.id || eventStory.content?._uid}
-              event={eventStory.content}
-            />
-          </>
+            /> */
+          <EventListItem
+            key={eventStory.uuid || eventStory.id || eventStory.content?._uid}
+            event={eventStory.content}
+            slug={eventStory.full_slug}
+          />
         ))}
       </div>
     </Section>
