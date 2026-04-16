@@ -24,7 +24,7 @@ This repository contains the Next.js application powering the website. The proje
 
 ## Our code can be found in the following branches:
 - main branch *design reference for storyblok*
-- feature/wine-quiz *preliminary wine quiz design prototype*
+- api-test *API reference for stock inventory*
 
 ---
 
