@@ -28,11 +28,12 @@ This repository contains the Next.js application powering the website. The proje
 
 ---
 
-## Release Notes 4/2/2026: 
-- Dynamic, updated frontend visuals
-- Backend logic utilizing modulo operator to determine display style for inventory items
-- Planned integration of inventory data
-- Preliminary wine quiz prototype
+## Release Notes 4/16/2026: 
+- Preliminary API infrasture
+- Quiz Modeling
+- More Website Layout Refinement
+- Additional Helper Functions
+- Major Refactor Away From Monolithic Components
 
 ---
 
