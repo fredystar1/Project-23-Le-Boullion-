@@ -3,6 +3,8 @@ import {
   getDateRangeDisplayParts,
 } from "../lib/helpers";
 
+import Link from "next/link";
+
 import { StoryblokServerRichText } from "@storyblok/react/rsc";
 
 type EventContent = {
@@ -54,10 +56,18 @@ export const EventListItem = ({ event, slug }: EventListItemProps) => {
       )}
     </>
   );
+  const eventButton = slug ? (
+    <div className="rect-button-container color-set-1">
+      <Link className="rect-button-top" href={slug}>
+        {event.actionText || "Explore Event"}
+      </Link>
+    </div>
+  ) : null;
   const textPortion = (
     <div className="event-list-item-content">
       <p>{`${dateparts?.startTime} - ${dateparts?.endTime}`}</p>
       <h3 className="card-title">{event.event_name}</h3>
+
       <div className="event-list-item-desc">
         {shortenedText && shortenedText}
       </div>
@@ -66,7 +76,7 @@ export const EventListItem = ({ event, slug }: EventListItemProps) => {
   const content = (
     <div className="event-list-item">
       {dateFormat}
-      {textPortion}
+      {textPortion} {eventButton}
     </div>
   );
 

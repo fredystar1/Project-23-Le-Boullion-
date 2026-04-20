@@ -273,7 +273,7 @@
   }
 
   .nav-link-wrapper {
-    @apply relative inline-block whitespace-nowrap transition-all duration-200;
+    @apply relative inline-block w-60 text-center whitespace-nowrap transition-all duration-200;
   }
 
   .nav-link-shadow {
@@ -901,12 +901,21 @@
   }
 
   .event-list-item {
-    @apply flex gap-2 h-48;
+    @apply flex gap-2 h-64;
     @apply border-b-2 border-black bg-[var(--surface)];
   }
+
+  .event-list-item .rect-button-container {
+    @apply opacity-0 translate-y-2 pointer-events-none transition-all duration-200;
+  }
+
   .event-list-item:hover {
     @apply bg-[var(--surface-muted)];
     box-shadow: 0 16px 32px rgb(74 52 36 / 14%);
+  }
+
+  .event-list-item:hover .rect-button-container {
+    @apply opacity-100 translate-y-0 pointer-events-auto;
   }
 
   .event-list-item-content {

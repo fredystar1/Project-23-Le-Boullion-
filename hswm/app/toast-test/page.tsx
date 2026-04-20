@@ -1,11 +1,11 @@
-import { getToastInventory } from "../lib/api/toast/toast-client";
+import { getToastInventory, getInventoryGuids, getInventoryItemInfo } from "../lib/api/toast/toast-client";
 
 const Page = async () => {
-  const response = await getToastInventory();
+  const response = await getInventoryItemInfo();
 
   console.log(response);
 
-  return <div>{JSON.stringify(response)}</div>;
+  return <div className="section bg-amber-50">{JSON.stringify(response)}</div>;
 };
 
 export default Page;

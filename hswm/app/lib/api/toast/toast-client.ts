@@ -80,7 +80,7 @@ status: ${response.status}
 body: ${text}`,
     );
   }
-
+  
   return response.json() as Promise<T>;
 }
 
@@ -91,6 +91,27 @@ export async function getToastMenuItems(): Promise<ToastMenuItem[]> {
 export async function getToastInventory(): Promise<ToastInventoryItem[]> {
   return toastFetch<ToastInventoryItem[]>("/stock/v1/inventory");
 }
+
+export async function getInventoryGuids(): Promise<string[]> {
+  const inventory = await getToastInventory();
+  const guidArray = inventory.flatMap((item) => (item.guid ? [item.guid] : []));
+  return guidArray;
+}
+
+export async function getInventoryItemInfo(): Promise<any> {
+  const guidArray = await getInventoryGuids();
+  
+  if (!guidArray.length) return [];
+
+  return toastFetch<any>("/stock/v1/inventory/search", {
+    method: "POST",
+    body: JSON.stringify({
+      guids: guidArray,
+    }),
+  });
+}
+
+
 
 function decodeJwtPayload(token: string) {
   const payload = token.split(".")[1];

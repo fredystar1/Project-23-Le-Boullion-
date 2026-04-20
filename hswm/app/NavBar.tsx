@@ -13,8 +13,8 @@ const NavBar = () => {
     { href: "/events", label: "Events" },
     { href: "/wine-club", label: "Wine Club" },
     { href: "/wine-dispensers", label: "Dispensers" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    // { href: "/about", label: "About" },
+    // { href: "/contact", label: "Contact" },
   ];
 
   return (
