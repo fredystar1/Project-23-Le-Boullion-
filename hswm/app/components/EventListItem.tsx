@@ -46,12 +46,14 @@ export const EventListItem = ({ event, slug }: EventListItemProps) => {
           <p className="day">{dateparts.dateStart?.day}</p>
         </div>
       ) : (
-        <div className="color-set-3 event-list-item-date">
-          <p className="month">{dateparts?.dateStart?.month}</p>
-          <p className="day">{dateparts?.dateStart?.day}</p>
-          <br />
-          <p className="month">{dateparts?.dateEnd?.month}</p>
-          <p className="day">{dateparts?.dateEnd?.day}</p>
+        <div className="event-list-item-date-container">
+          <div className="color-set-3 event-list-item-date">
+            <p className="month">{dateparts?.dateStart?.month}</p>
+            <p className="day">{dateparts?.dateStart?.day}</p>
+            <br />
+            <p className="month">{dateparts?.dateEnd?.month}</p>
+            <p className="day">{dateparts?.dateEnd?.day}</p>
+          </div>
         </div>
       )}
     </>

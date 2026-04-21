@@ -336,7 +336,7 @@
   }
 
   .brand-script {
-    @apply font-brand-script translate-x-2 -rotate-4 text-3xl tracking-widest text-harvest-gold;
+    @apply font-brand-script translate-x-2 -rotate-4 lg:text-3xl text-2xl tracking-widest text-harvest-gold;
   }
 
   .footer {
@@ -897,16 +897,70 @@
   /* EVENT LIST ITEMS */
 
   .event-list-container {
-    @apply flex flex-col items-center justify-center max-w-1/3 mx-auto;
+    @apply flex flex-col items-center justify-center w-full mx-auto;
+    margin-top: 1.5rem;
+  }
+
+  /* 80% width under large breakpoint */
+  @media (max-width: 1023px) {
+    .event-list-container {
+      width: 80%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .event-list-container {
+      max-width: 50%;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .event-list-container {
+      max-width: 35%;
+    }
   }
 
   .event-list-item {
-    @apply flex gap-2 h-64;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    column-gap: 1rem;
+    row-gap: 0.25rem;
+    align-items: start;
+    width: 100%;
+    min-height: 14rem;
+    overflow: hidden;
+    padding: 1rem 1.25rem;
     @apply border-b-2 border-black bg-[var(--surface)];
   }
 
+  @media (min-width: 1024px) {
+    .event-list-item {
+      grid-template-columns: auto 1fr auto;
+      grid-template-rows: auto auto 1fr;
+      max-height: 16rem;
+    }
+  }
+
+  /* Mobile: button at bottom, spanning full width */
   .event-list-item .rect-button-container {
-    @apply opacity-0 translate-y-2 pointer-events-none transition-all duration-200;
+    @apply transition-all duration-200;
+    grid-column: 1 / -1;
+    grid-row: 4;
+    justify-self: center;
+    margin-top: 0.5rem;
+  }
+
+  /* Desktop: button in right column, vertically centered, hidden until hover */
+  @media (min-width: 1024px) {
+    .event-list-item .rect-button-container {
+      @apply opacity-0 translate-y-2 pointer-events-none;
+      grid-column: 3;
+      grid-row: 1 / -1;
+      align-self: center;
+      justify-self: end;
+      margin-top: 0;
+    }
   }
 
   .event-list-item:hover {
@@ -915,15 +969,44 @@
   }
 
   .event-list-item:hover .rect-button-container {
-    @apply opacity-100 translate-y-0 pointer-events-auto;
+    @apply opacity-100 lg:translate-y-0 pointer-events-auto;
+  }
+
+  /* Time — first row, second column */
+  .event-list-item-content > p:first-child {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .event-list-item-content {
-    @apply flex flex-col min-w-0 flex-1;
+    display: contents;
   }
 
+  /* Title — second row, second column, wraps to show full title */
+  .event-list-item .card-title {
+    @apply font-prata-regular text-2xl lg:text-xl mb-1;
+    grid-column: 2;
+    grid-row: 2;
+    display: block;
+    text-align: start;
+  }
+
+  /* Description — third row, second column, clamp to available space */
   .event-list-item-desc {
-    @apply text-toasted-walnut-950 overflow-hidden;
+    @apply text-toasted-walnut-950;
+    grid-column: 2;
+    grid-row: 3;
+    overflow: hidden;
+    display: none;
+    min-height: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .event-list-item-desc {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
   }
 
   .event-list-item-desc p,
@@ -938,13 +1021,22 @@
     display: none;
   }
 
-  .event-list-item .card-title {
-    @apply flex text-xl items-start;
+  /* Date stack — left column, pinned to top, spans all rows */
+  .event-list-item-date-container {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    align-self: start;
+    justify-self: start;
   }
 
   .event-list-item-date {
     @apply flex flex-col items-center px-2 min-w-18;
+    grid-column: 1;
+    grid-row: 1 / -1;
+    align-self: start;
+    justify-self: start;
   }
+
   .event-list-item-date .month {
     @apply text-dusty-coral font-change capitalize pb-2;
   }
