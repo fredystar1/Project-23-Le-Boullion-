@@ -265,26 +265,39 @@
   }
 
   .navbar-row {
-    @apply flex flex-col xl:flex-row xl:items-end xl:justify-between xl:gap-8;
+    @apply flex flex-col 2xl:flex-row 2xl:items-end 2xl:justify-between 2xl:gap-8;
   }
 
   .nav-links {
-    @apply hidden md:flex md:flex-nowrap md:items-end md:justify-center md:gap-1 md:font-governor transition-all duration-300;
+    @apply hidden md:flex md:flex-nowrap md:items-end md:justify-center md:gap-1 font-governor transition-all duration-300;
+    @apply text-lg;
   }
 
   .nav-link-wrapper {
     @apply relative inline-block w-60 text-center whitespace-nowrap transition-all duration-200;
   }
 
-  .nav-link-shadow {
-    @apply absolute inset-0 rounded-t-lg border-2 border-b-4 border-toasted-walnut opacity-0 transition-opacity duration-200 inset-shadow-sm/50;
-  }
-
   .nav-link-face {
     @apply relative z-10 block rounded-t-lg border-2 border-toasted-walnut bg-sage-meadow-400
-     px-4 py-2 text-lg xl:text-base 2xl:px-5 2xl:py-3 2xl:text-2xl 
-     font-governor uppercase tracking-wider transition duration-200 ease-out;
+    px-4 py-2 text-lg xl:text-base 2xl:px-5 2xl:py-3 2xl:text-2xl
+    font-governor uppercase tracking-wider transition duration-200 ease-out;
     transform: translate(0, 0);
+  }
+
+  @media (min-width: 1536px) and (max-width: 1752px) {
+    .nav-link-wrapper {
+      width: 13rem;
+    }
+
+    .nav-link-face {
+      font-size: 1.125rem;
+      padding: 0.625rem 0.875rem;
+      letter-spacing: 0.04em;
+    }
+  }
+
+  .nav-link-shadow {
+    @apply absolute inset-0 rounded-t-lg border-2 border-b-4 border-toasted-walnut opacity-0 transition-opacity duration-200 inset-shadow-sm/50;
   }
 
   .nav-link-face:hover {
@@ -332,11 +345,13 @@
   }
 
   .brand-title {
-    @apply font-governor text-2xl font-bold uppercase tracking-wider text-harvest-gold sm:text-5xl xl:text-4xl;
+    @apply font-governor text-3xl font-bold uppercase tracking-wider text-harvest-gold
+    sm:text-3xl lg:text-4xl xl:text-3xl 2xl:text-4xl;
   }
 
   .brand-script {
-    @apply font-brand-script translate-x-2 -rotate-4 lg:text-3xl text-2xl tracking-widest text-harvest-gold;
+    @apply font-brand-script translate-x-2 -rotate-4 text-2xl tracking-widest text-harvest-gold
+    sm:text-2xl lg:text-3xl xl:text-2xl 2xl:text-3xl;
   }
 
   .footer {
