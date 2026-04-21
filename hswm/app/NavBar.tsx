@@ -1,11 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    const handleChange = (e: MediaQueryListEvent | MediaQueryList) => {
+      if (e.matches) setOpen(false);
+    };
+
+    handleChange(mediaQuery);
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   const links = [
     { href: "/", label: "Home" },
@@ -47,7 +59,7 @@ const NavBar = () => {
 
           <button
             type="button"
-            className="nav-menu-button"
+            className={`nav-menu-button ${open ? "nav-menu-button-active" : ""}`}
             aria-label="Open navigation menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}

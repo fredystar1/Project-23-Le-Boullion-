@@ -83,6 +83,18 @@
     --text-shadow: var(--color-harvest-gold-300);
   }
 
+  .color-set-6 {
+    --action: var(--color-harbor-teal-200);
+    --action-hover: color-mix(in hsl, var(--action), 20% black);
+    --surface: var(--color-dusty-coral);
+    --surface-muted: var(--color-harbor-teal-300);
+    --accent: var(--color-harvest-gold-100);
+    --decorative: var(--color-dusty-coral);
+    --decorative-alt: var(--color-harvest-gold-200);
+    --text: var(--color-white);
+    --text-shadow: var(--color-harbor-teal-700);
+  }
+
   .striped {
     background-image: repeating-linear-gradient(
       -45deg,
@@ -220,7 +232,7 @@
 
 @layer components {
   .page-shell {
-    @apply pb-[calc(var(--square-x))] flex h-full w-full flex-col justify-center gap-[calc(var(--square-x)/2)];
+    @apply pb-[calc(var(--square-x))] flex-1 w-full flex-col justify-center gap-[calc(var(--square-x)/2)];
   }
 
   .hero-banner {
@@ -241,11 +253,61 @@
   }
 
   .banner {
-    @apply bg-dusty-coral flex items-center justify-center;
+    @apply flex flex-col gap-2 bg-[var(--surface)] px-6 py-5 text-white md:flex-row md:items-start md:justify-center md:gap-10;
   }
 
   .banner-section {
-    @apply outline-double outline-3 justify-center;
+    @apply flex min-w-0 flex-col gap-3 h-fit items-center justify-center;
+  }
+
+  .banner-subsurface {
+    @apply bg-[var(--surface)] rounded-2xl w-full flex flex-col justify-center;
+    @apply border-dashed border-4 p-4;
+  }
+
+  .banner-subheading {
+    @apply font-governor text-3xl uppercase tracking-wider flex justify-center;
+  }
+
+  .banner-address {
+    @apply not-italic text-lg leading-relaxed;
+  }
+
+  .banner-address span {
+    @apply block;
+  }
+
+  .banner-list {
+    @apply flex flex-col gap-2 text-xl leading-relaxed;
+  }
+
+  .banner-list li {
+    @apply flex flex-col items-center sm:flex-row sm:items-start sm:gap-1;
+  }
+  .banner-label {
+    @apply font-semibold text-[var(--accent)] text-center;
+    width: 8rem;
+  }
+
+  .banner-value {
+    @apply text-center;
+    transform: translateX(0.5rem);
+  }
+
+  @media (min-width: 640px) {
+    .banner-label {
+      width: auto;
+      text-align: left;
+    }
+
+    .banner-value {
+      transform: none;
+      text-align: left;
+    }
+  }
+
+  .banner-hero-text {
+    @apply flex justify-center text-white italic font-bold;
   }
 
   .promo-banner {
@@ -257,7 +319,7 @@
   }
 
   .navbar {
-    @apply sticky top-0 z-20 border-b-4 border-toasted-walnut bg-sage-meadow;
+    @apply sticky top-0 z-20 border-b-4 border-toasted-walnut bg-sage-meadow w-full;
   }
 
   .navbar-inner {
@@ -313,7 +375,7 @@
   }
 
   .nav-menu-button {
-    @apply mr-auto inline-flex items-center justify-center p-2 text-toasted-walnut md:hidden rounded-2xl;
+    @apply mr-auto inline-flex items-center justify-center rounded-2xl p-2 text-toasted-walnut md:hidden;
   }
 
   .nav-menu-button:hover {
@@ -325,11 +387,15 @@
   }
 
   .mobile-nav {
-    @apply flex flex-col gap-2 py-3 xl:hidden bg-harbor-teal;
+    @apply absolute left-0 right-0 top-full z-50 mt-1 flex flex-col items-center justify-center gap-2 bg-sage-meadow-500 p-2 shadow-lg md:hidden;
   }
 
   .mobile-nav-link {
-    @apply px-2 py-2 font-governor text-white bg-sage-meadow-400;
+    @apply flex w-full items-center justify-center bg-sage-meadow-400 px-2 py-2 text-center font-governor text-white outline-2 outline-white;
+  }
+
+  .nav-menu-button-active {
+    @apply bg-sage-meadow-800;
   }
 
   .mobile-nav-link:hover {
@@ -347,6 +413,12 @@
   .brand-title {
     @apply font-governor text-3xl font-bold uppercase tracking-wider text-harvest-gold
     sm:text-3xl lg:text-4xl xl:text-3xl 2xl:text-4xl;
+  }
+
+  @media (max-width: 364px) {
+    .brand-title {
+      text-align: center;
+    }
   }
 
   .brand-script {
@@ -836,7 +908,7 @@
   }
 
   .card-layered-container {
-    @apply flex max-w-xl min-w-md h-fit;
+    @apply flex max-w-xl min-w-0 h-fit;
   }
 
   .card-featured {
@@ -1061,5 +1133,18 @@
 
   .event-list-item .event-price {
     @apply mt-2 text-xs;
+  }
+
+  /* POLICY PAGE */
+  .policy-card {
+    @apply flex flex-col rounded-2xl items-center justify-center;
+    @apply border-2 border-dashed border-[var(--accent)] m-24 pt-8 pb-8 p-24;
+  }
+  .policy-label {
+    @apply flex items-center justify-center rounded-lg px-4 py-2 font-change text-lg;
+  }
+
+  .policy-label:hover {
+    @apply bg-dusty-coral-200 outline outline-dusty-coral-500;
   }
 }
