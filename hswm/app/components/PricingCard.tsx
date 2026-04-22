@@ -1,8 +1,29 @@
+/**
+ * Pricing card renderer — displays a set of Storyblok product stories
+ * as pricing-tier cards inside a {@link Section} wrapper.
+ *
+ * Used on pages like the Wine Club where multiple membership tiers are
+ * shown side-by-side.  Each tier is rendered via {@link BaseCard} in the
+ * `"pricingItem"` variant.
+ *
+ * @module PricingCard
+ */
+
 import Section from "./Section";
 import { BaseCard } from "./BaseCard";
 import Link from "next/link";
 import { StoryblokServerRichText } from "@storyblok/react/rsc";
 
+/**
+ * Render an array of Storyblok product stories as pricing-tier cards.
+ *
+ * @param blok - An array of Storyblok story objects. Each story is
+ *               expected to have `content.product_name`,
+ *               `content.image` (or `content.product_image`),
+ *               `content.price`, and `content.product_description`.
+ * @returns A `<Section>` containing one `BaseCard` per tier, or an empty
+ *          section if the array is empty.
+ */
 const PricingCard = (blok: any) => {
   return (
     <Section variant="pricingItem">

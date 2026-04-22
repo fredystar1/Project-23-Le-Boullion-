@@ -1,6 +1,27 @@
+/**
+ * Contact page — `/contact`
+ *
+ * Displays store contact information alongside a simple "Send us a
+ * message" form.  The form is currently **non-functional** (no submit
+ * handler or server action is wired up).
+ *
+ * This page is not currently linked in the main navigation.
+ *
+ * @module pages/contact
+ */
+
 import HeroBanner from "../HeroBanner";
 import Button from "../Button";
 
+/**
+ * Render the Contact page.
+ *
+ * Layout:
+ * - **Left column** — address, phone, email, and business hours.
+ * - **Right column** — a name / email / message form with a submit button.
+ *
+ * @returns The full Contact page JSX.
+ */
 const Page = () => {
   return (
     <div>

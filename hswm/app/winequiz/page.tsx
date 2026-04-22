@@ -1,17 +1,57 @@
+/**
+ * Wine Quiz page — `/winequiz`
+ *
+ * An interactive, multi-step questionnaire that helps users discover
+ * wine styles and regions matching their taste preferences.  The quiz
+ * follows a tree structure: each answer either advances to a new
+ * question or ends the quiz.
+ *
+ * This is a **client component** (`"use client"`) because it manages
+ * the current question index and quiz-completion state via React hooks.
+ *
+ * @module pages/winequiz
+ */
+
 "use client";
 
 import { useState } from "react";
 
+/**
+ * Represents a single answer option within a question.
+ */
 type Option = {
+  /** Display label for the option button. */
   label: string;
-  next?: number; // if undefined → quiz ends
+  /**
+   * Index of the next question to navigate to.
+   * When `undefined`, selecting this option ends the quiz.
+   */
+  next?: number;
 };
 
+/**
+ * Represents a single page / step in the quiz.
+ */
 type QuestionPage = {
+  /** The question text displayed to the user. */
   question: string;
+  /** Available answer options. */
   options: Option[];
 };
 
+/**
+ * Static quiz data defining the question tree.
+ *
+ * The tree is stored as a flat array indexed by question number.
+ * Each option's `next` field points to the index of the follow-up
+ * question (or is omitted to signal quiz completion).
+ *
+ * Flow overview:
+ * - **Q0** — Style preference → branches to White (Q1), Red (Q2),
+ *   Rose (Q3), or terminates (Sparkling / Wildcard).
+ * - **Q1–Q3** — Quality preferences → branches to region questions.
+ * - **Q4–Q11** — Region selection → all terminal (no `next`).
+ */
 const questionPages: QuestionPage[] = [
   {
     question: "What is your favorite style of wine?",
@@ -111,10 +151,28 @@ const questionPages: QuestionPage[] = [
   },
 ];
 
+/**
+ * Interactive wine quiz page component.
+ *
+ * State:
+ * - `current` — index of the currently displayed question.
+ * - `showResult` — `true` once the quiz is complete (no more questions).
+ *
+ * @returns The quiz UI with question display, option buttons, and a
+ *          completion / restart screen.
+ */
 export default function WineQuizPage() {
 	const [current, setCurrent] = useState(0);
 	const [showResult, setShowResult] = useState(false);
   
+	/**
+	 * Handle an answer selection.
+	 *
+	 * If the selected option has a valid `next` index, advance to that
+	 * question; otherwise mark the quiz as complete.
+	 *
+	 * @param option - The option the user clicked.
+	 */
 	const handleAnswer = (option: Option) => {
 	  if (option.next !== undefined && questionPages[option.next]) {
 		setCurrent(option.next);
@@ -123,6 +181,7 @@ export default function WineQuizPage() {
 	  }
 	};
   
+	/** Reset quiz state back to the first question. */
 	const restartQuiz = () => {
 	  setCurrent(0);
 	  setShowResult(false);

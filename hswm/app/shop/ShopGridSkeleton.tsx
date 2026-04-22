@@ -1,3 +1,24 @@
+/**
+ * Shop grid skeleton loader.
+ *
+ * Displays a grid of placeholder cards with shimmer animations,
+ * matching the layout of {@link ShopGrid} so that the page doesn't
+ * shift when real data loads in.
+ *
+ * @module shop/ShopGridSkeleton
+ */
+
+/**
+ * Render a skeleton loading state for the shop product grid.
+ *
+ * Each skeleton card mimics the shape of a real {@link ProductCard}:
+ * image area, three text lines, and a price / badge row.
+ *
+ * @param props       - Component props.
+ * @param props.count - Number of skeleton cards to render (default `12`,
+ *                      matching the default page size).
+ * @returns A `<div>` with the `shop-grid` class containing shimmer cards.
+ */
 export default function ShopGridSkeleton({ count = 12 }: { count?: number }) {
   return (
     <div className="shop-grid">

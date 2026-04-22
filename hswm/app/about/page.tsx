@@ -1,3 +1,18 @@
+/**
+ * About page — `/about`
+ *
+ * Static placeholder page for the "About Howard Street Wine Merchant"
+ * section.  Currently displays lorem-ipsum content and is not linked
+ * in the main navigation.
+ *
+ * @module pages/about
+ */
+
+/**
+ * Render the About page.
+ *
+ * @returns A `<main>` element with a hero banner and placeholder body text.
+ */
 const Page = () => {
   return (
     <main className="page-shell">

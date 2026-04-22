@@ -1,5 +1,20 @@
+/**
+ * Custom 404 (Not Found) page.
+ *
+ * Displayed by Next.js whenever a route cannot be resolved.  Shows a
+ * "Page not Found" heading with a styled link back to the home page.
+ *
+ * @see {@link https://nextjs.org/docs/app/api-reference/file-conventions/not-found}
+ * @module not-found
+ */
+
 import Link from "next/link";
 
+/**
+ * Render the 404 page.
+ *
+ * @returns A centered "Page not Found" message with a "Return Home" button.
+ */
 export default function Custom500() {
   return (
     <div className="section bg-[var(--surface)] flex flex-col items-center justify-center p-40">

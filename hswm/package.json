@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "docs": "typedoc",
+    "docs:serve": "typedoc && npx -y serve docs"
   },
   "dependencies": {
     "@storyblok/react": "^5.4.22",
@@ -23,6 +25,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
+    "typedoc": "^0.28.19",
     "typescript": "^5"
   }
 }

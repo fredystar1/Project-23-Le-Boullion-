@@ -1,6 +1,30 @@
+/**
+ * Site-wide footer component.
+ *
+ * Displays the store's contact information, business hours, happy-hour
+ * details, policy links, and a copyright line.  This is a **server
+ * component** — it contains no client-side interactivity.
+ *
+ * @module Footer
+ */
+
 import Link from "next/link";
 
+/**
+ * Render the site footer.
+ *
+ * The footer is divided into a three-column grid:
+ *
+ * 1. **Brand / Contact** — store name, address, and email.
+ * 2. **Hours** — regular hours and happy-hour information.
+ * 3. **Policies** — links to refund, privacy, and ToS pages.
+ *
+ * A bottom bar displays the dynamic copyright year and tagline.
+ *
+ * @returns The rendered `<footer>` element.
+ */
 const Footer = () => {
+  /** Policy page link definitions. */
   const links = [
     { href: "/policies/refund-policy", label: "Refund Policy" },
     { href: "/policies/privacy-policy", label: "Privacy Policy" },

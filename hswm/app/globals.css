@@ -530,7 +530,7 @@
   /* Filter and Shop System */
 
   .filter-panel {
-    @apply sticky rounded-xl p-4 top-30 mt-2;
+    @apply sticky rounded-xl p-4 top-100 mt-2;
     background: color-mix(in oklab, var(--color-toasted-walnut-100) 74%, white);
     border: 1px solid
       color-mix(in oklab, var(--color-toasted-walnut-300) 48%, white);

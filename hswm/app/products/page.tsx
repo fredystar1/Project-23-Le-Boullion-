@@ -1,3 +1,18 @@
+/**
+ * Products listing page — `/products`
+ *
+ * Static placeholder page for the products index.  Currently displays
+ * lorem-ipsum content.  Individual product detail pages are served by
+ * the `[...slug]` catch-all route.
+ *
+ * @module pages/products
+ */
+
+/**
+ * Render the products index page.
+ *
+ * @returns A `<main>` element with a hero banner and placeholder body text.
+ */
 const Page = () => {
   return (
     <main className="page-shell">

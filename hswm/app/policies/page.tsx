@@ -1,11 +1,27 @@
+/**
+ * Policies index page — `/policies`
+ *
+ * Displays links to the store's legal / policy pages (refund, privacy,
+ * and terms of service).  Individual policy detail pages are served by
+ * the `[slug]` dynamic route.
+ *
+ * @module pages/policies
+ */
+
 import Link from "next/link";
 
+/** Policy page link definitions. */
 const policies = [
   { href: "/policies/refund-policy", label: "Refund Policy" },
   { href: "/policies/privacy-policy", label: "Privacy Policy" },
   { href: "/policies/terms-of-service", label: "Terms of Service" },
 ];
 
+/**
+ * Render the policies index page.
+ *
+ * @returns A themed card listing clickable links to each policy page.
+ */
 const Page = () => {
   return (
     <div className="section color-set-5 bg-[var(--surface)]">

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "app/**/*.ts",
+    "app/**/*.tsx"
+  ],
+  "entryPointStrategy": "expand",
+  "exclude": [
+    "**/*.css",
+    "**/*.json",
+    "**/node_modules/**",
+    "**/.next/**"
+  ],
+  "out": "docs",
+  "name": "Howard Street Wine Merchant",
+  "readme": "none",
+  "tsconfig": "tsconfig.typedoc.json",
+  "skipErrorChecking": true
+}

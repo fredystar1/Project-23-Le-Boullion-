@@ -1,21 +1,41 @@
+/**
+ * Product card component — renders a Storyblok product in one of four
+ * visual variants by composing props for {@link BaseCard}.
+ *
+ * @module ProductCard
+ */
+
 import { DatetimeFormatStyle, datetimeFormatter } from "../lib/helpers";
 import { Tilt, itemVariantsUI } from "../lib/styling-types";
 import { BaseCard } from "./BaseCard";
 import Link from "next/link";
 import { StoryblokServerRichText } from "@storyblok/react/rsc";
 
+/**
+ * Shape of the product data consumed by {@link ProductCard}.
+ *
+ * Supports two image field names (`image` and `product_image`) because
+ * different Storyblok content types use different field keys.
+ */
 type ProductContent = {
+  /** Display name of the product. */
   product_name?: string;
+  /** Storyblok rich-text field with the product description. */
   product_description?: any;
+  /** Optional availability start date. */
   product_start?: string;
+  /** Optional availability end date. */
   product_end?: string;
+  /** Product price in USD. */
   price?: string | number;
+  /** Primary image asset. */
   image?: {
     filename?: string;
     meta_data?: {
       alt?: string;
     };
   };
+  /** Alternate image field (used by some content types). */
   product_image?: {
     filename?: string;
     meta_data?: {
@@ -24,15 +44,43 @@ type ProductContent = {
   };
 };
 
+/**
+ * Props accepted by the {@link ProductCard} component.
+ */
 type ProductCardProps = {
+  /** Product content from Storyblok. */
   product: ProductContent;
+  /**
+   * Visual variant determining the CSS classes and which content
+   * slots are displayed.
+   */
   variant: itemVariantsUI;
+  /** Full slug for linking to the product detail page. */
   slug?: string;
+  /** Tilt direction forwarded to `BaseCard`. */
   tilt?: Tilt;
+  /** Eyebrow label rendered above the title. */
   eyebrowText?: string;
+  /** Controls how start/end dates are formatted. */
   datetimeFormat?: DatetimeFormatStyle;
 };
 
+/**
+ * Renders a product as a card by mapping product data onto the generic
+ * {@link BaseCard} slot props.
+ *
+ * Variant-specific behaviour:
+ *
+ * | Variant         | Photo frame? | Description? | CSS prefix        |
+ * | --------------- | ------------ | ------------ | ----------------- |
+ * | `"featured"`    | Yes          | No (hidden)  | `card-featured`   |
+ * | `"detailed"`    | No           | Yes          | `product-detailed`|
+ * | `"list"`        | No           | No           | `product-list-item`|
+ * | `"pricingItem"` | No           | Yes          | `pricing-item`    |
+ *
+ * @param props - See {@link ProductCardProps}.
+ * @returns A composed `BaseCard` element.
+ */
 export const ProductCard = ({
   product,
   variant = "list",
@@ -50,6 +98,7 @@ export const ProductCard = ({
   const showDescription = variant !== "list";
   const type = "product";
 
+  /** CSS class map keyed by variant. */
   const appliedClass = {
     featured: {
       cardStyle: "card-featured",

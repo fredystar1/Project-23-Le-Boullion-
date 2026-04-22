@@ -1,20 +1,58 @@
+/**
+ * Filter panel sidebar for the wine shop.
+ *
+ * This is a **client component** (`"use client"`) that renders
+ * interactive filter controls (price range, availability toggle, vendor
+ * dropdown, and category chips).  Filter state is lifted up to
+ * `ShopClient` via the `setFilters` callback.
+ *
+ * @module shop/FilterPanel
+ */
+
 "use client";
 
 import type { Filters } from "../lib/products";
 
+/**
+ * Props accepted by the {@link FilterPanel} component.
+ */
 type Props = {
+  /** Current filter state. */
   filters: Filters;
+  /** Callback to update the filter state. */
   setFilters: (next: Filters) => void;
+  /** Sorted list of unique vendor names (populates the vendor dropdown). */
   vendors: string[];
+  /** Sorted list of unique category slugs (populates the category chips). */
   categories: string[];
 };
 
+/**
+ * Render the shop filter sidebar.
+ *
+ * Sections:
+ * 1. **Price range** — min / max number inputs.
+ * 2. **Availability** — "Only show in-stock" checkbox.
+ * 3. **Vendor** — dropdown select.
+ * 4. **Category** — toggle chips.
+ *
+ * A badge displays the number of active filter dimensions, and a
+ * "Reset" button clears all filters at once.
+ *
+ * @param props - See {@link Props}.
+ * @returns The filter panel `<aside>` element.
+ */
 export default function FilterPanel({
   filters,
   setFilters,
   vendors,
   categories,
 }: Props) {
+  /**
+   * Toggle a category slug in or out of the active filter set.
+   *
+   * @param cat - The category slug to toggle.
+   */
   const toggleCategory = (cat: string) => {
     const has = filters.categories.includes(cat);
     const nextCats = has
@@ -24,6 +62,7 @@ export default function FilterPanel({
     setFilters({ ...filters, categories: nextCats });
   };
 
+  /** Reset all filters to their default (empty) state. */
   const reset = () => {
     setFilters({
       priceMin: "",
@@ -34,6 +73,7 @@ export default function FilterPanel({
     });
   };
 
+  /** Number of distinct filter dimensions that are currently active. */
   const activeCount =
     (filters.priceMin !== "" ? 1 : 0) +
     (filters.priceMax !== "" ? 1 : 0) +

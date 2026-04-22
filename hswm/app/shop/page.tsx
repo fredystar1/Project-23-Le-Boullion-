@@ -1,3 +1,17 @@
+/**
+ * Shop page — `/shop`
+ *
+ * Server component that loads the static wine catalogue from
+ * `wines.json`, normalises it into {@link Product} objects, and hands
+ * the data off to the client-side {@link ShopClient} for filtering,
+ * pagination, and rendering.
+ *
+ * A hero banner with a link to the wine quiz is displayed above the
+ * shop grid.
+ *
+ * @module pages/shop
+ */
+
 import ShopClient from "./ShopClient";
 import winesData from "../wines.json";
 import type { Product } from "../lib/products";
@@ -5,6 +19,12 @@ import HeroBanner from "../HeroBanner";
 import Button from "../Button";
 import Link from "next/link";
 
+/**
+ * Shape of a single record in `wines.json`.
+ *
+ * This is a local convenience type for the JSON import; the data is
+ * normalised to {@link Product} before being passed to the client.
+ */
 type WineRecord = {
   id: number;
   title: string;
@@ -16,6 +36,15 @@ type WineRecord = {
   price: number | string;
 };
 
+/**
+ * Render the shop page.
+ *
+ * Converts the raw wine JSON into a `Product[]` array (substituting
+ * placeholder images and coercing prices to numbers) and passes it to
+ * `ShopClient` for interactive display.
+ *
+ * @returns The hero banner and the `ShopClient` component.
+ */
 export default function Page() {
   const wines = winesData.wines as WineRecord[];
 

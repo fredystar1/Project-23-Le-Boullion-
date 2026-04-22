@@ -1,6 +1,27 @@
+/**
+ * Home page — `/`
+ *
+ * Fetches the `home` story from Storyblok (with featured event and
+ * product relations resolved) and renders it via `<StoryblokStory>`.
+ * A static info banner with the store's location, hours, and happy-hour
+ * details is displayed above the dynamic CMS content.
+ *
+ * @module pages/home
+ */
+
 import { StoryblokStory } from "@storyblok/react/rsc";
 import { getStoryblokApi } from "./lib/storyblok";
 
+/**
+ * Fetch the `home` story from Storyblok.
+ *
+ * Resolves the `featured_event.featured_event` and
+ * `featured_product.product` relations so their content is inlined.
+ *
+ * @returns The fully resolved Storyblok story object.
+ *
+ * @internal
+ */
 const fetchHomePage = async () => {
   const client = getStoryblokApi();
   const res = await client.getStory(`home`, {
@@ -10,6 +31,15 @@ const fetchHomePage = async () => {
   return res.data.story;
 };
 
+/**
+ * Async server component for the home page.
+ *
+ * Renders:
+ * 1. A three-section info banner (location, hours, happy hour).
+ * 2. The Storyblok-managed content blocks (featured events, products, etc.).
+ *
+ * @returns The full home page JSX.
+ */
 const HomePage = async () => {
   const story = await fetchHomePage();
   return (
