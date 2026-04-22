@@ -854,11 +854,6 @@
     @apply flex justify-center gap-4;
   }
 
-  .pricing-item {
-    @apply outline-2 outline-gray-50 bg-[var(--surface)];
-    box-shadow: 5px 5px;
-  }
-
   .editorial-media {
     @apply shrink-0;
   }
@@ -1146,5 +1141,55 @@
 
   .policy-label:hover {
     @apply bg-dusty-coral-200 outline outline-dusty-coral-500;
+  }
+
+  /* PRODUCTS */
+  .product-detailed {
+    @apply flex justify-center items-start lg:flex-row max-w-4xl flex-col mt-[calc(var(--square-x)/2)] md:p-8 bg-[var(--surface)] min-w-screen;
+  }
+  .product-detailed-image {
+    @apply h-auto w-full rounded object-cover;
+  }
+
+  .product-detailed .card-body-text {
+    @apply max-w-[70ch] font-change text-2xl;
+  }
+
+  .product-detailed .card-body-text ul {
+    @apply list-disc pl-6 my-4;
+  }
+
+  .product-detailed .card-body-text ol {
+    @apply list-decimal pl-6 my-4;
+  }
+
+  .product-detailed .card-body-text li {
+    @apply mt-2 leading-relaxed;
+  }
+
+  .product-detailed .card-body-text li::marker {
+    @apply text-[var(--action)] font-semibold;
+  }
+
+  .product-detailed .card-layered-container {
+    @apply flex items-end sticky top-30;
+  }
+
+  .product-detailed .event-title {
+    @apply text-3xl md:text-4xl;
+  }
+
+  .product-detailed .event-datetime {
+    @apply mt-4 text-lg;
+  }
+
+  .product-detailed .event-description {
+    @apply mt-8 text-base leading-8;
+  }
+
+  /* PRICING ITEMS */
+  .pricing-item {
+    @apply outline-2 outline-gray-50 bg-[var(--surface)];
+    box-shadow: 5px 5px;
   }
 }

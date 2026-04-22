@@ -7,6 +7,8 @@ import FeaturedEventSection from "../components-storyblok/FeaturedEventSection";
 import ProductSection from "../components-storyblok/ProductSection";
 import Article from "../components-storyblok/Article";
 import PromotionSelection from "../components-storyblok/PromotionSelection";
+import FeaturedProductSection from "../components-storyblok/FeaturedProductSection";
+import MultiProduct from "../components-storyblok/MultiProduct";
 
 export const getStoryblokApi = storyblokInit({
   accessToken: process.env.STORYBLOK_API_TOKEN,
@@ -14,6 +16,8 @@ export const getStoryblokApi = storyblokInit({
   components: {
     event: Event,
     product_offering: Product,
+    multi_product: MultiProduct,
+    featured_product: FeaturedProductSection,
     page: Page,
     upcoming_events: UpcomingEventsSection,
     featured_event: FeaturedEventSection,

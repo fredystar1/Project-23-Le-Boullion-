@@ -17,10 +17,8 @@ export default async function WineClubPage({ params }: WineClubProps) {
   const { slug } = await params;
   const story = await fetchWineClub(slug);
 
-  console.log(story);
-
   return (
-    <div>
+    <div className="section color-set-1 bg-[var(--surface)]">
       <StoryblokStory story={story} />
     </div>
   );

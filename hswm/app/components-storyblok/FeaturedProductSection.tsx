@@ -2,7 +2,7 @@ import { Tilt, contentPageType, itemVariantsUI } from "../lib/styling-types";
 import { ProductCard } from "../components/ProductCard";
 import { Section } from "../components/Section";
 
-interface ProductSectionProps {
+interface FeaturedProductSectionProps {
   blok: any;
   variant: itemVariantsUI;
   tilt?: Tilt;
@@ -10,16 +10,14 @@ interface ProductSectionProps {
   colorSet?: string;
 }
 
-const ProductSection = ({
+const FeaturedProductSection = ({
   blok,
   tilt,
   variant,
   contentPageType,
   colorSet,
-}: ProductSectionProps) => {
-  // console.log(blok);
+}: FeaturedProductSectionProps) => {
   const featuredProduct = blok.product;
-  // console.log(featuredProduct);
   return (
     <div
       className={`section ${colorSet ? colorSet : "color-set-2"} bg-[var(--surface)]`}
@@ -30,16 +28,15 @@ const ProductSection = ({
         variant={variant}
       >
         <ProductCard
-          key={featuredProduct.uuid}
           product={featuredProduct.content}
-          variant={variant}
           slug={featuredProduct.full_slug}
+          variant={variant}
           tilt={tilt}
-          eyebrowText={blok.eyebrow_text}
+          eyebrowText={featuredProduct.eyebrow_text}
         />
       </Section>
     </div>
   );
 };
 
-export default ProductSection;
+export default FeaturedProductSection;

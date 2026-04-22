@@ -5,8 +5,6 @@ import {
 
 import Link from "next/link";
 
-import { StoryblokServerRichText } from "@storyblok/react/rsc";
-
 type EventContent = {
   event_name?: string;
   event_description?: any;
@@ -36,8 +34,6 @@ export const EventListItem = ({ event, slug }: EventListItemProps) => {
   const shortenedText = findAndShortenFirstParagraph(
     event.event_description.content,
   );
-  // console.log(dateparts);
-  // console.log(event.event_description.content[0]);
   const dateFormat = (
     <>
       {dateparts?.sameDate ? (

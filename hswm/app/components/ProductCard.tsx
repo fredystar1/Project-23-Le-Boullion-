@@ -42,8 +42,8 @@ export const ProductCard = ({
   datetimeFormat,
 }: ProductCardProps) => {
   const formattedDatetime = datetimeFormatter(
-    product.product_start,
-    product.product_end,
+    product?.product_start,
+    product?.product_end,
     datetimeFormat,
   );
 
@@ -72,7 +72,6 @@ export const ProductCard = ({
   const activeCardStyle = appliedClass[variant].cardStyle;
   const activeImageStyle = appliedClass[variant].imageStyle;
   const asPhotoStyle = variant === "featured";
-
   return (
     <BaseCard
       title={product.product_name}
