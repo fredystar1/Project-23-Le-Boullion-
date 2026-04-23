@@ -49,7 +49,7 @@ const NavBar = () => {
                   className={`nav-link-shadow striped color-set-${(index % 2) + 1}`}
                 />
                 <span
-                  className={`nav-link-face text-3D-sm color-set-${(index % 2) + 1}`}
+                  className={`nav-link-face text-3D-sm-links color-set-${(index % 2) + 1}`}
                 >
                   {link.label}
                 </span>

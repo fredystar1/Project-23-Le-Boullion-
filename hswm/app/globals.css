@@ -23,6 +23,14 @@
     -webkit-text-stroke: 1px var(--text-shadow);
   }
 
+  .text-3D-sm-links {
+    color: var(--decorative);
+    text-shadow:
+      1px 1px 0 var(--text-shadow),
+      2px 2px 0 var(--text-shadow);
+    -webkit-text-stroke: 1px var(--text-shadow);
+  }
+
   .color-set-1 {
     --action: var(--color-dusty-coral);
     --action-hover: color-mix(in hsl, var(--action), 20% black);
@@ -43,7 +51,7 @@
     --accent: var(--color-harvest-gold);
     --decorative: var(--color-harbor-teal);
     --decorative-alt: var(--color-harvest-gold-100);
-    --text: var(--color-harbor-teal);
+    --text: var(--color-black);
     --text-shadow: var(--color-harvest-gold-300);
   }
 
@@ -67,7 +75,7 @@
     --accent: var(--color-harvest-gold);
     --decorative: var(--color-harbor-teal);
     --decorative-alt: var(--color-harvest-gold-100);
-    --text: var(--color-dusty-coral);
+    --text: var(--color-black);
     --text-shadow: var(--color-harvest-gold-300);
   }
 
@@ -87,6 +95,18 @@
     --action: var(--color-harbor-teal-200);
     --action-hover: color-mix(in hsl, var(--action), 20% black);
     --surface: var(--color-dusty-coral);
+    --surface-muted: var(--color-harbor-teal-300);
+    --accent: var(--color-harvest-gold-100);
+    --decorative: var(--color-dusty-coral);
+    --decorative-alt: var(--color-harvest-gold-200);
+    --text: var(--color-white);
+    --text-shadow: var(--color-harbor-teal-700);
+  }
+
+  .color-set-7 {
+    --action: var(--color-toasted-walnut-800);
+    --action-hover: color-mix(in hsl, var(--action), 20% black);
+    --surface: var(--color-toasted-walnut-700);
     --surface-muted: var(--color-harbor-teal-300);
     --accent: var(--color-harvest-gold-100);
     --decorative: var(--color-dusty-coral);
@@ -334,7 +354,6 @@
     @apply hidden md:flex md:flex-nowrap md:items-end md:justify-center md:gap-1 font-governor transition-all duration-300;
     @apply text-lg;
   }
-
   .nav-link-wrapper {
     @apply relative inline-block w-60 text-center whitespace-nowrap transition-all duration-200;
   }
@@ -911,7 +930,7 @@
   }
 
   .card-body-text {
-    @apply max-w-[35ch] font-change text-2xl;
+    @apply max-w-[35ch] font-change text-2xl text-[var(--text)];
   }
 
   .rect-button-container {
@@ -1152,7 +1171,7 @@
   }
 
   .product-detailed .card-body-text {
-    @apply max-w-[70ch] font-change text-2xl;
+    @apply max-w-[70ch] font-change text-2xl text-[var(--text)];
   }
 
   .product-detailed .card-body-text ul {

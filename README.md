@@ -7,7 +7,7 @@
 
 ## Overview
 
-Howard Street Wine Merchant is Omaha's premier wine vendor. Their new web experience is currently in development. Our project is to create an updated, fully functional website for the company Howard Street Wine Merchant. The website will be functionally editable by non-technical users, and will also include a wine quiz to drive sale performance. 
+Howard Street Wine Merchant is Omaha's premier wine vendor. Their new web experience is currently in development. Our project is to create an updated, fully functional website for the company Howard Street Wine Merchant. The website will be functionally editable by non-technical users, and will also include a wine quiz to drive sale performance.
 
 This repository contains the Next.js application powering the website. The project is being built with performance, scalability, and clean design in mind.
 
@@ -23,16 +23,19 @@ This repository contains the Next.js application powering the website. The proje
 ---
 
 ## Our code can be found in the following branches:
-- main branch *design reference for storyblok*
-- feature/wine-quiz *preliminary wine quiz design prototype*
+
+- main branch _design reference for storyblok_
+- api-test _API reference for stock inventory_
 
 ---
 
-## Release Notes 4/2/2026: 
-- Dynamic, updated frontend visuals
-- Backend logic utilizing modulo operator to determine display style for inventory items
-- Planned integration of inventory data
-- Preliminary wine quiz prototype
+## Release Notes 4/16/2026:
+
+- Preliminary API infrasture
+- Quiz Modeling
+- More Website Layout Refinement
+- Additional Helper Functions
+- Major Refactor Away From Monolithic Components
 
 ---
 
@@ -52,17 +55,11 @@ npm install
 ```
 
 ### 3. Create Local Environment
-Create a ```.env.local``` at the project root and copy the Storyblok API access token.
+
+Create a `.env.local` at the project root and copy the Storyblok API access token.
 
 ### 4. Run Development Server
 
 ```bash
 npm run dev
 ```
-
-
-
-
-
-
-

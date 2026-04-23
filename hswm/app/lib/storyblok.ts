@@ -9,6 +9,8 @@ import Article from "../components-storyblok/Article";
 import PromotionSelection from "../components-storyblok/PromotionSelection";
 import FeaturedProductSection from "../components-storyblok/FeaturedProductSection";
 import MultiProduct from "../components-storyblok/MultiProduct";
+import FeaturedStorySection from "../components-storyblok/FeaturedStorySection";
+import MultiLinkSection from "../components-storyblok/MultiLinkSection";
 
 export const getStoryblokApi = storyblokInit({
   accessToken: process.env.STORYBLOK_API_TOKEN,
@@ -24,6 +26,8 @@ export const getStoryblokApi = storyblokInit({
     product_section: ProductSection,
     article: Article,
     promo_selection: PromotionSelection,
+    featured_story: FeaturedStorySection,
+    multi_link: MultiLinkSection,
   },
   enableFallbackComponent: true,
 });
