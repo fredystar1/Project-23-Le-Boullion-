@@ -17,17 +17,14 @@ const ProductSection = ({
   contentPageType,
   colorSet,
 }: ProductSectionProps) => {
-  // console.log(blok);
   const featuredProduct = blok.product;
-  // console.log(featuredProduct);
   return (
-    <div
-      className={`section ${colorSet ? colorSet : "color-set-2"} bg-[var(--surface)]`}
-    >
+    <div className={`section $ bg-[var(--surface)]`}>
       <Section
         className={`${contentPageType}-content`}
         tilt={tilt}
         variant={variant}
+        colorSet={colorSet ? colorSet : "color-set-2"}
       >
         <ProductCard
           key={featuredProduct.uuid}

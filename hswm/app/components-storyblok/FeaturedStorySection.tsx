@@ -18,8 +18,11 @@ const FeaturedStorySection = ({
   contentPageType,
   colorSet,
 }: FeaturedStorySectionProps) => {
-  const productList = blok.products;
-  const productDescription = blok.description;
+  const featuredWineStory = blok.featured_story.content;
+  const featuredWineStoryDescription = featuredWineStory.description;
+  const featuredWineProducts = featuredWineStory.products;
+  const sectionHeadline = featuredWineStory.headline;
+
   return (
     <Section
       className={`${contentPageType}-content bg-[var(--surface)]`}
@@ -27,19 +30,21 @@ const FeaturedStorySection = ({
       variant={variant}
       colorSet="color-set-7"
     >
-      <h2 className="card-title">{blok.headline}</h2>
+      {blok.eyebrow_text && (
+        <span className="eyebrow">{blok.eyebrow_text}</span>
+      )}
+      <h2 className="card-title">{sectionHeadline}</h2>
       <div className="card-body-text">
-        <StoryblokServerRichText doc={productDescription} />
+        <StoryblokServerRichText doc={featuredWineStoryDescription} />
       </div>
 
-      {...productList.map((product: any) => (
+      {...featuredWineProducts.map((product: any) => (
         <ProductCard
           key={product.uuid}
           product={product.content}
           variant={variant}
           slug={product.full_slug}
           tilt={tilt}
-          eyebrowText={blok.eyebrow_text}
         />
       ))}
     </Section>

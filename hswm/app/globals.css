@@ -4,9 +4,6 @@
 @import "tailwindcss";
 
 @layer utilities {
-  .double-outline {
-    @apply outline-8 outline-double;
-  }
   .text-3D {
     text-shadow:
       1px 1px 0px var(--color-primary-logo),
@@ -1210,5 +1207,28 @@
   .pricing-item {
     @apply outline-2 outline-gray-50 bg-[var(--surface)];
     box-shadow: 5px 5px;
+  }
+
+  /* BUTTON */
+  .image-buttons-container {
+    @apply flex flex-row gap-2 p-4;
+  }
+
+  .image-button-container {
+    @apply relative z-0 h-fit w-fit justify-center;
+    box-shadow: 3px 3px;
+  }
+  .image-button-top {
+    @apply relative z-10 h-full border-2 bg-[var(--decorative)] p-2 transition-all duration-200 ease-in-out;
+    @apply flex flex-col items-center justify-center;
+  }
+
+  .image-button-container:hover .image-button-top,
+  .image-button-container:focus-within .image-button-top {
+    @apply translate-x-0.5 translate-y-0.5 cursor-pointer bg-[var(--action-hover)];
+  }
+
+  .image-container {
+    @apply h-56 w-56 sm:h-48 sm:w-48;
   }
 }

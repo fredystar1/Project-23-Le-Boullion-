@@ -18,26 +18,23 @@ const MultiProduct = ({
 }: MultiProductProps) => {
   const productList = blok.product_list;
   return (
-    <div
-      className={`section ${colorSet ? colorSet : "color-set-2"} bg-[var(--surface)]`}
+    <Section
+      className={`${contentPageType}-content`}
+      tilt={tilt}
+      variant={variant}
+      colorSet={colorSet ? colorSet : "color-set-2"}
     >
-      <Section
-        className={`${contentPageType}-content`}
-        tilt={tilt}
-        variant={variant}
-      >
-        {...productList.map((product: any) => (
-          <ProductCard
-            key={product.uuid}
-            product={product.content}
-            variant={variant}
-            slug={product.full_slug}
-            tilt={tilt}
-            eyebrowText={blok.eyebrow_text}
-          />
-        ))}
-      </Section>
-    </div>
+      {...productList.map((product: any) => (
+        <ProductCard
+          key={product.uuid}
+          product={product.content}
+          variant={variant}
+          slug={product.full_slug}
+          tilt={tilt}
+          eyebrowText={blok.eyebrow_text}
+        />
+      ))}
+    </Section>
   );
 };
 

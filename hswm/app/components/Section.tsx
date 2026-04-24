@@ -23,7 +23,7 @@ export const Section = ({
 }: SectionProps) => {
   const combinedClass = colorSet ? `${className} ${colorSet}` : className;
   return (
-    <section className={combinedClass}>
+    <section className={`section ${combinedClass} bg-[var(--surface)]`}>
       <h2 className="section-headline">{headline}</h2>
       {children}
     </section>

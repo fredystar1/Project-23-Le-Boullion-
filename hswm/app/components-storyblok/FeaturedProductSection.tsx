@@ -19,23 +19,20 @@ const FeaturedProductSection = ({
 }: FeaturedProductSectionProps) => {
   const featuredProduct = blok.product;
   return (
-    <div
-      className={`section ${colorSet ? colorSet : "color-set-2"} bg-[var(--surface)]`}
+    <Section
+      className={`${contentPageType}-content`}
+      tilt={tilt}
+      variant={variant}
+      colorSet={colorSet ? colorSet : "color-set-2"}
     >
-      <Section
-        className={`${contentPageType}-content`}
-        tilt={tilt}
+      <ProductCard
+        product={featuredProduct.content}
+        slug={featuredProduct.full_slug}
         variant={variant}
-      >
-        <ProductCard
-          product={featuredProduct.content}
-          slug={featuredProduct.full_slug}
-          variant={variant}
-          tilt={tilt}
-          eyebrowText={featuredProduct.eyebrow_text}
-        />
-      </Section>
-    </div>
+        tilt={tilt}
+        eyebrowText={featuredProduct.eyebrow_text}
+      />
+    </Section>
   );
 };
 

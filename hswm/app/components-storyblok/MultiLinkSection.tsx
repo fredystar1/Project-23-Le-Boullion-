@@ -19,20 +19,19 @@ const MultiLinkSection = ({
 }: MultiLinkSectionProps) => {
   const pageLinks = blok.links;
   return (
-    <div className="section color-set-4 bg-[var(--surface)]">
-      <Section
-        className={`${contentPageType}-content`}
-        tilt={tilt}
-        variant={variant}
-        headline={blok.headline}
-      >
-        <div className="flex gap-8">
-          {...pageLinks.map((link: any) => (
-            <Link href={link.full_slug}>{link.name}</Link>
-          ))}
-        </div>
-      </Section>
-    </div>
+    <Section
+      className={`${contentPageType}-content`}
+      tilt={tilt}
+      variant={variant}
+      headline={blok.headline}
+      colorSet="color-set-4"
+    >
+      <div className="flex gap-8">
+        {...pageLinks.map((link: any) => (
+          <Link href={link.full_slug}>{link.name}</Link>
+        ))}
+      </div>
+    </Section>
   );
 };
 

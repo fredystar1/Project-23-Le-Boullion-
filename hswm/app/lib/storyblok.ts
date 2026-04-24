@@ -11,22 +11,24 @@ import FeaturedProductSection from "../components-storyblok/FeaturedProductSecti
 import MultiProduct from "../components-storyblok/MultiProduct";
 import FeaturedStorySection from "../components-storyblok/FeaturedStorySection";
 import MultiLinkSection from "../components-storyblok/MultiLinkSection";
+import FeaturedWineCategoriesSection from "../components-storyblok/FeaturedWineCategoriesSection";
 
 export const getStoryblokApi = storyblokInit({
   accessToken: process.env.STORYBLOK_API_TOKEN,
   use: [apiPlugin],
   components: {
+    featured_product: FeaturedProductSection,
+    featured_event: FeaturedEventSection,
+    featured_story: FeaturedStorySection,
+    featured_wine_categories: FeaturedWineCategoriesSection,
     event: Event,
     product_offering: Product,
     multi_product: MultiProduct,
-    featured_product: FeaturedProductSection,
     page: Page,
     upcoming_events: UpcomingEventsSection,
-    featured_event: FeaturedEventSection,
     product_section: ProductSection,
     article: Article,
     promo_selection: PromotionSelection,
-    featured_story: FeaturedStorySection,
     multi_link: MultiLinkSection,
   },
   enableFallbackComponent: true,
