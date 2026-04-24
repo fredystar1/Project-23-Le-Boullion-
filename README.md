@@ -23,22 +23,6 @@ This repository contains the Next.js application powering the website. The proje
 - **TypeDoc** (API documentation generation)
 - **ESLint**
 
----
-
-## Our code can be found in the following branches:
-- main branch *design reference for storyblok*
-- feature/wine-quiz *preliminary wine quiz design prototype*
-
----
-
-## Release Notes 4/2/2026: 
-- Dynamic, updated frontend visuals
-- Backend logic utilizing modulo operator to determine display style for inventory items
-- Planned integration of inventory data
-- Preliminary wine quiz prototype
-
----
-
 ## Development
 
 ### 1. Clone the repository
