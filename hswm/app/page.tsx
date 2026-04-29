@@ -6,7 +6,7 @@ const fetchHomePage = async () => {
   const res = await client.getStory(`home`, {
     version: "draft",
     resolve_relations:
-      "featured_event.featured_event,featured_product.product,featured_story.products,featured_story.featured_story",
+      "featured_event.featured_event,featured_product.product,featured_story.products,featured_story.featured_story,featured_wine_dispensers.wine_dispensers",
   });
   return res.data.story;
 };

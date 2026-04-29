@@ -4,7 +4,7 @@ import Link from "next/link";
 import { StoryblokServerRichText } from "@storyblok/react/rsc";
 import ImageButton from "../components/ImageButton";
 
-interface FeaturedWineCategoriesProps {
+interface FeaturedWineDispensersProps {
   blok: any;
   variant: itemVariantsUI;
   tilt?: Tilt;
@@ -12,32 +12,28 @@ interface FeaturedWineCategoriesProps {
   colorSet?: string;
 }
 
-const FeaturedWineCategoriesSection = ({
+const FeaturedWineDispensersSection = ({
   blok,
   variant,
   tilt,
   contentPageType,
   colorSet,
-}: FeaturedWineCategoriesProps) => {
-  const wineCategoryContent = blok.links_and_images;
-  const wineCategoryDescription = blok.description;
-  const wineCategoryHeadline = blok.headline;
+}: FeaturedWineDispensersProps) => {
+  const wineDispenserContent = blok.wine_dispensers;
+  const wineDispenserHeadline = blok.headline;
   return (
     <Section
       className={`${contentPageType}-content bg-[var(--surface)]`}
       tilt={tilt}
       variant={variant}
-      colorSet="color-set-6"
+      colorSet="color-set-2"
     >
       {blok.eyebrow_text && (
         <span className="eyebrow">{blok.eyebrow_text}</span>
       )}
-      <h2 className="card-title">{wineCategoryHeadline}</h2>
-      <div className="card-body-text">
-        <StoryblokServerRichText doc={wineCategoryDescription} />
-      </div>
+      <h2 className="card-title">{wineDispenserHeadline}</h2>
       <div className="image-buttons-container">
-        {wineCategoryContent.map((product: any) => (
+        {wineDispenserContent.map((product: any) => (
           <div
             key={product._uid}
             className="flex flex-col justify-center items-center"
@@ -56,4 +52,4 @@ const FeaturedWineCategoriesSection = ({
   );
 };
 
-export default FeaturedWineCategoriesSection;
+export default FeaturedWineDispensersSection;
