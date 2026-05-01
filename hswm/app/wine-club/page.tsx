@@ -5,7 +5,7 @@ const fetchWineClub = async () => {
   const client = getStoryblokApi();
   const res = await client.getStory(`wine-club/wine-club`, {
     version: "draft",
-    resolve_relations: "product_section.products",
+    resolve_relations: "multi_product.product_list",
   });
   return res.data.story;
 };
@@ -15,9 +15,8 @@ const WineClubPage = async () => {
   return (
     <StoryblokStory
       story={story}
-      variant="pricingItem"
-      contentPageType="product-page"
       colorSet="color-set-5"
+      
     />
   );
 };

@@ -1,4 +1,3 @@
-import { EventCard } from "../components/EventCard";
 import EventListItem from "../components/EventListItem";
 import { Section } from "../components/Section";
 
@@ -12,18 +11,11 @@ export const UpcomingEventsSection = ({ blok }: any) => {
   return (
     <Section
       headline={blok.headline}
-      variant="list"
       colorSet="color-set-4"
-      className={`section bg-[var(--surface)] flex-col`}
+      className="flex flex-col"
     >
       <div className="event-list-container">
         {sortedEvents.map((eventStory: any) => (
-          /* <EventCard
-              key={eventStory.uuid || eventStory.id || eventStory.content?._uid}
-              event={eventStory.content}
-              slug={eventStory.full_slug}
-              datetimeFormat="compact"
-            /> */
           <EventListItem
             key={eventStory.uuid || eventStory.id || eventStory.content?._uid}
             event={eventStory.content}

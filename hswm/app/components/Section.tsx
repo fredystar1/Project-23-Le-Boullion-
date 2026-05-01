@@ -1,30 +1,29 @@
 import { ReactNode } from "react";
-import { contentPageType, itemVariantsUI, Tilt } from "../lib/styling-types";
+
+type SectionType = "editorial" | "pricing";
 
 interface SectionProps {
   eyebrowText?: string;
   children: ReactNode;
   className?: string;
   headline?: string;
-  headlineClassName?: string;
-  tilt?: Tilt;
-  variant: itemVariantsUI;
   colorSet?: string;
+  sectionType?: SectionType;
 }
 
 export const Section = ({
-  variant,
   headline,
   eyebrowText,
   children,
   className = "",
-  tilt,
   colorSet,
+  sectionType,
 }: SectionProps) => {
   const combinedClass = colorSet ? `${className} ${colorSet}` : className;
   return (
-    <section className={combinedClass}>
-      <h2 className="section-headline">{headline}</h2>
+    <section className={`section ${combinedClass} bg-[var(--surface)]`}>
+      {eyebrowText && <span className="section-eyebrow">{eyebrowText}</span>}
+      {headline && <h2 className="section-headline">{headline}</h2>}
       {children}
     </section>
   );

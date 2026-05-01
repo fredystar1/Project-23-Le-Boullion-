@@ -3,7 +3,7 @@ import {
   getDateRangeDisplayParts,
 } from "../lib/helpers";
 
-import { StoryblokServerRichText } from "@storyblok/react/rsc";
+import Link from "next/link";
 
 type EventContent = {
   event_name?: string;
@@ -34,8 +34,6 @@ export const EventListItem = ({ event, slug }: EventListItemProps) => {
   const shortenedText = findAndShortenFirstParagraph(
     event.event_description.content,
   );
-  // console.log(dateparts);
-  // console.log(event.event_description.content[0]);
   const dateFormat = (
     <>
       {dateparts?.sameDate ? (
@@ -44,20 +42,30 @@ export const EventListItem = ({ event, slug }: EventListItemProps) => {
           <p className="day">{dateparts.dateStart?.day}</p>
         </div>
       ) : (
-        <div className="color-set-3 event-list-item-date">
-          <p className="month">{dateparts?.dateStart?.month}</p>
-          <p className="day">{dateparts?.dateStart?.day}</p>
-          <br />
-          <p className="month">{dateparts?.dateEnd?.month}</p>
-          <p className="day">{dateparts?.dateEnd?.day}</p>
+        <div className="event-list-item-date-container">
+          <div className="color-set-3 event-list-item-date">
+            <p className="month">{dateparts?.dateStart?.month}</p>
+            <p className="day">{dateparts?.dateStart?.day}</p>
+            <br />
+            <p className="month">{dateparts?.dateEnd?.month}</p>
+            <p className="day">{dateparts?.dateEnd?.day}</p>
+          </div>
         </div>
       )}
     </>
   );
+  const eventButton = slug ? (
+    <div className="rect-button-container color-set-1">
+      <Link className="rect-button-top" href={slug}>
+        {event.actionText || "Explore Event"}
+      </Link>
+    </div>
+  ) : null;
   const textPortion = (
     <div className="event-list-item-content">
       <p>{`${dateparts?.startTime} - ${dateparts?.endTime}`}</p>
       <h3 className="card-title">{event.event_name}</h3>
+
       <div className="event-list-item-desc">
         {shortenedText && shortenedText}
       </div>
@@ -66,7 +74,7 @@ export const EventListItem = ({ event, slug }: EventListItemProps) => {
   const content = (
     <div className="event-list-item">
       {dateFormat}
-      {textPortion}
+      {textPortion} {eventButton}
     </div>
   );
 

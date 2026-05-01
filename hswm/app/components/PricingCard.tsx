@@ -5,7 +5,7 @@ import { StoryblokServerRichText } from "@storyblok/react/rsc";
 
 const PricingCard = (blok: any) => {
   return (
-    <Section variant="pricingItem">
+    <Section>
       {blok.length > 0 && blok.map((tier: any) => {
         const content = tier.content;
         return (

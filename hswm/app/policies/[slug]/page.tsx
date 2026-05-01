@@ -18,7 +18,7 @@ export default async function PolicysPage({ params }: PolicyProps) {
   const story = await fetchPolicy(slug);
 
   return (
-    <div>
+    <div className="section bg-[var(--surface)]">
       <StoryblokStory story={story} />
     </div>
   );

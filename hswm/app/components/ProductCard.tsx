@@ -10,6 +10,7 @@ type ProductContent = {
   product_start?: string;
   product_end?: string;
   price?: string | number;
+  repeat_cost?: "" | "week" | "month" | "year";
   image?: {
     filename?: string;
     meta_data?: {
@@ -22,6 +23,12 @@ type ProductContent = {
       alt?: string;
     };
   };
+  key_features?: {
+    _uid: string;
+    subheading?: string;
+    features?: any;
+    component: string;
+  }[];
 };
 
 type ProductCardProps = {
@@ -29,8 +36,19 @@ type ProductCardProps = {
   variant: itemVariantsUI;
   slug?: string;
   tilt?: Tilt;
-  eyebrowText?: string;
   datetimeFormat?: DatetimeFormatStyle;
+};
+
+/**
+ * Formats a price with an optional repeat cost suffix.
+ * e.g. "$100.00" or "$100.00/month"
+ */
+const formatPrice = (price: string | number, repeatCost?: string): string => {
+  const base = `$${price}`;
+  if (repeatCost && repeatCost !== "") {
+    return `${base}/${repeatCost}`;
+  }
+  return base;
 };
 
 export const ProductCard = ({
@@ -38,16 +56,16 @@ export const ProductCard = ({
   variant = "list",
   slug,
   tilt,
-  eyebrowText,
   datetimeFormat,
 }: ProductCardProps) => {
   const formattedDatetime = datetimeFormatter(
-    product.product_start,
-    product.product_end,
+    product?.product_start,
+    product?.product_end,
     datetimeFormat,
   );
 
-  const showDescription = variant !== "list";
+  const isPricing = variant === "pricingItem";
+  const showDescription = variant !== "list" && !isPricing;
   const type = "product";
 
   const appliedClass = {
@@ -73,6 +91,21 @@ export const ProductCard = ({
   const activeImageStyle = appliedClass[variant].imageStyle;
   const asPhotoStyle = variant === "featured";
 
+  // For pricing items, render key_features instead of description
+  const keyFeaturesNode =
+    isPricing && product.key_features?.length
+      ? product.key_features.map((section) => (
+          <div key={section._uid} className="pricing-features">
+            {section.subheading && (
+              <h4 className="pricing-subheading">{section.subheading}</h4>
+            )}
+            {section.features && (
+              <StoryblokServerRichText doc={section.features} />
+            )}
+          </div>
+        ))
+      : null;
+
   return (
     <BaseCard
       title={product.product_name}
@@ -86,6 +119,7 @@ export const ProductCard = ({
       imageClassName={activeImageStyle}
       mediaClassName={`${type}-media`}
       asPhotoStyle={asPhotoStyle}
+      hideImage={isPricing}
       datetimeNode={
         formattedDatetime ? (
           <div className={`${type}-datetime`}>{formattedDatetime}</div>
@@ -93,15 +127,18 @@ export const ProductCard = ({
       }
       priceNode={
         product.price ? (
-          <p className={`${type}-price`}>${product.price}</p>
+          <p className={isPricing ? "pricing-price" : `${type}-price`}>
+            {formatPrice(product.price, product.repeat_cost ?? undefined)}
+          </p>
         ) : null
       }
       descriptionNode={
-        showDescription && product.product_description ? (
+        keyFeaturesNode ||
+        (showDescription && product.product_description ? (
           <div className="card-body-text">
             <StoryblokServerRichText doc={product.product_description} />
           </div>
-        ) : null
+        ) : null)
       }
       actionNode={
         slug ? (
@@ -113,7 +150,6 @@ export const ProductCard = ({
         ) : null
       }
       tilt={tilt}
-      eyebrowText={eyebrowText}
     />
   );
 };

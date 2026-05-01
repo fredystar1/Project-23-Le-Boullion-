@@ -2,17 +2,17 @@ import { Tilt } from "../lib/styling-types";
 import { ProductCard } from "../components/ProductCard";
 import { Section } from "../components/Section";
 
-interface ProductSectionProps {
+interface FeaturedProductSectionProps {
   blok: any;
   tilt?: Tilt;
   colorSet?: string;
 }
 
-const ProductSection = ({
+const FeaturedProductSection = ({
   blok,
   tilt,
   colorSet,
-}: ProductSectionProps) => {
+}: FeaturedProductSectionProps) => {
   const featuredProduct = blok.product;
   return (
     <Section
@@ -21,14 +21,13 @@ const ProductSection = ({
       eyebrowText={blok.eyebrow_text}
     >
       <ProductCard
-        key={featuredProduct.uuid}
         product={featuredProduct.content}
-        variant="featured"
         slug={featuredProduct.full_slug}
+        variant="featured"
         tilt={tilt}
       />
     </Section>
   );
 };
 
-export default ProductSection;
+export default FeaturedProductSection;
