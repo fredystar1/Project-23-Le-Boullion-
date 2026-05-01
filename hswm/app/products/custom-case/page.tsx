@@ -18,7 +18,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
   const story = await fetchCustomCase(slug);
   return (
-    <div className="section bg-[var(--surface)]">
+    <div className="section min-h-100 bg-[var(--surface)]">
       <StoryblokStory story={story} />
     </div>
   );

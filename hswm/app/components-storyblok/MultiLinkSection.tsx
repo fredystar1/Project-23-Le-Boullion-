@@ -1,28 +1,19 @@
-import { Tilt, contentPageType, itemVariantsUI } from "../lib/styling-types";
 import { Section } from "../components/Section";
 import Link from "next/link";
 
 interface MultiLinkSectionProps {
   blok: any;
-  variant: itemVariantsUI;
-  tilt?: Tilt;
-  contentPageType: contentPageType;
   colorSet?: string;
 }
 
 const MultiLinkSection = ({
   blok,
-  variant,
-  tilt,
-  contentPageType,
   colorSet,
 }: MultiLinkSectionProps) => {
   const pageLinks = blok.links;
   return (
     <Section
-      className={`${contentPageType}-content`}
-      tilt={tilt}
-      variant={variant}
+      className="editorial-page-content"
       headline={blok.headline}
       colorSet="color-set-4"
     >

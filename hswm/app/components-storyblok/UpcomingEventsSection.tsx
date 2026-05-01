@@ -11,7 +11,6 @@ export const UpcomingEventsSection = ({ blok }: any) => {
   return (
     <Section
       headline={blok.headline}
-      variant="list"
       colorSet="color-set-4"
       className="flex flex-col"
     >

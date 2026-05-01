@@ -1,52 +1,52 @@
-import { Tilt, contentPageType, itemVariantsUI } from "../lib/styling-types";
-import { ProductCard } from "../components/ProductCard";
+import { Tilt } from "../lib/styling-types";
+import Image from "next/image";
 import { Section } from "../components/Section";
 import { StoryblokServerRichText } from "@storyblok/react/rsc";
+import Link from "next/link";
 
 interface FeaturedStorySectionProps {
   blok: any;
-  variant: itemVariantsUI;
   tilt?: Tilt;
-  contentPageType: contentPageType;
   colorSet?: string;
 }
 
 const FeaturedStorySection = ({
   blok,
   tilt,
-  variant,
-  contentPageType,
   colorSet,
 }: FeaturedStorySectionProps) => {
   const featuredWineStory = blok.featured_story.content;
   const featuredWineStoryDescription = featuredWineStory.description;
   const featuredWineProducts = featuredWineStory.products;
   const sectionHeadline = featuredWineStory.headline;
-
   return (
     <Section
-      className={`${contentPageType}-content bg-[var(--surface)]`}
-      tilt={tilt}
-      variant={variant}
+      className="editorial-page-content"
       colorSet="color-set-7"
+      eyebrowText={blok.eyebrow_text}
+      headline={sectionHeadline}
     >
-      {blok.eyebrow_text && (
-        <span className="eyebrow">{blok.eyebrow_text}</span>
-      )}
-      <h2 className="card-title">{sectionHeadline}</h2>
-      <div className="card-body-text">
+      <div className="section-body-text">
         <StoryblokServerRichText doc={featuredWineStoryDescription} />
       </div>
-
-      {...featuredWineProducts.map((product: any) => (
-        <ProductCard
-          key={product.uuid}
-          product={product.content}
-          variant={variant}
-          slug={product.full_slug}
-          tilt={tilt}
-        />
-      ))}
+      <div className="flex flex-wrap mt-2">
+        {...featuredWineProducts.map((product: any) => (
+          <div key={product._uid} className="flex flex-col items-center">
+            <Image
+              src={product.content.product_image.filename}
+              alt={product.content.product_image.alt}
+              width={400}
+              height={300}
+              className="holepunch striped"
+            />
+            <div className="rect-button-container color-set-2">
+              <Link className="rect-button-top" href={product.full_slug}>
+                Explore {product.content.product_name}
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
     </Section>
   );
 };

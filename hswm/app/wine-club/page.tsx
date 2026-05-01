@@ -12,13 +12,11 @@ const fetchWineClub = async () => {
 
 const WineClubPage = async () => {
   const story = await fetchWineClub();
-  // console.log(story);
   return (
     <StoryblokStory
       story={story}
-      variant="pricingItem"
-      contentPageType="product-page"
       colorSet="color-set-5"
+      
     />
   );
 };

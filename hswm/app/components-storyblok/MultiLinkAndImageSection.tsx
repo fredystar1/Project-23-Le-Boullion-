@@ -1,34 +1,23 @@
 import ImageButton from "../components/ImageButton";
-import { Tilt, contentPageType, itemVariantsUI } from "../lib/styling-types";
 import { Section } from "../components/Section";
 import Link from "next/link";
 
 interface MultiLinkAndImageProps {
   blok: any;
-  variant: itemVariantsUI;
-  tilt?: Tilt;
-  contentPageType: contentPageType;
   colorSet?: string;
 }
 
 const MultiLinkAndImageSection = ({
   blok,
-  variant,
-  tilt,
-  contentPageType,
   colorSet,
 }: MultiLinkAndImageProps) => {
-  const sectionHeading = blok.headline;
   const sectionContent = blok.links_and_images;
   return (
     <Section
-      className={`${contentPageType}-content`}
-      tilt={tilt}
-      variant={variant}
+      className="editorial-page-content"
       headline={blok.headline}
       colorSet="color-set-4"
     >
-      <h2 className="card-title">{sectionHeading}</h2>
       <div className="image-buttons-container">
         {sectionContent.map((item: any) => (
           <div

@@ -26,7 +26,6 @@ type EventCardProps = {
   slug?: string;
   variant?: EventCardVariants;
   tilt?: Tilt;
-  eyebrowText?: string;
   datetimeFormat?: DatetimeFormatStyle;
 };
 
@@ -35,7 +34,6 @@ export const EventCard = ({
   slug,
   variant = "list",
   tilt,
-  eyebrowText,
   datetimeFormat = "default",
 }: EventCardProps) => {
   const formattedDatetime = datetimeFormatter(
@@ -105,7 +103,6 @@ export const EventCard = ({
         ) : null
       }
       tilt={tilt}
-      eyebrowText={eyebrowText}
     />
   );
 };

@@ -1,37 +1,41 @@
 import ProductCard from "../components/ProductCard";
 import Section from "../components/Section";
-import { contentPageType, itemVariantsUI, Tilt } from "../lib/styling-types";
+import { Tilt } from "../lib/styling-types";
 
 interface MultiProductProps {
   blok: any;
-  variant: itemVariantsUI;
   tilt?: Tilt;
-  contentPageType: contentPageType;
   colorSet?: string;
+  className?: string;
 }
+
 const MultiProduct = ({
   blok,
-  variant,
   tilt,
-  contentPageType,
   colorSet,
+  className,
 }: MultiProductProps) => {
   const productList = blok.product_list;
+
+  // If the blok has a display_mode field from Storyblok, use it.
+  // Otherwise, auto-detect: if any product has key_features, treat as pricing.
+  const isPricing =
+    blok.display_mode === "pricing" ||
+    productList.some((p: any) => p.content?.key_features?.length > 0);
+
   return (
     <Section
-      className={`${contentPageType}-content`}
-      tilt={tilt}
-      variant={variant}
+      className={className}
       colorSet={colorSet ? colorSet : "color-set-2"}
+      eyebrowText={blok.eyebrow_text}
     >
       {...productList.map((product: any) => (
         <ProductCard
           key={product.uuid}
           product={product.content}
-          variant={variant}
+          variant={isPricing ? "pricingItem" : "featured"}
           slug={product.full_slug}
           tilt={tilt}
-          eyebrowText={blok.eyebrow_text}
         />
       ))}
     </Section>

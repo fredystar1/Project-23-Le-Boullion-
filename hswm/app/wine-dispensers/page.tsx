@@ -16,8 +16,6 @@ const WineDispensersPage = async () => {
   return (
     <StoryblokStory
       story={story}
-      variant="pricingItem"
-      contentPageType="product-page"
       colorSet="color-set-5"
     />
   );

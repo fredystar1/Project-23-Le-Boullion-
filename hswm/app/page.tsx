@@ -65,8 +65,6 @@ const HomePage = async () => {
       </div>
       <StoryblokStory
         story={story}
-        variant="featured"
-        contentPageType="editorial-page"
       />
     </>
   );

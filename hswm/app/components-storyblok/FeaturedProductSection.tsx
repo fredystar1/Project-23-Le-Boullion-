@@ -1,36 +1,30 @@
-import { Tilt, contentPageType, itemVariantsUI } from "../lib/styling-types";
+import { Tilt } from "../lib/styling-types";
 import { ProductCard } from "../components/ProductCard";
 import { Section } from "../components/Section";
 
 interface FeaturedProductSectionProps {
   blok: any;
-  variant: itemVariantsUI;
   tilt?: Tilt;
-  contentPageType: contentPageType;
   colorSet?: string;
 }
 
 const FeaturedProductSection = ({
   blok,
   tilt,
-  variant,
-  contentPageType,
   colorSet,
 }: FeaturedProductSectionProps) => {
   const featuredProduct = blok.product;
   return (
     <Section
-      className={`${contentPageType}-content`}
-      tilt={tilt}
-      variant={variant}
+      className="editorial-page-content"
       colorSet={colorSet ? colorSet : "color-set-2"}
+      eyebrowText={blok.eyebrow_text}
     >
       <ProductCard
         product={featuredProduct.content}
         slug={featuredProduct.full_slug}
-        variant={variant}
+        variant="featured"
         tilt={tilt}
-        eyebrowText={featuredProduct.eyebrow_text}
       />
     </Section>
   );

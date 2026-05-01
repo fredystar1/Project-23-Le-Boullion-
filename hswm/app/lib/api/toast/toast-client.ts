@@ -12,14 +12,30 @@ type ToastAuthResponse = {
   };
 };
 
-type ToastMenuItem = {
-  guid: string;
-  multiLocationId?: string;
+type ToastMenu = {
   name: string;
-  plu?: string;
-  sku?: string;
-  images?: { url: string }[];
-  orderableOnline?: string;
+  posName: string;
+  guid: string;
+  multiLocationId: string;
+  masterId: number;
+  description: string;
+  highResImage: string | null;
+  image: string | null;
+  visibility: string[];
+  availability: { alwaysAvailable: boolean };
+  menuGroups: Record<string, unknown>[];
+  posButtonColorLight: string;
+  posButtonColorDark: string;
+};
+
+type ToastMenuResponse = {
+  restaurantGuid: string;
+  lastUpdated: string;
+  restaurantTimeZone: string;
+  menus: ToastMenu[];
+  modifierGroupReferences: string;
+  modifierOptionReferences: string;
+  preModifierGroupReferences: string;
 };
 
 type ToastInventoryItem = {
@@ -80,12 +96,12 @@ status: ${response.status}
 body: ${text}`,
     );
   }
-  
+
   return response.json() as Promise<T>;
 }
 
-export async function getToastMenuItems(): Promise<ToastMenuItem[]> {
-  return toastFetch<ToastMenuItem[]>("/menus/v2/menus");
+export async function getToastMenuItems(): Promise<ToastMenuResponse> {
+  return toastFetch<ToastMenuResponse>("/menus/v2/menus");
 }
 
 export async function getToastInventory(): Promise<ToastInventoryItem[]> {
@@ -100,7 +116,7 @@ export async function getInventoryGuids(): Promise<string[]> {
 
 export async function getInventoryItemInfo(): Promise<any> {
   const guidArray = await getInventoryGuids();
-  
+
   if (!guidArray.length) return [];
 
   return toastFetch<any>("/stock/v1/inventory/search", {
@@ -110,8 +126,6 @@ export async function getInventoryItemInfo(): Promise<any> {
     }),
   });
 }
-
-
 
 function decodeJwtPayload(token: string) {
   const payload = token.split(".")[1];
