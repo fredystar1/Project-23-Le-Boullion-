@@ -1,41 +1,57 @@
-interface HTTPServiceProps {
-    baseURL: string;
-    timeout: number;
-    interceptors: {request:string[], response:string[]};
-}
+type RequestInterceptor = (config: RequestInit) => RequestInit | Promise<RequestInit>;
+type ResponseInterceptor = (response: Response) => Response | Promise<Response>;
+
+type HTTPServiceInterceptors = {
+    request?: RequestInterceptor[];
+    response?: ResponseInterceptor[];
+};
+
 class HTTPService {
     baseURL: string;
     timeout: number;
-    interceptors: {request:string[], response:string[]};
-    constructor(baseURL:string, timeout=5000, interceptors: {request:string[], response:string[]}) {
+    interceptors: {request: RequestInterceptor[], response: ResponseInterceptor[]};
+
+    constructor(baseURL: string, timeout = 5000, interceptors: HTTPServiceInterceptors = {}) {
         this.baseURL = baseURL;
         this.timeout = timeout;
-        this.interceptors = {request: [], response: []};
-        }
-    async request(endpoint:string, options={}) {
+        this.interceptors = {
+            request: interceptors.request ?? [],
+            response: interceptors.response ?? [],
+        };
+    }
+
+    async request(endpoint: string, options: RequestInit = {}) {
         let config = {...options};
         for (let interceptor of this.interceptors.request) {
             config = await interceptor(config);
         }
+
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), this.timeout);
 
         try {
-            const response = await fetch(this.baseURL + endpoint, {
+            let response = await fetch(this.baseURL + endpoint, {
                 ...config,
                 signal: controller.signal
-            })
-            clearTimeout(timeoutId);
-        }
-        .then((response) => console.log(response))
-        .catch((error) => console.log(error))
-        .finally(() => {
-            if (!controller.signal.aborted) console.log(controller.signal);
-        })
-    }
+            });
 
+            clearTimeout(timeoutId);
+            for (let interceptor of this.interceptors.response) {
+                response = await interceptor(response);
+            }
+
+            return response;
+        } catch (error) {
+            clearTimeout(timeoutId);
+            throw error;
+        }
+    }
 }
 
-const create = (baseURL, endpoint:string, params:) => new HTTPService(baseURL, endpoint, {...params});
+const create = (
+    baseURL: string,
+    timeout?: number,
+    interceptors?: HTTPServiceInterceptors,
+) => new HTTPService(baseURL, timeout, interceptors);
 
 export default create;

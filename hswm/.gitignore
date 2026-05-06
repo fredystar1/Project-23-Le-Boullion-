@@ -22,6 +22,7 @@
 
 # storyblok data
 /.storyblok
+/.logging
 
 # misc
 .DS_Store

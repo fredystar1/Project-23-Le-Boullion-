@@ -11,7 +11,7 @@ const Page = async () => {
   console.log(response.menus);
   const menus = response.menus;
   const wineMenu = menus.find((menu) => menu.name === "Wine");
-  const whiteWines = wineMenu.menuGroups.find(
+  const whiteWines = wineMenu?.menuGroups.find(
     (wine_type: any) => wine_type.name === "White Wine",
   );
   // console.log(whiteWines);
