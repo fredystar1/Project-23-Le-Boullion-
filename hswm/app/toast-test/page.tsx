@@ -3,7 +3,7 @@ import {
   getInventoryGuids,
   getInventoryItemInfo,
   getToastMenuItems,
-} from "../../lib/api/toast/toast-client";
+} from "../lib/api/toast/toast-client";
 
 const Page = async () => {
   const response = await getToastMenuItems();
